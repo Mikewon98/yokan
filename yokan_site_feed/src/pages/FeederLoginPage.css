@@ -1,0 +1,83 @@
+.feeder-login-main-container {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(66, 134, 223);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feeder-login-div {
+    height: 450px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.feeder-login-header {
+    font-size: 3rem;
+    margin: 0;
+    padding: 1rem;
+}
+
+.feeder-login-input {
+    margin-top: 1rem;
+}
+
+.feeder-input-label-text {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0.5rem 0;
+}
+
+.feeder-input-label input {
+    height: 30px;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 300px;
+}
+
+.feeder-login-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feeder-login-button-div button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 22px;
+    background-color: rgb(35, 35, 243);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.feeder-login-button-div a {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.feeder-login-button {
+    width: 100%;
+}
+
+.input-error {
+    border-color: red;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+}

@@ -1,0 +1,210 @@
+.about-us-component-misson,
+.about-us-component-vision {
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: start;
+    /* width: 800px; */
+}
+
+.about-us-sub-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 750px;
+    height: 200px;
+    padding: 2rem 0;
+}
+
+.about-us-component-misson {
+    color: #fff;
+    background: rgb(14, 14, 107);
+    text-align: start;
+}
+
+.about-us-component-vision {
+    background: bisque;
+}
+
+.about-us-component-values-super-div {
+    padding: 2rem 0rem;
+}
+
+.about-us-component-text {
+    font-size: 25px;
+}
+
+.about-us-component-heading {
+    font-weight: bold;
+    font-size: 40px;
+    padding: 2rem;
+}
+
+.about-us-line {
+    height: 2px;
+    background: rgb(190, 190, 190);
+    width: 100%;
+}
+
+.about-us-component-values {
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-us-values-list-style {
+    padding: 0.51rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.about-us-values-list-style p {
+    font-size: 20px;
+    color: rgb(82, 82, 82);
+    margin-left: 5px;
+}
+
+
+.about-us-values-list-style i {
+    color: blue;
+    font-size: 30px;
+}
+
+.about-us-values-list {
+    width: 480px;
+    padding: 1rem 3rem;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {}
+
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {
+    .about-us-values-list {
+        width: 400px;
+        padding: 1rem 3rem;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .about-us-values-list {
+        width: 350px;
+        padding: 1rem 1rem;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .about-us-component-values {
+        padding: 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-values-list {
+        width: 90%;
+        padding: 1rem 1rem;
+    }
+
+    .about-us-component-misson {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-component-vision {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-sub-component {
+        width: 450px;
+        height: 200px;
+        padding: 2rem 0;
+    }
+
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .about-us-component-values {
+        padding: 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-values-list {
+        width: 100%;
+        padding: 1rem 1rem;
+    }
+
+    .about-us-component-misson {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-component-vision {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-sub-component {
+        width: 430px;
+        height: 200px;
+        padding: 2rem 0;
+    }
+
+
+    .about-us-component-values {
+        padding: 1rem 1rem;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    .about-us-component-values {
+        padding: 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-values-list {
+        width: 90%;
+        padding: 1rem 1rem;
+    }
+
+    .about-us-component-misson {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1rem;
+    }
+
+    .about-us-component-vision {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1rem;
+    }
+
+    .about-us-sub-component {
+        width: 250px;
+        height: 270px;
+        padding: 0.5rem 0;
+    }
+
+    .about-us-sub-component p {
+        font-size: 14px;
+    }
+
+    .about-us-component-values {
+        padding: 1rem 1rem;
+    }
+
+    .about-us-component-heading {
+        font-size: 25px;
+        padding: 1rem;
+    }
+
+
+}

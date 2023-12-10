@@ -1,0 +1,164 @@
+.hero-mobile {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-mobile-text {
+    position: absolute;
+    top: 55%;
+    left: 35%;
+    transform: translate(-40%, -40%);
+    /* width: 90%; */
+    text-align: start;
+    width: 600px;
+}
+
+.hero-mobile-text h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    background: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-mobile-text p {
+    font-size: 1rem;
+    color: #fff;
+    padding: 0.5rem 0 2rem 0;
+}
+
+.hero-mobile-text .show {
+    text-decoration: none;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #000;
+    transition: 0.2s ease-in-out;
+}
+
+.hero-mobile-text .show:hover {
+    color: #FFF;
+    background-color: #000;
+}
+
+.logo {
+    width: 200px;
+}
+
+/* @media screen and (max-width:650px) {
+    .hero-mobile-text h1 {
+        padding: 10px 20px;
+
+    }
+
+    .hero-mobile-text p {
+        font-size: 1.1rem;
+        padding: 0 0 2rem 0;
+    }
+
+    .hero-mobile-text .show {
+        padding: 0.6rem 1.1rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        ;
+    }
+} */
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {}
+
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .hero-mobile-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-mobile-text p {
+        font-size: 1rem;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .hero-mobile-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-mobile-text p {
+        font-size: 0.7rem;
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    .hero-mobile-text {
+        position: absolute;
+        top: 55%;
+        left: 45%;
+        transform: translate(-40%, -40%);
+        text-align: start;
+        width: 500px;
+    }
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .hero-mobile-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-mobile-text p {
+        font-size: 0.7rem;
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    .hero-mobile-text {
+        position: absolute;
+        top: 55%;
+        left: 35%;
+        transform: translate(-35%, -40%);
+        text-align: start;
+        width: 400px;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    .hero-mobile-text h1 {
+        font-size: 1.1rem;
+    }
+
+    .hero-mobile-text p {
+        font-size: 0.7rem;
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    .hero-mobile-text {
+        position: absolute;
+        top: 55%;
+        left: 35%;
+        transform: translate(-35%, -40%);
+        text-align: start;
+        width: 300px;
+    }
+}

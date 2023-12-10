@@ -1,0 +1,209 @@
+.ship-item-div {
+    margin: 1rem 10rem;
+    padding: 1rem 4rem;
+}
+
+.item-div {
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 2px solid #000
+}
+
+.item-package-name {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
+    background-color: darkgray;
+}
+
+.item-package-name h4,
+.item-package-name i {
+    padding: 0 0.5rem;
+    color: #fff;
+    font-size: 20px;
+}
+
+.item-sub-div {
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+.item-div-content {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item-div-input-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-div-input-row p {
+    padding: 0 1rem;
+}
+
+.input-label select,
+.input-label input {
+    margin: 5px 0;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.item-box-container {
+    background-color: lightgray;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item-box-input {
+    padding: 1rem;
+}
+
+.item-box-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-box-image img {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+}
+
+.item-div-simple-text {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ..........................Schedule pick up------------- */
+
+
+.shipment-detail-schedule {
+    background-color: rgb(219, 228, 225);
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.shipment-detail-heading {
+    padding: 0 2rem;
+}
+
+.shipment-detail-heading-h3 {
+    font-size: 34px;
+    color: gray;
+}
+
+.shipment-detail-date {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.shipment-detail-date p {
+    padding: 1rem;
+}
+
+.shipment-detail-date-picker {
+    display: flex;
+    align-items: center;
+}
+
+.shipment-detail-datepicker {
+    width: 170px;
+    height: 32px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.shipment-detail-date-picker i {
+    padding-left: 1rem;
+    font-size: 28px;
+    color: rgb(0, 81, 128);
+}
+
+.shipment-detail-discription {
+    margin: 0 1rem;
+}
+
+.input-label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.input-label input {
+    margin: 5px 0;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.shipment-detail-heading-discription {
+    padding: 1rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.input-error {
+    border-color: red;
+}
+
+.error-text {
+    color: red;
+}
+
+
+/* -----------------------button------------------ */
+
+.item-div-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.item-div-button-back {
+    border: 3px solid blue;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 40px;
+}
+
+.item-div-button-continue {
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    background-color: rgb(255, 187, 0);
+    border: none;
+    box-shadow: 2px 2px 2px #2e2e2e;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 0 2rem;
+}
+
+.item-div-button-continue:hover {
+    transform: translateY(-3px)
+}
+
+.cancel-item-Shipment {
+    padding: 1rem 3rem;
+    text-decoration: underline;
+    text-align: center;
+    color: blue;
+    cursor: pointer;
+}

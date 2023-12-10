@@ -1,0 +1,19 @@
+.bg-light-blue {
+    background-color: rgb(131, 169, 240);
+}
+
+.nav-link {
+    display: flex !important;
+    align-items: center;
+    padding: 1 0.7rem !important;
+    font-size: 1.3rem !important;
+    margin: 0 0.3rem;
+}
+
+.navbar {
+    padding: 1rem 6rem !important;
+}
+
+.dropdown-item {
+    font-size: 1.2rem !important;
+}
