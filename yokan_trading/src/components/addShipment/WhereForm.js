@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -10,13 +10,25 @@ import { Selectuser } from "../../state/authSlice";
 import { useSelector } from "react-redux";
 import { shipmentAdded } from "../../state/shipmentDataSlice";
 import { GeneratedTrackingString } from "../../state/shipmentDataSlice";
+import { selectShipment } from "../../state/shipmentDataSlice";
 import { clearShipmentData } from "../../state/shipmentDataSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 const WhereForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const auth = useSelector(Selectuser);
+  const shipment = useSelector(selectShipment);
+  const [trackingNumber, setTrackingNumber] = useState("");
 
+  const generateRandomString = () => {
+    return nanoid(10).toUpperCase();
+  };
+
+  useEffect(() => {
+    const newTrackingNumber = generateRandomString();
+    setTrackingNumber(newTrackingNumber);
+  }, [shipment]);
   const authId = auth?._id || "";
 
   const validationSchema = yup.object().shape({
@@ -44,8 +56,16 @@ const WhereForm = () => {
     destinationPostalCode: yup.string().required("Postal Code is required"),
     senderEmail: yup.string().email().required("Email is required"),
     reciverEmail: yup.string().email().required("Email is required"),
-    senderPhoneNumber: yup.string().required("Phone number is required"),
-    reciverPhoneNumber: yup.string().required("Phone number is required"),
+    senderPhoneNumber: yup
+      .string()
+      .min(8)
+      .max(15)
+      .required("Phone number is required"),
+    reciverPhoneNumber: yup
+      .string()
+      .min(8)
+      .max(15)
+      .required("Phone number is required"),
   });
 
   const initialValue = {
@@ -69,11 +89,12 @@ const WhereForm = () => {
     reciverPhoneNumber: "",
   };
 
+  console.log(trackingNumber);
+
   const handleFormSubmit = (values, actions, event) => {
     const errors = formik.validateForm();
 
     if (Object.keys(errors).length === 0) {
-      const trackingNumber = GeneratedTrackingString;
       dispatch(
         shipmentAdded(
           authId,

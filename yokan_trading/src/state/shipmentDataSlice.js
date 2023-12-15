@@ -3,6 +3,13 @@ import { nanoid } from "@reduxjs/toolkit";
 
 export const GeneratedTrackingString = nanoid(10).toUpperCase();
 
+export const generateRandomString = () => {
+  const randomString = nanoid(10).toUpperCase();
+  console.log(randomString);
+  // You can perform other actions with the generated string here if needed
+  return randomString;
+};
+
 const initialState = [
   // {
   //   id: "1",

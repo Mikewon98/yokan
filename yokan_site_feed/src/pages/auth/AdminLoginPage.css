@@ -1,4 +1,4 @@
-.feeder-login-main-container {
+.admin-login-main-container {
     height: 100vh;
     width: 100%;
     background-color: rgb(66, 134, 223);
@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-.feeder-login-div {
+.admin-login-div {
     height: 450px;
     width: 400px;
     display: flex;
@@ -19,37 +19,37 @@
     padding: 2rem;
 }
 
-.feeder-login-header {
+.admin-login-header {
     font-size: 3rem;
     margin: 0;
     padding: 1rem;
 }
 
-.feeder-login-input {
+.admin-login-input {
     margin-top: 1rem;
 }
 
-.feeder-input-label-text {
+.admin-input-label-text {
     font-size: 22px;
     font-weight: 500;
     margin: 0.5rem 0;
 }
 
-.feeder-input-label input {
+.admin-input-label input {
     height: 30px;
     font-size: 16px;
     padding: 5px 10px;
     width: 300px;
 }
 
-.feeder-login-button-div {
+.admin-login-button-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.feeder-login-button-div button {
+.admin-login-button-div button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,12 +64,12 @@
     outline: none;
 }
 
-.feeder-login-button-div a {
+.admin-login-button-div a {
     font-size: 18px;
     cursor: pointer;
 }
 
-.feeder-login-button {
+.admin-login-button {
     width: 100%;
 }
 
@@ -80,4 +80,8 @@
 .error-text {
     color: red;
     font-size: 14px;
+}
+
+.send-to-login {
+    color: blue;
 }

@@ -36,7 +36,7 @@ const AddshipmentHeader = () => {
             <p>Product</p>
             <div
               className={`progress-bar-container-line ${
-                currentLocation === "addshipment" ? "blue-div " : ""
+                currentLocation === "createshipment" ? "blue-div " : ""
               }`}
             ></div>
           </div>

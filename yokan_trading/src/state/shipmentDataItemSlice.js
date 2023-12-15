@@ -31,8 +31,8 @@ export const shipmentDataItemSlice = createSlice({
         length,
         width,
         height,
-        dropOffDate,
-        trackingNumber
+        dropOffDate
+        // trackingNumber
       ) {
         return {
           payload: {
@@ -45,7 +45,7 @@ export const shipmentDataItemSlice = createSlice({
             width,
             height,
             dropOffDate,
-            trackingNumber,
+            // trackingNumber,
           },
         };
       },

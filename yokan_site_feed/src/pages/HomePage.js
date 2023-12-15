@@ -1,5 +1,5 @@
 import React from "react";
-import FeederLogout from "./FeederLogout";
+import FeederLogout from "./auth/FeederLogout";
 
 const HomePage = () => {
   return (

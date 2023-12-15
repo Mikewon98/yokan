@@ -87,3 +87,214 @@
 .error-text {
     color: red;
 }
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    .super-form-div {
+        margin: 1rem 6rem;
+        padding: 1rem 3rem;
+    }
+
+    .flex-inputs .input-label input {
+        width: 240px;
+    }
+
+    .phone-email-input .input-label input:first-child {
+        margin-right: 10px;
+        width: 400px;
+    }
+}
+
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {
+    .super-form-div {
+        margin: 1rem 6rem;
+        padding: 1rem 3rem;
+    }
+
+    .flex-inputs {
+        display: block;
+        flex-direction: column;
+    }
+
+    .flex-inputs .input-label input {
+        width: 100%;
+    }
+
+    .phone-email-input .input-label {
+        margin-right: 10px;
+    }
+
+    .phone-email-input .input-label input:first-child {
+        margin-right: 10px;
+        width: 290px;
+    }
+
+
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .super-form-div {
+        margin: 1rem 4rem;
+        padding: 1rem 3rem;
+    }
+
+    .flex-inputs {
+        display: block;
+        flex-direction: column;
+    }
+
+    .flex-inputs .input-label input {
+        width: 100%;
+    }
+
+    .phone-email-input .input-label {
+        margin-right: 10px;
+    }
+
+    .phone-email-input .input-label input:first-child {
+        margin-right: 10px;
+        width: 300px;
+    }
+
+
+    .phone-email-input .input-label input {
+        margin-right: 10px;
+        width: 100%;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .super-form-div {
+        margin: 1rem 2rem;
+        padding: 1rem 3rem;
+    }
+
+    .flex-inputs {
+        display: block;
+        flex-direction: column;
+    }
+
+    .flex-inputs .input-label input {
+        width: 100%;
+    }
+
+    .phone-email-input {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phone-email-input .input-label {
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    .phone-email-input .input-label input:first-child {
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    .phone-email-input .input-label input {
+        margin-right: 10px;
+        width: 100%;
+    }
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .super-form-div {
+        margin: 1rem 2rem;
+        padding: 1rem 2rem;
+    }
+
+    .flex-inputs {
+        display: block;
+        flex-direction: column;
+    }
+
+    .flex-inputs .input-label input {
+        width: 100%;
+    }
+
+    .phone-email-input {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phone-email-input .input-label {
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    .phone-email-input .input-label input:first-child {
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    .phone-email-input .input-label input {
+        margin-right: 10px;
+        width: 100%;
+    }
+
+    .form-div-sender h2,
+    .form-div-reciver h2 {
+        padding: 1rem 0;
+        font-size: 17px;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    .super-form-div {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .flex-inputs {
+        display: block;
+        flex-direction: column;
+    }
+
+    .flex-inputs .input-label input {
+        width: 100%;
+    }
+
+    .phone-email-input {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phone-email-input .input-label {
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    .phone-email-input .input-label input:first-child {
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    .phone-email-input .input-label input {
+        margin-right: 10px;
+        width: 100%;
+    }
+
+    .form-div-sender h2,
+    .form-div-reciver h2 {
+        padding: 1rem 0;
+        font-size: 17px;
+    }
+
+    .continue-shipment {
+        font-size: 10px;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+    }
+
+    .cancel-Shipment {
+        padding: 0.5rem 1rem;
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+}

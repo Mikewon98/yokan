@@ -37,10 +37,9 @@ function App() {
         <Route path='/login' element={<LogIn />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/shipwhat' element={<ShipWhat />} />
-        <Route path='/createshipment' element={<AddShipment />} />
         <Route path='/shippayment' element={<ShipPayment />} />
         <Route
-          path='/addshipment'
+          path='/createshipment'
           element={isAuth ? <AddShipment /> : <LogIn />}
         />
       </Routes>

@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/navbar/Navbar";
 import Hero from "../components/Hero";
 import TrackImg from "../assets/trackyour-shipment.jpg";
-import Track from "../components/Track";
+import Track from "../components/trackComponent/Track";
 import Footer from "../components/Footer";
 
 const TrackShipment = () => {

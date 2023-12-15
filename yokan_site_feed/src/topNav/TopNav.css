@@ -1,0 +1,21 @@
+.top__nav {
+    position: fixed;
+    top: 0;
+    left: 260px;
+    z-index: 999;
+    background: var(--primary-color);
+    width: calc(100% - 260px);
+    height: 70px;
+    line-height: 70px;
+}
+
+.top__nav__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 2rem;
+}
+
+.top__nav__heading {
+    color: var(--light-white);
+}

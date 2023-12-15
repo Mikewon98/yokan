@@ -19,31 +19,38 @@ const ShipmentPayment = () => {
   const shipmentArray = shipment[0];
   const shipmentItemArray = shipmentItem[0];
 
-  const addShipmentData = async () => {
+  const addShipment = async () => {
     try {
       const shipmentDataResponse = await axios.post(
-        "http://localhost:3001/shipmentData/addShipmentData",
+        "http://localhost:3001/shipment/createShipment",
         {
           userId: user._id,
+          trackingNumber: shipmentArray.trackingNumber,
           originCountry: shipmentArray.originCountry,
-          originFullName: shipmentArray.originFullName,
-          originAddress: shipmentArray.originAddress,
-          originAddressTwo: shipmentArray.originAddressTwo,
-          originCity: shipmentArray.originCity,
           originState: shipmentArray.originState,
+          originCity: shipmentArray.originCity,
           originPostalCode: shipmentArray.originPostalCode,
+          senderFullName: shipmentArray.originFullName,
+          senderAddress: shipmentArray.originAddress,
+          senderAddressTwo: shipmentArray.originAddressTwo,
           senderEmail: shipmentArray.senderEmail,
           senderPhoneNumber: shipmentArray.senderPhoneNumber,
           destinationCountry: shipmentArray.destinationCountry,
-          destinationFullName: shipmentArray.destinationFullName,
-          destinationAddress: shipmentArray.destinationAddress,
-          destinationAddressTwo: shipmentArray.destinationAddressTwo,
-          destinationCity: shipmentArray.destinationCity,
           destinationState: shipmentArray.destinationState,
+          destinationCity: shipmentArray.destinationCity,
           destinationPostalCode: shipmentArray.destinationPostalCode,
+          reciverFullName: shipmentArray.destinationFullName,
+          reciverAddress: shipmentArray.destinationAddress,
+          reciverAddressTwo: shipmentArray.destinationAddressTwo,
           reciverEmail: shipmentArray.reciverEmail,
           reciverPhoneNumber: shipmentArray.reciverPhoneNumber,
-          trackingNumber: shipmentArray.trackingNumber,
+          shipmentType: shipmentItemArray.packageType,
+          shipmentWeight: shipmentItemArray.weight,
+          shipmentLength: shipmentItemArray.length,
+          shipmentWidth: shipmentItemArray.width,
+          shipmentHeight: shipmentItemArray.height,
+          shipmentDropOffDate: shipmentItemArray.dropOffDate,
+          shipmentDescription: shipmentItemArray.discription,
         },
         {
           headers: { "Content-Type": "application/json" },
@@ -51,41 +58,29 @@ const ShipmentPayment = () => {
       );
       await shipmentDataResponse.data;
       // dispatch(clearShipmentData());
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const addShipmentItem = async () => {
-    try {
-      const shipmentItemResponse = await axios.post(
-        "http://localhost:3001/shipmentDataItem/addShipmentDataItem",
-        {
-          userId: user._id,
-          trackingNumber: shipmentArray.trackingNumber,
-          packageType: shipmentItemArray.packageType,
-          weight: shipmentItemArray.weight,
-          length: shipmentItemArray.length,
-          width: shipmentItemArray.width,
-          height: shipmentItemArray.height,
-          dropOffDate: shipmentItemArray.dropOffDate,
-          discription: shipmentItemArray.discription,
-        },
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      await shipmentItemResponse.data;
       // dispatch(clearShipmentItemAdded());
     } catch (e) {
       console.log(e);
     }
   };
 
+  // dispatch(clearShipmentItemAdded());
+
   const handlePayment = () => {
     setPaymentModal(!paymentModal);
-    addShipmentData();
-    addShipmentItem();
+    addShipment();
+  };
+
+  const clearDispatch = () => {
+    dispatch(clearShipmentData());
+    dispatch(clearShipmentItemAdded());
+    document.body.classList.remove("active-modal");
+    navigate("/");
+  };
+
+  const handleCloseModal = () => {
+    setPaymentModal(!paymentModal);
+    clearDispatch();
   };
 
   const handleProductRemove = () => {
@@ -93,14 +88,6 @@ const ShipmentPayment = () => {
     dispatch(clearShipmentData());
     dispatch(clearShipmentItemAdded());
   };
-
-  // const handleChangePerson = () => {
-  //   navigate("/shipwhat");
-  // };
-
-  // const handleChangeProduct = () => {
-  //   navigate("/createshipment");
-  // };
 
   if (paymentModal) {
     document.body.classList.add("active-modal");
@@ -146,7 +133,9 @@ const ShipmentPayment = () => {
   return (
     <>
       <div className='shipment-item-div'>
-        <h2>Reiview and pay your labels</h2>
+        <div className='shipment-item-div-heading'>
+          <h2>Reiview and pay your labels</h2>
+        </div>
         <div className='shipment-main-div'>
           <div className='shipment-shoping-cart'>
             <div className='shipment-main-container'>
@@ -294,7 +283,7 @@ const ShipmentPayment = () => {
                 N:B Please dont forget your Tracking number
               </p>
             </div>
-            <div className='payment-close-modal' onClick={handlePayment}>
+            <div className='payment-close-modal' onClick={handleCloseModal}>
               <i className='fa-solid fa-x'></i>
             </div>
           </div>

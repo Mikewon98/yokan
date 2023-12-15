@@ -1,5 +1,5 @@
 .addshipment-header {
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
     padding: 1rem 0rem;
 }
 
@@ -32,7 +32,6 @@
 .progress-bar {
     width: 100%;
     margin-top: 20px;
-    /* background-color: lightgray; */
 }
 
 .progress-bar-div {
@@ -62,4 +61,50 @@
 
 .blue-div {
     background-color: rgb(37, 127, 243);
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .progress-bar-container-line {
+        height: 6px;
+        width: 100px;
+    }
+
+    .progress-bar-div {
+        padding: 0 1rem;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 485px) {
+    .progress-bar-container-line {
+        height: 4px;
+        width: 70px;
+    }
+
+    .progress-bar-div {
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        overflow: hidden;
+        padding: 0 1rem;
+    }
+
+    .addshipment-header h1 {
+        font-size: 22px;
+    }
+
+    .header-first-div h2 {
+        font-size: 12px;
+    }
+
+    .header-first-div {
+        padding: 0 2rem;
+    }
+
+
 }

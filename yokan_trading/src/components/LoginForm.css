@@ -9,7 +9,7 @@
 
 .login-container {
     width: 100%;
-    padding: 4rem 4rem 1rem 4rem;
+    padding: 0 4rem;
     text-align: start;
     display: flex;
     flex-direction: column;

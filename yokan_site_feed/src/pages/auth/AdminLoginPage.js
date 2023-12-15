@@ -3,14 +3,13 @@ import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as yup from "yup";
-import "./FeederLoginPage.css";
 import axios from "axios";
-import { loginFeeder } from "../state/feedAuthSlice";
+import "./AdminLoginPage.css";
+import { loginAdmin } from "../../state/adminAuthSlice";
 
-const FeederLoginPage = () => {
+const AdminLoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const validationSchema = yup.object().shape({
     userName: yup.string().required("User name is required"),
     password: yup.string().required("User name is required"),
@@ -24,7 +23,7 @@ const FeederLoginPage = () => {
   const handleFormSubmit = async (values, onSubmitProps) => {
     try {
       const loggedInResponse = await axios.post(
-        "http://localhost:3001/dataFeeder/login",
+        "http://localhost:3001/admin/login",
         values,
         {
           headers: { "Content-Type": "application/json" },
@@ -40,12 +39,12 @@ const FeederLoginPage = () => {
 
       if (loggedIn) {
         dispatch(
-          loginFeeder({
-            feederUser: loggedIn.user,
-            feederToken: loggedIn.token,
+          loginAdmin({
+            adminUser: loggedIn.user,
+            adminToken: loggedIn.token,
           })
         );
-        navigate("/home");
+        navigate("/dashboard");
       }
     } catch (e) {
       console.log(e);
@@ -59,13 +58,13 @@ const FeederLoginPage = () => {
   });
 
   return (
-    <div className='feeder-login-main-container'>
-      <div className='feeder-login-div'>
-        <h1 className='feeder-login-header'>Login</h1>
-        <form className='feeder-login-form' onSubmit={formik.handleSubmit}>
-          <div className='feeder-login-input'>
-            <label className='feeder-input-label'>
-              <p className='feeder-input-label-text'>User name</p>
+    <div className='admin-login-main-container'>
+      <div className='admin-login-div'>
+        <h1 className='admin-login-header'>Admin Login</h1>
+        <form className='admin-login-form' onSubmit={formik.handleSubmit}>
+          <div className='admin-login-input'>
+            <label className='admin-input-label'>
+              <p className='admin-input-label-text'>User name</p>
               <input
                 type='text'
                 name='userName'
@@ -83,9 +82,9 @@ const FeederLoginPage = () => {
               ) : null}
             </label>
           </div>
-          <div className='feeder-login-input'>
-            <label className='feeder-input-label'>
-              <p className='feeder-input-label-text'>Password</p>
+          <div className='admin-login-input'>
+            <label className='admin-input-label'>
+              <p className='admin-input-label-text'>Password</p>
               <input
                 type='password'
                 name='password'
@@ -103,11 +102,13 @@ const FeederLoginPage = () => {
               ) : null}
             </label>
           </div>
-          <div className='feeder-login-button-div'>
-            <button type='submit' className='feeder-login-button'>
+          <div className='admin-login-button-div'>
+            <button type='submit' className='admin-login-button'>
               Sign In
             </button>
-            <Link to='/admin'>Login as an Admin</Link>
+            <Link className='send-to-login' to='/'>
+              Login as Feeder
+            </Link>
           </div>
         </form>
       </div>
@@ -115,4 +116,4 @@ const FeederLoginPage = () => {
   );
 };
 
-export default FeederLoginPage;
+export default AdminLoginPage;

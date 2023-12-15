@@ -9,8 +9,8 @@ import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { shipmentItemAdded } from "../../state/shipmentDataItemSlice";
 import { Selectuser } from "../../state/authSlice";
-import { GeneratedTrackingString } from "../../state/shipmentDataSlice";
 import { clearShipmentData } from "../../state/shipmentDataSlice";
+// import { GeneratedTrackingString } from "../../state/shipmentDataSlice";
 
 const ShipItem = () => {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const ShipItem = () => {
 
     if (Object.keys(errors).length === 0) {
       const serializedDate = formik.values.dropOffDate.getTime();
-      const trackingNumber = GeneratedTrackingString;
+      // const trackingNumber = GeneratedTrackingString;
       dispatch(
         shipmentItemAdded(
           authId,
@@ -56,8 +56,8 @@ const ShipItem = () => {
           formik.values.itemLength,
           formik.values.itemWidth,
           formik.values.itemHeight,
-          serializedDate,
-          trackingNumber
+          serializedDate
+          // trackingNumber
         )
       );
       navigate("/shippayment");
@@ -77,6 +77,11 @@ const ShipItem = () => {
 
   const handleClickCancel = () => {
     navigate("/");
+    dispatch(clearShipmentData());
+  };
+
+  const handleClickBack = () => {
+    navigate("/createshipment");
     dispatch(clearShipmentData());
   };
 
@@ -243,10 +248,7 @@ const ShipItem = () => {
           </div>
         </div>
         <div className='item-div-button'>
-          <button
-            className='item-div-button-back'
-            onClick={() => navigate("/createshipment")}
-          >
+          <button className='item-div-button-back' onClick={handleClickBack}>
             Back
           </button>
           <button type='submit' className='item-div-button-continue'>

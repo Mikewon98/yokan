@@ -21,7 +21,7 @@ app.use("/auth", authRoutes);
 app.use("/admin", adminUserRoutes);
 app.use("/dataFeeder", dataFeederRoutes);
 app.use("/location", locationRoutes);
-app.use("/shipments", shipmentRoutes);
+app.use("/shipment", shipmentRoutes);
 app.use("/shipmentData", shipmentDataRoutes);
 app.use("/shipmentDataItem", shipmentDataItemRoutes);
 

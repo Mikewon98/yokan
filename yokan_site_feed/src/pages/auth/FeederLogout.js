@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { logoutFeeder } from "../state/feedAuthSlice";
-import { logoutAdmin } from "../state/adminAuthSlice";
+import { logoutFeeder } from "../../state/feedAuthSlice";
+import { logoutAdmin } from "../../state/adminAuthSlice";
 import { useNavigate } from "react-router-dom";
 
 const FeederLogout = () => {

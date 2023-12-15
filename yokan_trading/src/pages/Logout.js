@@ -15,6 +15,7 @@ const Logout = () => {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [genString, setGenString] = useState("");
 
   const auth = useSelector(Selectuser);
   const myshipment = useSelector(selectShipment);
@@ -31,13 +32,20 @@ const Logout = () => {
 
   const generateRandomString = () => {
     const randomString = nanoid(10).toUpperCase(); // 10-character alphanumeric string
-    console.log(randomString);
+    setGenString(randomString);
   };
+
+  // setInterval(() => {
+  //   generateRandomString();
+  //   console.log(`My String is ${genString}`);
+  // }, 3000);
+
+  console.log(`this is the generated string ${genString}`);
 
   const checkAuth = (e) => {
     e.preventDefault();
     setUser(auth);
-    console.log(auth._id);
+    console.log(auth?._id);
     console.log(user);
   };
 

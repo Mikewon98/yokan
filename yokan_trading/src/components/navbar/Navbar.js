@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Selectuser } from "../../state/authSlice";
+import { useDispatch } from "react-redux";
+import { setLogout } from "../../state/authSlice";
 import "./Navbar.css";
 
 const NavBar = () => {
-  const isAuth = false;
+  const auth = useSelector(Selectuser);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const [navCollapsed, setNavCollapsed] = useState(true);
+
+  const handleNavDropdownClose = () => {
+    // setNavCollapsed(true);
+  };
+
+  const handleLogout = () => {
+    dispatch(setLogout());
+    navigate("/");
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <Navbar
       collapseOnSelect
+      // expanded={!navCollapsed}
       sticky='top'
       expand='lg'
       className='bg-light-blue  justify-content-between '
@@ -28,7 +50,11 @@ const NavBar = () => {
           <Nav.Link as={Link} to='/'>
             Home
           </Nav.Link>
-          <NavDropdown title='Shipping' id='basic-nav-dropdown'>
+          <NavDropdown
+            title='Shipping'
+            id='basic-nav-dropdown'
+            // onSelect={() => handleNavDropdownClose()}
+          >
             <NavDropdown.Item as={Link} to='/createshipment'>
               Create a shipment
             </NavDropdown.Item>
@@ -59,10 +85,14 @@ const NavBar = () => {
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        {isAuth ? (
-          <Button variant='primary'>Login</Button>
+        {auth ? (
+          <button className='navbar-button' onClick={handleLogout}>
+            Logout
+          </button>
         ) : (
-          <Button variant='primary'>Logout</Button>
+          <button className='navbar-button' onClick={handleLogin}>
+            Login
+          </button>
         )}
       </Navbar.Collapse>
     </Navbar>

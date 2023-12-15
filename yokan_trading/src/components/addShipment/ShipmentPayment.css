@@ -2,6 +2,10 @@
     margin: 1rem 14rem;
 }
 
+.shipment-item-div-heading {
+    text-align: center;
+}
+
 .shipment-main-div {
     padding: 2rem 1rem;
 }
@@ -241,4 +245,169 @@ body.active-modal {
     font-size: 2rem;
     color: red;
     cursor: pointer;
+}
+
+
+/* -----------------------------------Media query---------------- */
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    .shipment-item-div {
+        margin: 1rem 10rem;
+    }
+}
+
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {
+    .shipment-item-div {
+        margin: 1rem 7rem;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .shipment-item-div {
+        margin: 1rem 3rem;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .shipment-item-div {
+        margin: 1rem;
+    }
+
+    .shipment-products {
+        padding: 0.5rem;
+    }
+
+    .shipment-action-buttons {
+        margin: 0 1rem;
+    }
+
+    .shipment-main-heading {
+        padding: 1rem;
+    }
+
+    .shipment-terms-and-condition-text {
+        padding: 1.6rem;
+    }
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .shipment-item-div {
+        margin: 2rem;
+    }
+
+    .shipment-main-heading {
+        padding: 1rem;
+    }
+
+    .shipment-product-table {
+        margin: 1rem 1rem 0 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shipment-products {
+        padding: 0.4rem 3rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .shipment-action-buttons {
+        margin: 0 1rem;
+        padding: 1rem 3rem;
+    }
+
+
+    .shipment-terms-and-condition-text {
+        padding: 1.6rem;
+    }
+
+    .shipment-amount-number {
+        padding-right: 6rem;
+    }
+
+}
+
+
+@media only screen and (max-width: 485px) {
+    .shipment-item-div {
+        margin: 0.5rem;
+    }
+
+    .shipment-main-heading {
+        padding: 1rem;
+    }
+
+    .shipment-main-heading h3 {
+        font-size: 14px;
+    }
+
+
+
+    .shipment-product-table {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shipment-products {
+        padding: 0.4rem 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+
+    .shipment-action-buttons {
+        margin: 0 1rem;
+        padding: 1rem;
+    }
+
+    .shipment-action-button-remove {
+        font-size: 12px;
+    }
+
+    .shipment-terms-and-condition-text {
+        padding: 1.6rem;
+    }
+
+    .shipment-amount-number {
+        padding-right: 1rem;
+    }
+
+    .shipment-payment-row {
+        padding: 0.5rem;
+    }
+
+    .custom-checkbox {
+        padding-left: 2rem;
+    }
+
+    .shipment-terms-and-condition-text {
+        font-size: 12px;
+    }
+
+    .shipment-payment-row {
+        font-size: 12px;
+    }
+
+    .shipment-final-payment-button p {
+        padding: 0.6rem;
+        color: #fff;
+        font-size: 16px;
+    }
+
 }
