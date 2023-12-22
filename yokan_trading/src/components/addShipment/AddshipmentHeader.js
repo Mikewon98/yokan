@@ -1,17 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Selectuser } from "../../state/authSlice";
+import { useLocation } from "react-router-dom";
 import "./AddShipmentHeader.css";
 
 const AddshipmentHeader = () => {
-  const auth = useSelector(Selectuser);
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const handleClick = () => {
-    navigate("/login");
-  };
 
   const currentLocation = location.pathname.split("/")[1];
 
@@ -21,12 +13,6 @@ const AddshipmentHeader = () => {
     <div className='addshipment-header'>
       <h1>Create Shipment</h1>
       <div className='header-first-div'>
-        {auth ? null : (
-          <div className='header-login'>
-            <i className='fa-solid fa-lock' onClick={handleClick}></i>
-            <p>Login</p>
-          </div>
-        )}
         <p>* indicates required</p>
       </div>
       <div className='progress-bar'>

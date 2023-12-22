@@ -2,9 +2,13 @@ import React from "react";
 import "./Support.css";
 import CallYokan from "../assets/Call_Yokan_Trading.png";
 import AdditionalSupport from "../assets/Additional_Contact_Yokan.png";
-import Button from "./navbar/Button";
+import { useNavigate } from "react-router-dom";
 
 const Support = () => {
+  const navigate = useNavigate();
+  const handleButton = () => {
+    navigate("/contactUs");
+  };
   return (
     <>
       <div className='support-container'>
@@ -45,7 +49,10 @@ const Support = () => {
               Reach the right person the first time. Our contact forms will help
               you.
             </p>
-            <Button path='/contactUs' text='Go to the Form' />
+            {/* <Button path='/contactUs' text='' /> */}
+            <button className='send-to-contact-button' onClick={handleButton}>
+              Go to the Form
+            </button>
           </div>
         </div>
       </div>

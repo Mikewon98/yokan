@@ -3,3 +3,41 @@
     padding: 1rem;
     padding-bottom: 50px;
 }
+
+.dashboard-container {
+    background-color: var(--body-bg);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dashboard-card {
+    background-color: #9395bb;
+    height: 160px;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5.5px);
+    color: #c1d4e9;
+}
+
+.dashboard-card i {
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.dashboard-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem;
+}

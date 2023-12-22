@@ -18,6 +18,7 @@ import ShipWhat from "./pages/ShipWhat";
 import ShipPayment from "./pages/ShipPayment";
 import { Selectuser } from "./state/authSlice";
 import NavBar from "./components/navbar/Navbar";
+import ScrollToTop from "./components/ScrollToUp";
 
 function App() {
   const isAuth = useSelector(Selectuser);
@@ -25,6 +26,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/trackShipment' element={<TrackShipment />} />

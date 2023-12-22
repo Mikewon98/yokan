@@ -1,27 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import axios from "axios";
+import { Spin } from "antd";
 import "./SignupForm.css";
 
 const SignupForm = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+
   const handleSubmit = async (values, onSubmitProps) => {
     const { firstName, lastName, email, phoneNumber, password } = values;
-    await axios
-      .post("http://localhost:3001/auth/register", {
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        password,
-      })
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+    try {
+      setError(null);
+      setLoading(true);
 
-    onSubmitProps.resetForm();
-    navigate("/login");
+      const signupResponse = await fetch(
+        "http://localhost:3001/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            password,
+          }),
+        }
+      );
+
+      console.log(signupResponse.status);
+
+      if (signupResponse.status === 400) {
+        setError("Phone number is already registered. Please use another.");
+      } else if (signupResponse.status === 201) {
+        alert("User registered successfully");
+        navigate("/login");
+      } else {
+        setError("Something occurred.");
+      }
+
+      onSubmitProps.resetForm();
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      onSubmitProps.resetForm();
+      console.log("Error state:", e);
+      setError("An error occurred. Please try again.");
+    }
   };
 
   const formik = useFormik({
@@ -55,6 +83,17 @@ const SignupForm = () => {
     }),
     onSubmit: handleSubmit,
   });
+
+  const NotificationComponent = () => {
+    return (
+      <div className='notificationContainer'>
+        <div className='notificationBox'>
+          <i className='fas fa-question-circle'></i>
+          <p className='message '>{error}</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className='signup-form'>
@@ -130,6 +169,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Password'
+          type='password'
           className={
             formik.touched.password && formik.errors.password
               ? "signup-input input-error"
@@ -145,6 +185,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Confirm Password'
+          type='password'
           className={
             formik.touched.confirmPassword && formik.errors.confirmPassword
               ? "signup-input input-error"
@@ -184,6 +225,12 @@ const SignupForm = () => {
           Register <i className='fa-solid fa-chevron-right'></i>
         </button>
       </form>
+      {loading && (
+        <div className='loading-spin'>
+          <Spin size='large' />
+        </div>
+      )}
+      {error && <NotificationComponent />}
     </div>
   );
 };

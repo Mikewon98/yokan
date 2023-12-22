@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Steps } from "antd";
+import { Steps, Spin } from "antd";
+import { useSelector } from "react-redux";
+import { Selectuser } from "../../state/authSlice";
+import { useNavigate } from "react-router-dom";
 import "./Track.css";
 
 const api = axios.create({
@@ -11,11 +14,16 @@ api.interceptors.request.use(
   (config) => {
     // Check for network connectivity before making a request
     if (navigator.onLine) {
+      alert("You are currently online.");
       return config;
     } else {
       // Handle offline mode (e.g., show a message to the user)
       // You can also throw an error to stop the request
+
       console.log("You are currently offline.");
+      alert(
+        "You are currently offline. Please check your internet connection."
+      );
       // For example, you can throw an error:
       // return Promise.reject(new Error('Network Error: You are offline.'));
     }
@@ -26,41 +34,45 @@ api.interceptors.request.use(
 );
 
 const Track = () => {
+  const navigate = useNavigate();
+  const auth = useSelector(Selectuser);
   const [trackNumber, setTrackNumber] = useState("");
   const [shipment, setShipment] = useState({});
   const [responseShipment, setResponseShipment] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
-  const [responseStatus, setResponseStatus] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const getShipment = async () => {
     try {
+      setError(null);
+      setLoading(true);
+
       const shipmentResponse = await axios.get(
         `http://localhost:3001/shipment/getShipment/${trackNumber}`
       );
 
-      setResponseStatus(shipmentResponse.status);
-      console.log(shipmentResponse.status);
-      if (shipmentResponse.status === 200) {
-        setResponseShipment(true);
-      } else {
-        setResponseShipment(false);
-      }
+      setResponseShipment(shipmentResponse.status === 200);
 
       const shipmentObject = shipmentResponse.data;
       const shipment = shipmentObject["shipments"];
-      console.log(shipment);
       setShipment(shipment);
+      setLoading(false);
     } catch (e) {
       console.log(e);
+      setLoading(false);
+      setResponseShipment(false);
+      setError("An error occurred. Please try again.");
     }
   };
-
-  // console.log(responseStatus);
-  // console.log(shipment.length);
 
   const handleClick = () => {
     getShipment();
     setButtonClicked(true);
+  };
+
+  const handleClickLogin = () => {
+    navigate("/login");
   };
 
   const TrackData = () => {
@@ -194,7 +206,7 @@ const Track = () => {
       <div className='notificationContainer'>
         <div className='notificationBox'>
           <i className='fas fa-question-circle'></i>
-          <p className='message '>Please enter correct Tracking number</p>
+          <p className='message '>{error}</p>
         </div>
       </div>
     );
@@ -209,6 +221,12 @@ const Track = () => {
           </p>
           <div className='sub-container'>
             <p>Enter tracking number down below</p>
+            {auth ? null : (
+              <div className='header-login' onClick={handleClickLogin}>
+                <i className='fa-solid fa-lock'></i>
+                <p>Login</p>
+              </div>
+            )}
             <div>
               <a href='/'>Help</a>
               <i className='fa-regular fa-circle-question'></i>
@@ -228,13 +246,14 @@ const Track = () => {
           </div>
         </div>
       </div>
-      {responseShipment ? (
-        <TrackData />
-      ) : buttonClicked ? (
-        <NotificationComponent />
-      ) : (
-        <p></p>
+      {loading && (
+        <div className='loading-spin'>
+          <Spin size='large' />
+        </div>
       )}
+      {responseShipment && <TrackData />}
+
+      {error && <NotificationComponent />}
     </div>
   );
 };

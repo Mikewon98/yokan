@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/navbar/Navbar";
 import Hero from "../components/Hero";
 import SupportImg from "../assets/support.webp";
 import Support from "../components/Support";
@@ -8,7 +7,6 @@ import Footer from "../components/Footer";
 const CustomerSupport = () => {
   return (
     <>
-      {/* <Navbar /> */}
       <Hero
         cName='hero-support'
         heroImg={SupportImg}

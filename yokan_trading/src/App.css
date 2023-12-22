@@ -6,3 +6,12 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+:root {
+  --primary-color: #1a4242;
+  --primary-dark: #0d2020;
+  --secondary-color: #be5e00;
+  --secondary-light: #ee7904;
+  --secondary-super-light: #ffbe7c;
+  --blue-btn: #1888ff;
+}

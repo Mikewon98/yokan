@@ -43,6 +43,27 @@ img {
     object-fit: fill;
 }
 
+.send-to-contact-button {
+    margin: 15px 0;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    color: var(--blue-btn);
+    cursor: pointer;
+    background-color: rgb(173, 173, 173);
+}
+
+.send-to-contact-button:hover {
+    padding: 6px 18px;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    color: var(--blue-btn);
+    border: 2px solid var(--blue-btn);
+}
+
 
 @media only screen and (min-width: 1024px) and (max-width: 1200px) {}
 

@@ -1,6 +1,8 @@
 .signup-form {
     padding: 4rem 13rem;
+    margin-top: 5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -66,6 +68,63 @@
 
 .checkbox-label input {
     margin-right: 8px;
+}
+
+/* ----------------------------Notification Component---------------- */
+
+.notificationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.notificationBox {
+    height: 60px;
+    background-color: rgb(255, 204, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.notificationBox p {
+    font-size: 20px;
+    color: #fff;
+    color: red;
+    font-weight: 500;
+}
+
+.notificationBox i {
+    background-color: white;
+    color: red;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.message {
+    margin: 0;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.loading-spin {
+    background: #fff;
+}
+
+.notificationContainer {
+    background: #fff;
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1200px) {

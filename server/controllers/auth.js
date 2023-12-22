@@ -24,6 +24,13 @@ export const register = async (req, res) => {
     const { firstName, lastName, email, phoneNumber, password, location } =
       req.body;
 
+    const existingUser = await User.findOne({ phoneNumber });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ message: "Phone number is already registered" });
+    }
+
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
 

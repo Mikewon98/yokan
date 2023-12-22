@@ -21,6 +21,14 @@
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
 }
 
+.header-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .track-heading {
     font-size: 20px;
 }
@@ -49,12 +57,21 @@
     width: 120px;
     margin: 1rem 0;
     padding: 0.6rem 2rem;
-    background-color: orange;
+    background-color: rgb(255, 187, 0);
     border-radius: 30px;
     font-size: 15px;
     font-weight: 400;
-    box-shadow: 0px 3px 0.2px #6b6b6b;
+    box-shadow: 2px 2px 2px #6b6b6b;
     cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.track-btn .fa-chevron-right {
+    padding: 0 5px;
+}
+
+.track-btn:hover {
+    transform: translateY(-3px)
 }
 
 /* ----------------track Data-------------------------- */
@@ -76,7 +93,7 @@ span {
 }
 
 .ant-steps .ant-steps-item-description {
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .steps-div {
@@ -92,6 +109,23 @@ span {
     cursor: pointer;
 }
 
+:where(.css-dev-only-do-not-override-p7e5j5).ant-steps .ant-steps-item-finish>.ant-steps-item-container>.ant-steps-item-tail::after {
+    /* background-color: var(--primary-color) !important; */
+    background-color: var(--secondary-light) !important;
+}
+
+:where(.css-dev-only-do-not-override-p7e5j5).ant-steps .ant-steps-item-process .ant-steps-item-icon {
+    background-color: var(--secondary-light) !important;
+    border-color: var(--secondary-light) !important;
+}
+
+/* this is the tick */
+
+/* :where(.css-dev-only-do-not-override-p7e5j5).ant-steps .ant-steps-item-icon .ant-steps-icon {
+    color: #1677ff;
+    color: var(--secondary-light) !important;
+} */
+
 .shipment-table {
     height: 400px;
     width: 30%;
@@ -106,7 +140,8 @@ span {
 
 
 .shipment-table tbody tr:nth-child(even) {
-    background-color: rgb(185, 214, 241);
+    /* background-color: rgb(185, 214, 241); */
+    background-color: var(--secondary-super-light);
 }
 
 td {
@@ -125,8 +160,9 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 0;
+    padding: 10px 0;
     width: 100%;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .notificationBox {
@@ -142,11 +178,13 @@ td {
 .notificationBox p {
     font-size: 20px;
     color: #fff;
+    color: red;
+    font-weight: 500;
 }
 
 .notificationBox i {
     background-color: white;
-    color: yellow;
+    color: red;
     font-size: 2rem;
     border-radius: 50%;
     padding: 5px;
@@ -155,6 +193,14 @@ td {
 
 .message {
     margin: 0;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
 }
 
 /* -----------------------------------Media query---------------- */

@@ -1,27 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Selectuser, setLogin } from "../state/authSlice";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../state/authSlice";
+import { Spin } from "antd";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import axios from "axios";
 import "./LoginForm.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const handleSubmit = async (values, onSubmitProps) => {
     try {
+      setError(null);
+      setLoading(true);
       const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
       const loggedIn = await loggedInResponse.json();
+      console.log(loggedInResponse.status);
       console.log(loggedIn.user);
       console.log(loggedIn.token);
       onSubmitProps.resetForm();
-      if (loggedIn) {
+
+      console.log(loggedInResponse);
+
+      if (loggedInResponse.status === 200) {
         dispatch(
           setLogin({
             user: loggedIn.user,
@@ -30,9 +39,14 @@ const LoginForm = () => {
         );
 
         navigate("/");
+      } else {
+        setError("Incorrect Credentials. Please try again.");
       }
+      setLoading(false);
     } catch (e) {
-      console.log(e);
+      setLoading(false);
+      console.log("Error state:", e);
+      setError("An error occurred. Please try again.");
     }
   };
 
@@ -47,6 +61,17 @@ const LoginForm = () => {
     }),
     onSubmit: handleSubmit,
   });
+
+  const NotificationComponent = () => {
+    return (
+      <div className='notificationContainer'>
+        <div className='notificationBox'>
+          <i className='fas fa-question-circle'></i>
+          <p className='message '>{error}</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className='login-form'>
@@ -96,37 +121,14 @@ const LoginForm = () => {
         </button>
         <Link to='/signup'>Forgot Email or Password</Link>
       </form>
+      {loading && (
+        <div className='loading-spin'>
+          <Spin size='large' />
+        </div>
+      )}
+      {error && <NotificationComponent />}
     </div>
   );
 };
 
 export default LoginForm;
-
-// try {
-//   const loggedInResponse = await axios.post(
-//     "http://localhost:3001/auth/login",
-//     values,
-//     {
-//       headers: { "Content-Type": "application/json" },
-//     }
-//   );
-
-//   const loggedIn = loggedInResponse.data;
-
-//   console.log(loggedIn.user);
-//   console.log(loggedIn.token);
-
-//   onSubmitProps.resetForm();
-
-//   if (loggedIn) {
-//     dispatch(
-//       setLogin({
-//         user: loggedIn.user,
-//         token: loggedIn.token,
-//       })
-//     );
-//     navigate("/");
-//   }
-// } catch (e) {
-//   console.log(e);
-// }

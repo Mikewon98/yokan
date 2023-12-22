@@ -179,7 +179,7 @@ body.active-modal {
 .payment-overlay {
     width: 100vw;
     height: 100vh;
-    top: 0;
+    top: 50px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -220,7 +220,7 @@ body.active-modal {
 }
 
 .payment-modal-content-heading {
-    padding: 2rem 4rem;
+    padding: 2rem;
 }
 
 .payment-tracking-number {
