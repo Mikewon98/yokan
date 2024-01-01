@@ -1,157 +1,19 @@
-.home-description {
-    margin: 3rem 10rem 3rem 10rem;
-}
-
-.home-description h1 {
-    font-size: 2rem;
-    text-align: center;
-}
-
-.home-description-container-first {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 4.5rem;
-}
-
-.home-description-text {
-    width: 50%;
-    text-align: start;
-    font-size: 1.1rem;
-    padding-right: 1rem;
-}
-
-.home-description-text h2 {
-    padding-bottom: 1rem;
-}
-
-.home-description-text p {
-    font-size: 15px;
-}
-
-.image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image img {
-    height: 350px;
+.company-profile-image {
+    height: 380px;
+    width: 450px;
     object-fit: cover;
     border-radius: 6px;
-    box-shadow: -1px 1px 62px -18px rgba(0, 0, 0, 0.2);
-}
-
-@media only screen and (min-width: 1024px) and (max-width: 1200px) {
-    .home-description {
-        margin: 3rem 8rem 3rem 8rem;
-    }
-}
-
-@media only screen and (min-width: 900px) and (max-width: 1024px) {
-    .home-description {
-        margin: 3rem 6rem 3rem 6rem;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 900px) {
-    .home-description {
-        margin: 3rem 4rem 3rem 4rem;
-    }
-
-    .home-description h1 {
-        font-size: 1.5rem;
-    }
-
-    .home-description-container-first {
-        margin-top: 2rem;
-    }
-
-    .home-description-text h2 {
-        font-size: 1.2rem;
-    }
-
-    .home-description-text p {
-        font-size: 12px;
-    }
-
-    .home-description-text {
-        width: 65%
-    }
-
-    .image img {
-        height: 300px;
-        width: 350px;
-    }
-}
-
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-    .home-description {
-        margin: 3rem 3rem 3rem 3rem;
-    }
-
-    .home-description h1 {
-        font-size: 1.5rem;
-    }
-
-    .home-description-text p {
-        font-size: 10px;
-    }
-
-    .home-description-text h2 {
-        font-size: 1.2rem;
-    }
-
-    .home-description-text {
-        width: 75%
-    }
-
-    .image img {
-        height: 200px;
-        width: 250px;
-    }
-}
-
-@media only screen and (min-width: 485px) and (max-width: 600px) {
-    .home-description-container-first {
-        display: flex;
-        flex-direction: column-reverse;
-        margin-top: 2rem;
-    }
-
-    .home-description {
-        margin: 3rem 5rem 3rem 5rem;
-    }
-
-    .home-description h1 {
-        font-size: 1.5rem;
-    }
-
-    .home-description-text {
-        width: 90%;
-    }
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 @media only screen and (max-width: 485px) {
-    .home-description-container-first {
-        display: flex;
-        flex-direction: column-reverse;
-        margin-top: 2rem;
-    }
-
-    .home-description {
-        margin: 3rem 3rem 3rem 3rem;
-    }
-
-    .home-description h1 {
-        font-size: 1.2rem;
-    }
-
-    .home-description p {
-        font-size: 10px;
-    }
-
-    .home-description-text {
-        width: 90%;
+    .company-profile-image {
+        height: 250px;
+        width: 270px;
+        object-fit: cover;
+        border-radius: 6px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+            0 5px 15px rgba(0, 0, 0, 0.1);
     }
 }

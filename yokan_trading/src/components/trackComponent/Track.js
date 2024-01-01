@@ -227,13 +227,10 @@ const Track = () => {
                 <p>Login</p>
               </div>
             )}
-            <div>
-              <a href='/'>Help</a>
-              <i className='fa-regular fa-circle-question'></i>
-            </div>
           </div>
           <input
             value={trackNumber}
+            placeholder='Track Number'
             onChange={(e) => setTrackNumber(e.target.value)}
             className='input-track'
           />

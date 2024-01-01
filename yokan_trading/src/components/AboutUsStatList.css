@@ -1,0 +1,57 @@
+.aboutus-stat-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 0 3rem;
+}
+
+.aboutus-stat-item {
+    border-left: 4px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.aboutus-stat-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #ffc107;
+}
+
+.aboutus-stat-label {
+    font-weight: 600;
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .aboutus-stat-list {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    .aboutus-stat-list {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .aboutus-stat-item {
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .aboutus-stat-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .aboutus-stat-label {
+        font-size: 14px;
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import navLinks from "../assets/dumyData/navLinks";
+import navLinks from "../assets/linkData/navLinks";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutFeeder, SelectFeeder } from "../state/feedAuthSlice";
 import { logoutAdmin, SelectAdmin } from "../state/adminAuthSlice";

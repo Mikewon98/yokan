@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -9,7 +9,9 @@ import { useNavigate } from "react-router-dom";
 import { Selectuser } from "../../state/authSlice";
 import { useDispatch } from "react-redux";
 import { setLogout } from "../../state/authSlice";
-import logo from "../../assets/yokan-logo.png";
+// import logo from "../../assets/yokan-logo.png";
+import logo3 from "../../assets/new yokan logo.png";
+import logo from "../../assets/Yokan-Trading-P.L.C.jpeg";
 import "./Navbar.css";
 
 const NavBar = () => {
@@ -30,7 +32,7 @@ const NavBar = () => {
   return (
     <div className='fixed-navbar-container'>
       <div className='extension-navbar'>
-        <p>Bole Medhaniyalem Area, Addis Ababa Ethiopia</p>
+        <p>yokanlogistics@gmail.com</p>
         <p>+251923974353</p>
       </div>
       <Navbar
@@ -45,6 +47,7 @@ const NavBar = () => {
         <Container>
           <Navbar.Brand as={Link} to='/'>
             <Container>
+              {/* <img src={logo3} alt='Yokan logo' /> */}
               <img src={logo} alt='Yokan logo' />
             </Container>
           </Navbar.Brand>
@@ -95,6 +98,10 @@ const NavBar = () => {
               Login
             </button>
           )}
+          <div className='separater-div'></div>
+          <button className='navbar-button' onClick={() => navigate("/signup")}>
+            Signup
+          </button>
         </Navbar.Collapse>
       </Navbar>
     </div>

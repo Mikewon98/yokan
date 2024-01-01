@@ -7,9 +7,9 @@ const ApplyForJob = () => {
     <div className='partner-job'>
       <div>
         <p className='partner-job-text'>Want to join the team?</p>
-        <p>Send us your CV and best cover letter</p>
+        <p>Hurry up and contact us!</p>
       </div>
-      <Button path='/contactUs' text='Apply for a Job' />
+      <Button path='/contactUs' text='Contact us' />
     </div>
   );
 };

@@ -20,21 +20,20 @@
 
 .signup-text-container {
     display: flex;
-    padding: 0.7rem 0;
+    padding: 1rem 0;
+    padding-right: 1rem;
+}
+
+.signup-text-container p {
+    padding-right: 0.75rem;
 }
 
 .signup-input {
-    margin: 0.4rem 0;
-    height: 55px;
+    background: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
     width: 90%;
-    padding: 10px;
-    font-size: 20px;
-    color: rgb(66, 66, 66);
-    border-radius: 4px;
-}
-
-.input-error {
-    border-color: red;
 }
 
 .error-text {

@@ -87,11 +87,6 @@ const LoginForm = () => {
           name='phoneNumber'
           value={formik.values.phoneNumber}
           placeholder='Phone Number'
-          className={
-            formik.touched.phoneNumber && formik.errors.phoneNumber
-              ? "input-error"
-              : ""
-          }
         />
         {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
           <p className='error-text'>{formik.errors.phoneNumber}</p>
@@ -103,23 +98,16 @@ const LoginForm = () => {
           value={formik.values.password}
           placeholder='Password'
           type='password'
-          className={
-            formik.touched.password && formik.errors.password
-              ? "input-error"
-              : ""
-          }
         />
         {formik.touched.password && formik.errors.password ? (
           <p className='error-text'>{formik.errors.password}</p>
         ) : null}
-        <div className='login-text-container'>
-          <p>By continuing, I agree to the</p>
-          <Link to='/signup'>Yokan Trading Agreement.</Link>
-        </div>
         <button type='submit' className='login-form-btn'>
           Log In <i className='fa-solid fa-chevron-right'></i>
         </button>
-        <Link to='/signup'>Forgot Email or Password</Link>
+        <Link to='/customerSuport'>
+          Forgot Email or Password Contact Our Customer Support{" "}
+        </Link>
       </form>
       {loading && (
         <div className='loading-spin'>

@@ -24,17 +24,16 @@
     padding: 0.7rem 0;
 }
 
-.login-container input {
-    margin: 0.4rem 0;
-    height: 55px;
-    width: 90%;
-    padding: 10px;
-    font-size: 20px;
-    color: rgb(66, 66, 66);
+.login-text-container p {
+    padding-right: 0.75rem;
 }
 
-.input-error {
-    border-color: red;
+.login-container input {
+    width: 90%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: #eee;
+    border: none;
 }
 
 .error-text {

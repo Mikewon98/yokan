@@ -7,6 +7,9 @@ import Dashboard from "../pages/Dashboard";
 import Settings from "../pages/Settings";
 import UpdateStatus from "../pages/UpdateStatus";
 import AllShipment from "../pages/AllShipment";
+import CreateShipment from "../pages/CreateShipment";
+import AddFeeder from "../pages/AddFeeder";
+import AddUser from "../pages/AddUser";
 
 const Router = () => {
   return (
@@ -16,8 +19,11 @@ const Router = () => {
         <Route path='/admin' element={<AdminLoginPage />} />
         <Route path='/home' element={<HomePage />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/addFeeder' element={<AddFeeder />} />
+        <Route path='/addUser' element={<AddUser />} />
         <Route path='/settings' element={<Settings />} />
         <Route path='/updateStatus' element={<UpdateStatus />} />
+        <Route path='/createShipment' element={<CreateShipment />} />
         <Route path='/allShipment' element={<AllShipment />} />
       </Routes>
     </>

@@ -24,7 +24,7 @@
 }
 
 .bottom {
-    padding-top: 2rem;
+    padding-top: 1rem;
     display: flex;
     justify-content: space-between;
     text-align: start;
@@ -34,7 +34,7 @@
 .bottom div {
     display: flex;
     flex-direction: column;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .bottom h4 {
@@ -51,7 +51,7 @@
 
 .bottom-last {
     /* background-color: #01959a; */
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
     font-size: 1.3rem;
     color: #fff;
     text-align: center;

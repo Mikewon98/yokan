@@ -30,7 +30,6 @@ const Footer = () => {
           <a href='/aboutus'>Abour Us</a>
           <a href='/partner'>Become Partner</a>
           <a href='/partner'>Join the Team</a>
-          <a href='/partner'>Apply for a Job</a>
         </div>
         <div>
           <h4>Contact Us</h4>
@@ -46,7 +45,6 @@ const Footer = () => {
         </div>
         <div>
           <h4>Others</h4>
-          <a href='/'>Terms of Service</a>
           <a href='/'>Terms and Conditions</a>
           <a href='/'>Privacy Policy</a>
           <a href='/'>License</a>

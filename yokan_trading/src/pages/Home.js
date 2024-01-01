@@ -1,22 +1,22 @@
 import React from "react";
-import Hero from "../components/Hero";
-import HeroImg from "../assets/shipment-container-1.jpeg";
+import ShipmentPackageImage from "../assets/shipment-package.jpeg";
 import Description from "../components/homeComponent/Description";
 import Footer from "../components/Footer";
 import CompanyProfile from "../components/homeComponent/CompanyProfile";
+import Slider from "../components/Slider";
+import CompanySlider from "../components/homeComponent/CompanySlider";
+import WhyUs from "../components/homeComponent/WhyUs";
+import "../components/homeComponent/Home.css";
 
 const Home = () => {
   return (
     <>
-      <Hero
-        cName='hero'
-        heroImg={HeroImg}
-        title='Welcome to Yokan Trading'
-        url='/trackShipment'
-        btnClass='show'
-        buttonText='Find My Shipment'
-      />
-      <CompanyProfile />
+      <div className='home-component-top-div'>
+        <Slider />
+      </div>
+      <CompanySlider />
+      <CompanyProfile img={ShipmentPackageImage} />
+      <WhyUs />
       <Description />
       <Footer />
     </>

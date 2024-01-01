@@ -75,11 +75,14 @@ export const viewShipment = async (req, res) => {
     const { userId } = req.params;
 
     const shipments = await Shipment.find({ userId });
-    if (!shipments)
-      return res.status(400).json({ msg: "shipments does not exist." });
+    // if (!shipments)
+    //   return res.status(400).json({ msg: "shipments does not exist." });
+    if (shipments.length === 0)
+      return res.status(400).json({ msg: "Shipments do not exist." });
 
     res.status(200).json({ shipments });
   } catch (err) {
+    console.log(e);
     res.status(409).json({ message: err.message });
   }
 };
@@ -95,6 +98,22 @@ export const getShipment = async (req, res) => {
 
     res.status(200).json({ shipments });
   } catch (e) {
+    res.status(500).json({ msg: "Internal Server Error" });
     console.log(e);
+  }
+};
+
+export const getAllShipment = async (req, res) => {
+  try {
+    const shipments = await Shipment.find();
+
+    if (!shipments || shipments.length === 0) {
+      return res.status(400).json({ msg: "No Shipments Available" });
+    }
+
+    res.status(200).json({ shipments });
+  } catch (e) {
+    console.log(e);
+    res.status(500).json({ msg: "Internal Server Error" });
   }
 };

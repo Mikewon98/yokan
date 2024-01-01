@@ -1,0 +1,139 @@
+.services-content {
+    width: 391px;
+    height: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 10px;
+}
+
+.services-content hr {
+    border: 1px solid #D8D8D8;
+    height: 105px;
+    width: 0;
+}
+
+.services-content img {
+    padding: 10px;
+}
+
+.services-content p {
+    color: #666C89;
+    margin: 0;
+}
+
+.services-content h3 {
+    font-size: 1.5rem;
+    color: #1C1F35;
+    margin: 0;
+}
+
+.services-content .info {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {
+
+    .services-content {
+        width: 351px;
+        justify-content: flex-start;
+        padding: 0px;
+        gap: 10px;
+    }
+
+    .services-content .info {
+        width: 260px;
+        gap: 13px;
+        padding: 5px;
+        margin: 0;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .services-content {
+        width: 280px;
+        height: 130px;
+        justify-content: flex-start;
+        padding: 0px;
+        gap: 0px;
+    }
+
+    .services-content .info {
+        width: 200px;
+        gap: 5px;
+        margin: 0;
+    }
+
+    .info h3 {
+        font-size: 16px;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .services-content {
+        width: 240px;
+        height: 120px;
+        justify-content: flex-start;
+        padding: 0px;
+        gap: 0px;
+    }
+
+    .services-content .info {
+        width: 160px;
+        height: 115px;
+        gap: 5px;
+        margin: 0;
+    }
+
+    .info h3 {
+        font-size: 12px;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    .services-content {
+        width: 240px;
+        height: 120px;
+        justify-content: flex-start;
+        padding: 0px;
+        gap: 0px;
+    }
+
+    .services-content hr {
+        height: 80px;
+    }
+
+    .services-content .info {
+        width: 160px;
+        height: 115px;
+        gap: 5px;
+        margin: 0;
+    }
+
+    .info h3 {
+        font-size: 12px;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+}

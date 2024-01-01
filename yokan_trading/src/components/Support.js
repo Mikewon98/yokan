@@ -35,7 +35,7 @@ const Support = () => {
             </p>
             <p>Mikewon98@gmail.com</p>
             <p>
-              <strong>Service Available:</strong> Export/Import
+              <strong>Service Available:</strong> Export/Import/Custom Clearance
             </p>
           </div>
           <div className='support-sub-sub-container'>

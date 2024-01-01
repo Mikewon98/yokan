@@ -109,11 +109,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='First Name'
-          className={
-            formik.touched.firstName && formik.errors.firstName
-              ? "signup-input input-error"
-              : "signup-input"
-          }
+          className='signup-input'
         />
         {formik.touched.firstName && formik.errors.firstName ? (
           <p className='error-text'>{formik.errors.firstName}</p>
@@ -124,11 +120,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Last Name'
-          className={
-            formik.touched.lastName && formik.errors.lastName
-              ? "signup-input input-error"
-              : "signup-input"
-          }
+          className='signup-input'
         />
         {formik.touched.lastName && formik.errors.lastName ? (
           <p className='error-text'>{formik.errors.lastName}</p>
@@ -139,11 +131,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Email'
-          className={
-            formik.touched.email && formik.errors.email
-              ? "signup-input input-error"
-              : "signup-input"
-          }
+          className='signup-input'
         />
         {formik.touched.email && formik.errors.email ? (
           <p className='error-text'>{formik.errors.email}</p>
@@ -154,11 +142,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Phone number'
-          className={
-            formik.touched.phoneNumber && formik.errors.phoneNumber
-              ? "signup-input input-error"
-              : "signup-input"
-          }
+          className='signup-input'
         />
         {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
           <p className='error-text'>{formik.errors.phoneNumber}</p>
@@ -170,11 +154,7 @@ const SignupForm = () => {
           onBlur={formik.handleBlur}
           placeholder='Password'
           type='password'
-          className={
-            formik.touched.password && formik.errors.password
-              ? "signup-input input-error"
-              : "signup-input"
-          }
+          className='signup-input'
         />
         {formik.touched.password && formik.errors.password ? (
           <p className='error-text'>{formik.errors.password}</p>
@@ -186,18 +166,14 @@ const SignupForm = () => {
           onBlur={formik.handleBlur}
           placeholder='Confirm Password'
           type='password'
-          className={
-            formik.touched.confirmPassword && formik.errors.confirmPassword
-              ? "signup-input input-error"
-              : "signup-input"
-          }
+          className='signup-input'
         />
         {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
           <p className='error-text'>{formik.errors.confirmPassword}</p>
         ) : null}
         <div className='signup-text-container'>
-          <p>By continuing, I agree to the</p>
-          <Link to='/signup'>Yokan Trading Agreement.</Link>
+          {/* <p>By continuing, I agree to the</p>
+          <Link to='/signup'>Yokan Trading Agreement.</Link> */}
         </div>
         <label className='checkbox-label'>
           <input

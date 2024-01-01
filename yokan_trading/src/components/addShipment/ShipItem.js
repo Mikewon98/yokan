@@ -10,9 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { shipmentItemAdded } from "../../state/shipmentDataItemSlice";
 import { Selectuser } from "../../state/authSlice";
 import { clearShipmentData } from "../../state/shipmentDataSlice";
-// import { GeneratedTrackingString } from "../../state/shipmentDataSlice";
 
 const ShipItem = () => {
+  const minimumDate = new Date();
+  minimumDate.setDate(minimumDate.getDate() + 1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const auth = useSelector(Selectuser);
@@ -62,7 +63,6 @@ const ShipItem = () => {
       );
       navigate("/shippayment");
     } else {
-      // If there are validation errors, Formik will display them
       console.log("Form has validation errors");
     }
   };
@@ -219,6 +219,7 @@ const ShipItem = () => {
                 className='shipment-detail-datepicker'
                 selected={formik.values.dropOffDate}
                 onChange={(date) => formik.setFieldValue("dropOffDate", date)}
+                minDate={minimumDate}
               />
               <i className='fa-regular fa-calendar-days'></i>
             </div>

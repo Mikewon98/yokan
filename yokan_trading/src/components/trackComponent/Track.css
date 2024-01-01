@@ -14,7 +14,7 @@
 .track-container {
     margin: 1rem;
     background-color: #fff;
-    width: 80%;
+    width: 90%;
     height: 280px;
     padding: 2rem 2rem;
     border-radius: 5px;
@@ -40,15 +40,19 @@
 }
 
 .input-track {
-    height: 2.3rem;
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px 0;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: #eee;
+    border: none;
 }
 
 .sub-container-sub-text {
     font-size: 12px;
+}
+
+.sub-container p {
+    font-size: 16px;
 }
 
 .track-btn {
@@ -61,7 +65,7 @@
     border-radius: 30px;
     font-size: 15px;
     font-weight: 400;
-    box-shadow: 2px 2px 2px #6b6b6b;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: 0.4s ease;
 }
@@ -71,7 +75,7 @@
 }
 
 .track-btn:hover {
-    transform: translateY(-3px)
+    transform: translateX(4px)
 }
 
 /* ----------------track Data-------------------------- */
@@ -233,7 +237,7 @@ td {
 
 @media only screen and (min-width: 768px) and (max-width: 900px) {
     .tracking-display {
-        padding: 2rem 4rem 4rem 4rem;
+        padding: 2rem 3rem 4rem 3rem;
     }
 
     .track-data {
@@ -384,5 +388,15 @@ td {
         height: 400px;
         width: 95%;
         margin-top: 2rem;
+    }
+
+    /* .sub-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    } */
+
+    .sub-container p {
+        font-size: 12px;
     }
 }
