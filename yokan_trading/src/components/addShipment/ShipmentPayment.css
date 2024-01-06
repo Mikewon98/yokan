@@ -91,6 +91,19 @@
     border-bottom: 0.5px solid #7a7a7a;
 }
 
+.shipment-payment-row-img {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.shipment-payment-row-img img {
+    /* width: 70px;
+    height: 30px; */
+    object-fit: contain;
+}
+
 .shipment-terms-and-condition-text {
     background-color: rgb(255, 255, 255);
     padding: 2rem 4rem;
@@ -245,6 +258,60 @@ body.active-modal {
     font-size: 2rem;
     color: red;
     cursor: pointer;
+}
+
+/* ----------------------------Notification Component---------------- */
+
+.notificationContainer {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.notificationBox {
+    height: 60px;
+    background-color: rgb(255, 204, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.notificationBox p {
+    font-size: 20px;
+    color: #fff;
+    color: red;
+    font-weight: 500;
+}
+
+.notificationBox i {
+    background-color: white;
+    color: red;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.message {
+    margin: 0;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.loading-spin {
+    background: #fff;
 }
 
 

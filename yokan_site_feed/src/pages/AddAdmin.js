@@ -3,23 +3,25 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Spin } from "antd";
-import "../styles/addUser.css";
+import "../styles/addAdmin.css";
 
-const AddUser = () => {
+const AddAdmin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const initialValues = {
+    userName: "",
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
     password: "",
-    confirmPassword: "",
+    checkbox: false,
   };
 
   const validationSchema = yup.object({
+    userName: yup.string().required("Required"),
     firstName: yup.string().required("Required"),
     lastName: yup.string().required("Required"),
     email: yup
@@ -38,18 +40,20 @@ const AddUser = () => {
       .required("Required"),
   });
 
-  const handleSubmit = async (values, onSubmitProps) => {
-    const { firstName, lastName, email, phoneNumber, password } = values;
+  const handleFormSubmit = async (values, onSubmitProps) => {
+    const { userName, firstName, lastName, email, phoneNumber, password } =
+      values;
     try {
       setError(null);
       setLoading(true);
 
       const signupResponse = await fetch(
-        "http://localhost:3001/auth/register",
+        "http://localhost:3001/admin/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            userName,
             firstName,
             lastName,
             email,
@@ -59,24 +63,24 @@ const AddUser = () => {
         }
       );
 
-      formik.resetForm();
-      console.log(signupResponse);
+      console.log(signupResponse.status);
 
-      if (signupResponse.status === 201) {
+      if (signupResponse.status === 400) {
+        setError(
+          "Phone number or User Name is already registered. Please use another."
+        );
+      } else if (signupResponse.status === 201) {
         alert("User registered successfully");
         navigate("/dashboard");
-      } else if (signupResponse.status === 400) {
-        setError(
-          "Phone number or User name is already registered. Please use another."
-        );
       } else {
         setError("Something occurred.");
       }
 
+      onSubmitProps.resetForm();
       setLoading(false);
     } catch (e) {
       setLoading(false);
-      formik.resetForm();
+      onSubmitProps.resetForm();
       console.log("Error state:", e);
       setError("An error occurred. Please try again.");
     }
@@ -85,7 +89,7 @@ const AddUser = () => {
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: validationSchema,
-    onSubmit: handleSubmit,
+    onSubmit: handleFormSubmit,
   });
 
   const NotificationComponent = () => {
@@ -100,15 +104,9 @@ const AddUser = () => {
   };
 
   return (
-    <div className='addUser'>
-      <form
-        className='signup-container'
-        onSubmit={formik.handleSubmit}
-        autoComplete='off'
-      >
-        <div className='signup-container-header'>
-          <h3>Add User</h3>
-        </div>
+    <div className='addAdmin'>
+      <form className='signup-container' onSubmit={formik.handleSubmit}>
+        <p className='signup-container-header'>Add Admin</p>
         <input
           name='firstName'
           value={formik.firstName}
@@ -130,6 +128,17 @@ const AddUser = () => {
         />
         {formik.touched.lastName && formik.errors.lastName ? (
           <p className='error-text'>{formik.errors.lastName}</p>
+        ) : null}
+        <input
+          name='userName'
+          value={formik.userName}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder='User Name'
+          className='signup-input'
+        />
+        {formik.touched.userName && formik.errors.userName ? (
+          <p className='error-text'>{formik.errors.userName}</p>
         ) : null}
         <input
           name='email'
@@ -159,7 +168,6 @@ const AddUser = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Password'
-          type='password'
           className='signup-input'
         />
         {formik.touched.password && formik.errors.password ? (
@@ -171,13 +179,16 @@ const AddUser = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Confirm Password'
-          type='password'
           className='signup-input'
         />
         {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
           <p className='error-text'>{formik.errors.confirmPassword}</p>
         ) : null}
-        <button className='signup-form-btn' type='submit'>
+        <button
+          className='signup-form-btn'
+          type='submit'
+          disabled={formik.isSubmitting}
+        >
           Register <i className='fa-solid fa-chevron-right'></i>
         </button>
       </form>
@@ -191,4 +202,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default AddAdmin;

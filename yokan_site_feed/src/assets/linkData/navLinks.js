@@ -10,6 +10,11 @@ const navLinks = [
     display: "View All Shipment",
   },
   {
+    path: "/viewUsers",
+    icon: "fa-solid fa-user",
+    display: "View All Users",
+  },
+  {
     path: "/createShipment",
     icon: "fa-regular fa-square-plus",
     display: "Create Shipment",
@@ -30,8 +35,14 @@ const navLinks = [
     display: "Add staff",
   },
   {
+    path: "/addAdmin",
+    icon: "fa-solid fa-user-tie",
+    display: "Add Admin",
+  },
+  {
     path: "/settings",
-    icon: "fa-solid fa-gear",
+    // icon: "fa-solid fa-gear",
+    icon: "fa-solid fa-screwdriver-wrench",
     display: "Settings",
   },
 ];

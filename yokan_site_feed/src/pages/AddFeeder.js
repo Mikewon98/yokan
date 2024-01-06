@@ -1,23 +1,27 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { Spin } from "antd";
 import "../styles/addFeeder.css";
 
 const AddFeeder = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const initialValues = {
+    userName: "",
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
     password: "",
-    confirmPassword: "",
     checkbox: false,
   };
 
   const validationSchema = yup.object({
+    userName: yup.string().required("Required"),
     firstName: yup.string().required("Required"),
     lastName: yup.string().required("Required"),
     email: yup
@@ -34,11 +38,52 @@ const AddFeeder = () => {
       .string()
       .oneOf([yup.ref("password"), null], "Password must match")
       .required("Required"),
-    checkbox: yup.boolean().oneOf([true], "Please accept terms of service"),
   });
 
-  const handleFormSubmit = () => {
-    console.log("form submit");
+  const handleFormSubmit = async (values, onSubmitProps) => {
+    const { userName, firstName, lastName, email, phoneNumber, password } =
+      values;
+    try {
+      setError(null);
+      setLoading(true);
+
+      const signupResponse = await fetch(
+        "http://localhost:3001/dataFeeder/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            userName,
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            password,
+          }),
+        }
+      );
+
+      console.log(signupResponse);
+
+      if (signupResponse.status === 400) {
+        setError(
+          "Phone number or User name is already registered. Please use another."
+        );
+      } else if (signupResponse.status === 201) {
+        alert("User registered successfully");
+        navigate("/dashboard");
+      } else {
+        setError("Something occurred.");
+      }
+
+      onSubmitProps.resetForm();
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      onSubmitProps.resetForm();
+      console.log("Error state:", e);
+      setError("An error occurred. Please try again.");
+    }
   };
 
   const formik = useFormik({
@@ -46,6 +91,17 @@ const AddFeeder = () => {
     validationSchema: validationSchema,
     onSubmit: handleFormSubmit,
   });
+
+  const NotificationComponent = () => {
+    return (
+      <div className='notificationContainer'>
+        <div className='notificationBox'>
+          <i className='fas fa-question-circle'></i>
+          <p className='message '>{error}</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className='addFeeder'>
@@ -72,6 +128,17 @@ const AddFeeder = () => {
         />
         {formik.touched.lastName && formik.errors.lastName ? (
           <p className='error-text'>{formik.errors.lastName}</p>
+        ) : null}
+        <input
+          name='userName'
+          value={formik.userName}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder='User Name'
+          className='signup-input'
+        />
+        {formik.touched.userName && formik.errors.userName ? (
+          <p className='error-text'>{formik.errors.userName}</p>
         ) : null}
         <input
           name='email'
@@ -101,7 +168,6 @@ const AddFeeder = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Password'
-          type='password'
           className='signup-input'
         />
         {formik.touched.password && formik.errors.password ? (
@@ -113,7 +179,6 @@ const AddFeeder = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           placeholder='Confirm Password'
-          type='password'
           className='signup-input'
         />
         {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
@@ -127,6 +192,12 @@ const AddFeeder = () => {
           Register <i className='fa-solid fa-chevron-right'></i>
         </button>
       </form>
+      {loading && (
+        <div className='loading-spin'>
+          <Spin size='large' />
+        </div>
+      )}
+      {error && <NotificationComponent />}
     </div>
   );
 };

@@ -1,5 +1,193 @@
 .updateStatus {
-    margin-top: 100px;
+    margin-top: 90px;
     padding: 1rem;
     padding-bottom: 50px;
+}
+
+.updateStatus-container-header h3 {
+    font-size: 35px;
+    text-align: center;
+}
+
+.updateStatus-search-div {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.updateStatus-search-div input {
+    width: 400px;
+    background: #eee;
+    border-radius: 10px;
+    border: 3px solid rgb(0, 162, 255);
+    font-size: 1.3rem;
+    padding: 8px;
+    margin: 8px 2px;
+}
+
+.updateStatus-search-btn {
+    font-size: 16px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    background-color: rgb(255, 187, 0);
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.updateStatus-search-btn:hover {
+    transform: translateY(-3px);
+}
+
+.TrackDataDisplay-no-shipment-display {
+    margin: 2rem 1rem;
+}
+
+.input-error {
+    border-color: red !important;
+}
+
+/* ---------------------------update Status table---------------------------- */
+
+.TrackDataDisplay-table {
+    margin: 1rem;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+.TrackDataDisplay-table-row {
+    background-color: #fff;
+}
+
+.TrackDataDisplay-table tbody tr:nth-child(even) {
+    /* background-color: rgb(185, 214, 241); */
+    background-color: var(--secondary-super-light);
+}
+
+td {
+    /* border: 2px solid rgb(0, 162, 255); */
+    border: 2px solid rgb(230, 163, 40);
+    text-align: left;
+    padding: 0.3rem 0.7rem;
+    font-size: 14px;
+}
+
+/* ---------------------------------select---------------------------- */
+
+.updateStatus-update-div {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.updateStatus-update-div p {
+    padding-right: 1rem;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.updateStatus-select {
+    padding: 1rem;
+}
+
+.updateStatus-select select {
+    width: 400px;
+    padding: 10px 15px;
+    margin: 8px 2rem;
+    background: #eee;
+    border: none;
+}
+
+.updateStatus-update-btn {
+    margin-right: 2rem;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: rgb(0, 162, 255);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.updateStatus-update-btn:hover {
+    transform: translateY(-3px)
+}
+
+.updateStatus-update-btn-cancel {
+    margin-right: 2rem;
+    font-size: 16px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    background-color: rgb(255, 30, 0);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.updateStatus-update-btn-cancel:hover {
+    transform: translateY(-3px)
+}
+
+/* ----------------------------Notification Component---------------- */
+
+.notificationContainer {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.notificationBox {
+    height: 60px;
+    background-color: rgb(255, 204, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.notificationBox p {
+    font-size: 20px;
+    color: #fff;
+    color: red;
+    font-weight: 500;
+}
+
+.notificationBox i {
+    background-color: white;
+    color: red;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.message {
+    margin: 0;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.loading-spin {
+    background: #fff;
 }

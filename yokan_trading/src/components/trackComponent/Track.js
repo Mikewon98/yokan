@@ -80,18 +80,20 @@ const Track = () => {
 
     if (shipment.status === "pickUp") {
       current = 0;
-    } else if (shipment.status === "DocumentProcessing") {
+    } else if (shipment.status === "Document Processing") {
       current = 1;
-    } else if (shipment.status === "ShipmentProcessing") {
+    } else if (shipment.status === "Shipment Processing") {
       current = 2;
     } else if (shipment.status === "InTransit") {
       current = 3;
-    } else if (shipment.status === "Delivered") {
+    } else if (shipment.status === "Local Delivery") {
       current = 4;
-    } else if (shipment.status === "Finished") {
+    } else if (shipment.status === "Delivered") {
       current = 5;
-    } else {
+    } else if (shipment.status === "Finished") {
       current = 6;
+    } else {
+      current = 0;
     }
 
     if (buttonClicked) {
@@ -123,6 +125,10 @@ const Track = () => {
                     {
                       title: "In Transit",
                       description: "Your package has reached its destination",
+                    },
+                    {
+                      title: "Local Delivery",
+                      description: "Your Packaged is on Local delivery",
                     },
                     {
                       title: "Delivered",

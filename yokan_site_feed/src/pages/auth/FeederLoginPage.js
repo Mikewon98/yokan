@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as yup from "yup";
-import "./FeederLoginPage.css";
-import axios from "axios";
+import { Spin } from "antd";
 import { loginFeeder } from "../../state/feedAuthSlice";
+import "./FeederLoginPage.css";
 
 const FeederLoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const validationSchema = yup.object().shape({
     userName: yup.string().required("User name is required"),
@@ -22,23 +24,56 @@ const FeederLoginPage = () => {
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
+    // try {
+    //   const loggedInResponse = await axios.post(
+    // "http://localhost:3001/dataFeeder/login",
+    //     values,
+    //     {
+    //       headers: { "Content-Type": "application/json" },
+    //     }
+    //   );
+
+    //   const loggedIn = loggedInResponse.data;
+
+    //   console.log(loggedIn);
+
+    //   console.log(loggedIn.user);
+    //   // console.log(loggedIn.token);
+
+    //   onSubmitProps.resetForm();
+
+    //   if (loggedIn) {
+    //     dispatch(
+    // loginFeeder({
+    //   feederUser: loggedIn.user,
+    //   feederToken: loggedIn.token,
+    // })
+    //     );
+    //     navigate("/dashboard");
+    //   }
+    // } catch (e) {
+    //   console.log(e);
+    // }
     try {
-      const loggedInResponse = await axios.post(
+      setError(null);
+      setLoading(true);
+      const loggedInResponse = await fetch(
         "http://localhost:3001/dataFeeder/login",
-        values,
         {
+          method: "POST",
           headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
         }
       );
-
-      const loggedIn = loggedInResponse.data;
-
+      const loggedIn = await loggedInResponse.json();
+      console.log(loggedInResponse.status);
       console.log(loggedIn.user);
       console.log(loggedIn.token);
-
       onSubmitProps.resetForm();
 
-      if (loggedIn) {
+      console.log(loggedInResponse);
+
+      if (loggedInResponse.status === 200) {
         dispatch(
           loginFeeder({
             feederUser: loggedIn.user,
@@ -46,9 +81,14 @@ const FeederLoginPage = () => {
           })
         );
         navigate("/dashboard");
+      } else {
+        setError("Incorrect Credentials. Please try again.");
       }
+      setLoading(false);
     } catch (e) {
-      console.log(e);
+      setLoading(false);
+      console.log("Error state:", e);
+      setError("An error occurred. Please try again.");
     }
   };
 
@@ -57,6 +97,17 @@ const FeederLoginPage = () => {
     validationSchema,
     onSubmit: handleFormSubmit,
   });
+
+  const NotificationComponent = () => {
+    return (
+      <div className='notificationContainer-login'>
+        <div className='notificationBox'>
+          <i className='fas fa-question-circle'></i>
+          <p className='message '>{error}</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className='feeder-login-main-container'>
@@ -113,6 +164,12 @@ const FeederLoginPage = () => {
           </div>
         </form>
       </div>
+      {loading && (
+        <div className='loading-spin-feeder-login'>
+          <Spin size='large' />
+        </div>
+      )}
+      {error && <NotificationComponent />}
     </div>
   );
 };

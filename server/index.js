@@ -9,6 +9,7 @@ import shipmentDataRoutes from "./routes/shipmentData.js";
 import shipmentDataItemRoutes from "./routes/shipmentDataItem.js";
 import adminUserRoutes from "./routes/adminUser.js";
 import dataFeederRoutes from "./routes/feedUser.js";
+import priceRoutes from "./routes/price.js";
 
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use("/location", locationRoutes);
 app.use("/shipment", shipmentRoutes);
 app.use("/shipmentData", shipmentDataRoutes);
 app.use("/shipmentDataItem", shipmentDataItemRoutes);
+app.use("/price", priceRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 5000;

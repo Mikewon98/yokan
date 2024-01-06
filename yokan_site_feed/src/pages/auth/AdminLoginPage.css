@@ -3,6 +3,7 @@
     width: 100%;
     background-color: rgb(66, 134, 223);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -84,4 +85,62 @@
 
 .send-to-login {
     color: blue;
+}
+
+/* ----------------------------Notification Component---------------- */
+
+.notificationContainer-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    background: rgb(66, 134, 223);
+
+}
+
+.notificationBox {
+    height: 60px;
+    background-color: rgb(255, 204, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.notificationBox p {
+    font-size: 20px;
+    color: #fff;
+    color: red;
+    font-weight: 500;
+}
+
+.notificationBox i {
+    background-color: white;
+    color: red;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.message {
+    margin: 0;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.loading-spin-feeder-login {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background: #00ff37e5;
 }

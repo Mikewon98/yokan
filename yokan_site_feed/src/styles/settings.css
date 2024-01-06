@@ -1,5 +1,177 @@
 .settings {
-    margin-top: 100px;
-    padding: 1rem;
+    margin-top: 70px;
     padding-bottom: 50px;
+}
+
+.settings-header {
+    padding: 1rem;
+    background-color: #eee;
+}
+
+.settings-header h3 {
+    font-size: 35px;
+}
+
+.settings-price-adjustment {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 1rem;
+}
+
+.settings-price-adjustment p {
+    font-size: 18px;
+}
+
+.price-adjustment-div {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.price-adjustment-div input {
+    width: 400px;
+    background: #eee;
+    border-radius: 10px;
+    border: 3px solid rgb(0, 162, 255);
+    font-size: 1.3rem;
+    padding: 8px;
+    margin: 8px 2px;
+}
+
+.price-adjustment-btn {
+    font-size: 16px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    background-color: rgb(255, 187, 0);
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.price-adjustment-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ---------------------------delete user---------------------------- */
+
+.settings-delete-user {
+    margin: 2rem 0;
+}
+
+.settings-delete-user-header {
+    padding: 1rem;
+    background-color: #eee;
+}
+
+.settings-delete-user-header h3 {
+    font-size: 35px;
+}
+
+/* ----------------------------view staff---------- */
+
+.display-staff-members-heading {
+    padding: 1rem;
+    background-color: #eee;
+}
+
+.display-staff-members-heading h3 {
+    font-size: 35px;
+}
+
+/* ----------------------------Notification Component---------------- */
+
+.notificationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.notificationBox {
+    height: 60px;
+    background-color: rgb(255, 204, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.notificationBox p {
+    font-size: 20px;
+    color: #fff;
+    color: red;
+    font-weight: 500;
+}
+
+.notificationBox i {
+    background-color: white;
+    color: red;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.message {
+    margin: 0;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.loading-spin {
+    background: #fff;
+}
+
+.notificationContainer {
+    background: #fff;
+}
+
+/* ------------------------------------table-------------------------  */
+
+.price-table {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.shipment-table {
+    width: 30%;
+    box-shadow: -10px 8px 25px -8px rgba(0, 0, 0, 0.5);
+    border-collapse: collapse;
+    cursor: pointer;
+
+}
+
+.shipment-table-row {
+    background-color: #eee;
+}
+
+
+.shipment-table tbody tr:nth-child(odd) {
+    background-color: rgb(185, 214, 241);
+}
+
+.shipment-table-row td {
+    text-align: left;
+    padding: 0.3rem 0.7rem;
+    font-size: 14px;
+    border: none !important;
+}
+
+.shipment-table-td {
+    text-align: right;
 }

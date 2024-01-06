@@ -22,14 +22,30 @@ const ShipItem = () => {
 
   const handleValidation = yup.object().shape({
     // packageType: yup.string().required("Weight is required"),
-    itemWeight: yup.string().required("Weight is required"),
+    itemWeight: yup
+      .number()
+      .required("Weight is required")
+      .positive("Price must be a positive number")
+      .min(0.5, "Please Enter the weight above 0.5kg"),
     discription: yup
       .string()
       .max(50, "Item Description must be less than 50 characters!")
       .required("Item Description is required"),
-    itemLength: yup.string().required("Item Length is required"),
-    itemWidth: yup.string().required("Item Width is required"),
-    itemHeight: yup.string().required("Item Height is required"),
+    itemLength: yup
+      .number()
+      .required("Item Length is required")
+      .positive("Price must be a positive number")
+      .min(0, "Please enter value above 0"),
+    itemWidth: yup
+      .number()
+      .required("Item Width is required")
+      .positive("Price must be a positive number")
+      .min(0, "Please Enter the value above 0"),
+    itemHeight: yup
+      .number()
+      .required("Item Height is required")
+      .positive("Price must be a positive number")
+      .min(0, "Please Enter the value above 0"),
   });
 
   const initialValues = {
@@ -72,8 +88,6 @@ const ShipItem = () => {
     validationSchema: handleValidation,
     onSubmit: handleFormSubmit,
   });
-
-  // console.log(formik.values);
 
   const handleClickCancel = () => {
     navigate("/");
