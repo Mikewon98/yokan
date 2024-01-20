@@ -1,8 +1,9 @@
 .footer {
     padding: 3rem 6rem 0 6rem;
     /* background-color: #000; */
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     /* background-color: #2857A5; */
+    background-color: #06214d;
     color: #fff;
 }
 
@@ -32,7 +33,7 @@
     flex-wrap: wrap;
 }
 
-.bottom div {
+.bottom .bottom-div {
     display: flex;
     flex-direction: column;
     padding-bottom: 1.5rem;
@@ -60,6 +61,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-texts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-texts p,
+.footer-texts i {
+    text-decoration: none;
+    color: #fafafa;
+    padding-bottom: 0.4rem;
+    font-size: 1.1rem;
 }
 
 @media screen and (max-width:850px) {

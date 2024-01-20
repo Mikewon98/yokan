@@ -274,11 +274,16 @@ const Settings = () => {
       setUserError(null);
       setUserLoading(true);
 
-      const shipmentResponse = await axios.delete(
-        `http://localhost:3001/auth/deleteuser/${userId}`
-      );
+      await axios.post("http://localhost:3001/inActiveUser/setUserInactive", {
+        userId: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        country: user.country,
+      });
 
-      await shipmentResponse.data;
+      await axios.delete(`http://localhost:3001/auth/deleteuser/${userId}`);
 
       setUserLoading(false);
       alert("User Deleted successfully");
@@ -297,11 +302,21 @@ const Settings = () => {
       setStaffError(null);
       setStaffLoading(true);
 
-      const shipmentResponse = await axios.delete(
-        `http://localhost:3001/dataFeeder/deleteFeeder/${staffId}`
+      await axios.post(
+        "http://localhost:3001/inActiveFeedUser/setFeedUserInactive",
+        {
+          userId: staff._id,
+          userName: staff.userName,
+          firstName: staff.firstName,
+          lastName: staff.lastName,
+          email: staff.email,
+          phoneNumber: staff.phoneNumber,
+        }
       );
 
-      await shipmentResponse.data;
+      await axios.delete(
+        `http://localhost:3001/dataFeeder/deleteFeeder/${staffId}`
+      );
 
       setStaffLoading(false);
       alert("Staff Deleted successfully");
@@ -319,6 +334,20 @@ const Settings = () => {
     try {
       setAdminError(null);
       setAdminLoading(true);
+
+      const inactiveAdmin = await axios.post(
+        "http://localhost:3001/inActiveAdminUser/setAdminUserInactive",
+        {
+          userId: admin._id,
+          userName: admin.userName,
+          firstName: admin.firstName,
+          lastName: admin.lastName,
+          email: admin.email,
+          phoneNumber: admin.phoneNumber,
+        }
+      );
+
+      console.log(inactiveAdmin.data);
 
       const shipmentResponse = await axios.delete(
         `http://localhost:3001/admin/deleteAdminUser/${adminId}`
@@ -343,13 +372,58 @@ const Settings = () => {
       setShipmentError(null);
       setshipmentLoading(true);
 
-      const shipmentResponse = await axios.delete(
-        `http://localhost:3001/shipment/deleteShipment/${shipmentId}`
+      await axios.post(
+        "http://localhost:3001/inActiveShipment/setShipmentInactive",
+        {
+          shipmentId: shipment._id,
+          userId: shipment.userId,
+          trackingNumber: shipment.trackingNumber,
+          originCountry: shipment.originCountry,
+          originState: shipment.originState,
+          originCity: shipment.originCity,
+          originPostalCode: shipment.originPostalCode,
+          senderFullName: shipment.senderFullName,
+          senderAddress: shipment.senderAddress,
+          senderAddressTwo: shipment.senderAddressTwo,
+          senderEmail: shipment.senderEmail,
+          senderPhoneNumber: shipment.senderPhoneNumber,
+          destinationCountry: shipment.destinationCountry,
+          destinationState: shipment.destinationState,
+          destinationCity: shipment.destinationCity,
+          destinationPostalCode: shipment.destinationPostalCode,
+          reciverFullName: shipment.reciverFullName,
+          reciverAddress: shipment.reciverAddress,
+          reciverAddressTwo: shipment.reciverAddressTwo,
+          reciverEmail: shipment.reciverEmail,
+          reciverPhoneNumber: shipment.reciverPhoneNumber,
+          shipmentType: shipment.shipmentType,
+          shipmentWeight: shipment.shipmentWeight,
+          shipmentLength: shipment.shipmentLength,
+          shipmentWidth: shipment.shipmentWidth,
+          shipmentHeight: shipment.shipmentHeight,
+          shipmentDropOffDate: shipment.shipmentDropOffDate,
+          shipmentDescription: shipment.shipmentDescription,
+          price: shipment.price,
+          pickUpUpdatedBy: shipment.pickUpUpdatedBy,
+          pickUpLastUpdate: shipment.pickUpLastUpdate,
+          documentProcessingUpdatedBy: shipment.documentProcessingUpdatedBy,
+          documentProcessingLastUpdate: shipment.documentProcessingLastUpdate,
+          shipmentProcessingUpdatedBy: shipment.shipmentProcessingUpdatedBy,
+          shipmentProcessingLastUpdate: shipment.shipmentProcessingLastUpdate,
+          intransitUpdatedBy: shipment.intransitUpdatedBy,
+          intransitLastUpdate: shipment.intransitLastUpdate,
+          localDeliveryUpdatedBy: shipment.localDeliveryUpdatedBy,
+          localDeliveryLastUpdate: shipment.localDeliveryLastUpdate,
+          deliveryUpdatedBy: shipment.deliveryUpdatedBy,
+          deliveryLastUpdate: shipment.deliveryLastUpdate,
+          finishedUpdatedBy: shipment.finishedUpdatedBy,
+          finishedLastUpdate: shipment.finishedLastUpdate,
+        }
       );
 
-      await shipmentResponse.data;
-
-      console.log(shipmentResponse.data);
+      await axios.delete(
+        `http://localhost:3001/shipment/deleteShipment/${shipmentId}`
+      );
 
       setshipmentLoading(false);
       alert("Shipment Deleted successfully");
@@ -457,7 +531,7 @@ const Settings = () => {
             <td>Last Name</td>
             <td>Email</td>
             <td>Phone Number</td>
-            <td>Location</td>
+            <td>Country</td>
           </tr>
           <tr className='TrackDataDisplay-table-row'>
             <td className='TrackDataDisplay-table-td'>
@@ -473,7 +547,7 @@ const Settings = () => {
               <span>{user.phoneNumber}</span>
             </td>
             <td className='TrackDataDisplay-table-td'>
-              <span>{user.location}</span>
+              <span>{user.country}</span>
             </td>
           </tr>
         </tbody>

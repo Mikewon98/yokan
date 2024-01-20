@@ -1,15 +1,17 @@
-import React from "react";
-import WhiteBoxCroped from "../../assets/white box croped.png";
-import "./ShipItem.css";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { useFormik } from "formik";
-import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { shipmentItemAdded } from "../../state/shipmentDataItemSlice";
 import { Selectuser } from "../../state/authSlice";
+import { shipmentItemAdded } from "../../state/shipmentDataItemSlice";
 import { clearShipmentData } from "../../state/shipmentDataSlice";
+import { Spin } from "antd";
+import DatePicker from "react-datepicker";
+import WhiteBoxCroped from "../../assets/white box croped.png";
+import axios from "axios";
+import * as yup from "yup";
+import "react-datepicker/dist/react-datepicker.css";
+import "./ShipItem.css";
 
 const ShipItem = () => {
   const minimumDate = new Date();
@@ -17,8 +19,33 @@ const ShipItem = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const auth = useSelector(Selectuser);
+  const [priceLoading, setPriceLoading] = useState(false);
+  const [priceError, setPriceError] = useState(null);
+  const [currentPrice, setCurrentPrice] = useState({});
 
   const authId = auth?._id || "";
+
+  useEffect(() => {
+    const getPrice = async () => {
+      try {
+        setPriceError(null);
+        setPriceLoading(true);
+        const response = await axios.get(
+          `http://localhost:3001/price/getprice`
+        );
+        const fetchedDatas = response.data.prices[0];
+        setCurrentPrice(fetchedDatas);
+        console.log(fetchedDatas);
+        setPriceLoading(false);
+        console.log("Data price:", fetchedDatas);
+      } catch (error) {
+        setPriceLoading(false);
+        setPriceError("Error fetching data:", error.message);
+      }
+    };
+
+    getPrice();
+  }, []);
 
   const handleValidation = yup.object().shape({
     // packageType: yup.string().required("Weight is required"),
@@ -35,17 +62,17 @@ const ShipItem = () => {
       .number()
       .required("Item Length is required")
       .positive("Price must be a positive number")
-      .min(0, "Please enter value above 0"),
+      .min(0.5, "Please enter the length above 0.5"),
     itemWidth: yup
       .number()
       .required("Item Width is required")
       .positive("Price must be a positive number")
-      .min(0, "Please Enter the value above 0"),
+      .min(0.5, "Please Enter the width above 0.5"),
     itemHeight: yup
       .number()
       .required("Item Height is required")
       .positive("Price must be a positive number")
-      .min(0, "Please Enter the value above 0"),
+      .min(0.5, "Please Enter the height above 0.5"),
   });
 
   const initialValues = {
@@ -61,9 +88,14 @@ const ShipItem = () => {
   const handleFormSubmit = (values, event) => {
     const errors = formik.validateForm();
 
+    const price =
+      currentPrice?.price *
+      formik.values.itemLength *
+      formik.values.itemWidth *
+      formik.values.itemHeight;
+
     if (Object.keys(errors).length === 0) {
       const serializedDate = formik.values.dropOffDate.getTime();
-      // const trackingNumber = GeneratedTrackingString;
       dispatch(
         shipmentItemAdded(
           authId,
@@ -73,8 +105,8 @@ const ShipItem = () => {
           formik.values.itemLength,
           formik.values.itemWidth,
           formik.values.itemHeight,
-          serializedDate
-          // trackingNumber
+          serializedDate,
+          price
         )
       );
       navigate("/shippayment");
@@ -98,6 +130,25 @@ const ShipItem = () => {
     navigate("/createshipment");
     dispatch(clearShipmentData());
   };
+
+  const NotificationComponent = ({ error }) => {
+    return (
+      <div className='notificationContainer'>
+        <div className='notificationBox'>
+          <i className='fas fa-question-circle'></i>
+          <p className='message '>{error}</p>
+        </div>
+      </div>
+    );
+  };
+
+  const price =
+    currentPrice?.price *
+    formik.values.itemLength *
+    formik.values.itemWidth *
+    formik.values.itemHeight;
+
+  const priceVat = price * 0.15;
 
   return (
     <div className='ship-item-div'>
@@ -213,6 +264,16 @@ const ShipItem = () => {
             <img src={WhiteBoxCroped} alt='White box' />
           </div>
         </div>
+        <div className='item-total-display'>
+          <div className='item-amount-text'>
+            <p>Amount to pay</p>
+            <p>of which VAT</p>
+          </div>
+          <div className='item-amount-number'>
+            <p>{price > 0 ? price : 0} Birr</p>
+            <p> {priceVat > 0 ? priceVat : 0} Birr</p>
+          </div>
+        </div>
         <div className='item-div-simple-text'>
           <h3>Loss and Damage Protection (Declared Value)</h3>
           <p>
@@ -266,7 +327,11 @@ const ShipItem = () => {
           <button className='item-div-button-back' onClick={handleClickBack}>
             Back
           </button>
-          <button type='submit' className='item-div-button-continue'>
+          <button
+            type='submit'
+            className='item-div-button-continue'
+            disabled={currentPrice ? false : true}
+          >
             Continue
           </button>
           <p className='cancel-item-Shipment' onClick={handleClickCancel}>
@@ -274,6 +339,12 @@ const ShipItem = () => {
           </p>
         </div>
       </form>
+      {priceLoading && (
+        <div className='loading-spin'>
+          <Spin size='large' />
+        </div>
+      )}
+      {priceError && <NotificationComponent error={priceError} />}
     </div>
   );
 };

@@ -23,8 +23,8 @@ const persistConfig = {
 
 const reducer = combineReducers({
   auth: authReducer,
-  shipmentData: shipmentDataReducer,
   shipmentDataItem: shipmentDataItemReducer,
+  shipmentData: shipmentDataReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

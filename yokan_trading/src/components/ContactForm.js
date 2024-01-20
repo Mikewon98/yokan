@@ -14,10 +14,8 @@ const ContactForm = () => {
     email: yup.string().email().required("email is required"),
     phoneNumber: yup.string().required("phone Number is required"),
     trackingNumber: yup.string().optional(),
-    messageText: yup
-      .string()
-      .max(300, "mesage must be less than 300 characters")
-      .required("text message is required"),
+    messageText: yup.string().required("text message is required"),
+    // .max(300, "mesage must be less than 300 characters")
   });
 
   const initialValues = {
@@ -30,13 +28,25 @@ const ContactForm = () => {
     messageText: "",
   };
 
+  // const SERVICE_ID = "service_dbpy2d7";
+  // const TEMPLATE_ID = "yokan_trading_template";
+  // const PUBLIC_KEY = "t0BtJ_LtKHi2DlaUL";
+
   const handleFormSubmit = (values, event) => {
+    // emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
+    //   (result) => {
+    //     console.log(result.text);
+    //   },
+    //   (error) => {
+    //     console.log(error.text);
+    //   }
+
     emailjs
       .sendForm(
-        "service_3xtaahk",
-        "yokan_template",
+        "service_dbpy2d7",
+        "yokan_trading_template",
         form.current,
-        "eHNlGXYqjn3Eo4NVR"
+        "zYO703aorvvHoJgoO"
       )
       .then(
         (result) => {

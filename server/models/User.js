@@ -22,9 +22,9 @@ const UserSchecma = mongoose.Schema(
       type: String,
       required: true,
     },
-    location: {
+    country: {
       type: String,
-      default: "",
+      required: true,
     },
   },
   { timestamps: true }

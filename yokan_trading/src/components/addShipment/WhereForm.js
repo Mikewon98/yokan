@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import * as yup from "yup";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import "./WhereForm.css";
 import { useDispatch } from "react-redux";
 import { Selectuser } from "../../state/authSlice";
 import { useSelector } from "react-redux";
 import { shipmentAdded } from "../../state/shipmentDataSlice";
-import { GeneratedTrackingString } from "../../state/shipmentDataSlice";
 import { selectShipment } from "../../state/shipmentDataSlice";
 import { clearShipmentData } from "../../state/shipmentDataSlice";
 import { nanoid } from "@reduxjs/toolkit";
+import PhoneInput from "react-phone-input-2";
+import * as yup from "yup";
+import "react-phone-input-2/lib/style.css";
+import "./WhereForm.css";
 
 const WhereForm = () => {
   const navigate = useNavigate();

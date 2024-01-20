@@ -7,8 +7,6 @@ import {
   getFilteredRowModel,
   getSortedRowModel,
 } from "@tanstack/react-table";
-import { FaArrowUp } from "react-icons/fa";
-import { FaArrowDown } from "react-icons/fa";
 import "./TableComponents.css";
 
 const TableComponents = ({ columns, data, tableClassName }) => {
@@ -32,13 +30,18 @@ const TableComponents = ({ columns, data, tableClassName }) => {
 
   return (
     <>
-      <div className='table-search'>
-        <input
-          type='text'
-          placeholder='Search here'
-          value={filtering}
-          onChange={(e) => setFiltering(e.target.value)}
-        />
+      <div className='table-search-main'>
+        <div className='table-search'>
+          <input
+            type='text'
+            placeholder='Search here'
+            value={filtering}
+            onChange={(e) => setFiltering(e.target.value)}
+          />
+        </div>
+        <div className='table-pagination'>
+          <p>Page Index: {table.getState().pagination.pageIndex + 1}</p>
+        </div>
       </div>
       <div className={tableClassName}>
         <table className='main-table'>
@@ -55,9 +58,14 @@ const TableComponents = ({ columns, data, tableClassName }) => {
                       header.getContext()
                     )}
                     {
-                      { asc: <FaArrowUp />, desc: <FaArrowDown /> }[
-                        header.column.getIsSorted() ?? null
-                      ]
+                      {
+                        asc: (
+                          <i className='fa-solid fa-up-long sortingArrow'></i>
+                        ),
+                        desc: (
+                          <i className='fa-solid fa-down-long sortingArrow'></i>
+                        ),
+                      }[header.column.getIsSorted() ?? null]
                     }
                   </th>
                 ))}
@@ -78,21 +86,21 @@ const TableComponents = ({ columns, data, tableClassName }) => {
         </table>
       </div>
       <div className='table-buttons'>
-        <button onClick={() => table.setPageIndex(0)}>First page</button>
+        <button onClick={() => table.setPageIndex(0)}> {"<<"}</button>
         <button
           disabled={!table.getCanPreviousPage()}
           onClick={() => table.previousPage()}
         >
-          Previous page
+          {"<"}
         </button>
         <button
           disabled={!table.getCanNextPage()}
           onClick={() => table.nextPage()}
         >
-          Next page
+          {">"}
         </button>
         <button onClick={() => table.setPageIndex(table.getPageCount() - 1)}>
-          Last page
+          {">>"}
         </button>
       </div>
     </>

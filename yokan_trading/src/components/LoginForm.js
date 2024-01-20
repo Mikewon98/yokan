@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setLogin } from "../state/authSlice";
 import { Spin } from "antd";
 import { useFormik } from "formik";
+import { jwtDecode } from "jwt-decode";
 import * as yup from "yup";
 import "./LoginForm.css";
 
@@ -23,21 +24,24 @@ const LoginForm = () => {
         body: JSON.stringify(values),
       });
       const loggedIn = await loggedInResponse.json();
-      console.log(loggedInResponse.status);
-      console.log(loggedIn.user);
-      console.log(loggedIn.token);
-      onSubmitProps.resetForm();
+      // console.log(loggedInResponse.status);
+      // console.log(loggedIn.user);
+      // console.log(loggedIn.token);
+      // console.log(loggedInResponse);
 
-      console.log(loggedInResponse);
+      // const decodedToken = jwt.decode(loggedIn.token);
+      const decodedToken = jwtDecode(loggedIn.token);
 
       if (loggedInResponse.status === 200) {
         dispatch(
           setLogin({
             user: loggedIn.user,
             token: loggedIn.token,
+            tokenExpiration: decodedToken.exp * 1000,
           })
         );
 
+        onSubmitProps.resetForm();
         navigate("/");
       } else {
         setError("Incorrect Credentials. Please try again.");
@@ -46,7 +50,8 @@ const LoginForm = () => {
     } catch (e) {
       setLoading(false);
       console.log("Error state:", e);
-      setError("An error occurred. Please try again.");
+      // setError("An error occurred. Please try again.");
+      setError("Incorrect Credentials. Please try again.");
     }
   };
 

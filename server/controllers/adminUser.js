@@ -11,7 +11,12 @@ export const loginAdminUser = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: "Invalid Credentials." });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    const tokenExpiration = Math.floor(Date.now() / 1000) + 60 * 60;
+
+    const token = jwt.sign(
+      { id: user._id, exp: tokenExpiration },
+      process.env.JWT_SECRET
+    );
     delete user.password;
     res.status(200).json({ token, user });
   } catch (err) {

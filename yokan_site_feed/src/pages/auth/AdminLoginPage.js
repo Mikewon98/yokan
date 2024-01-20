@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginAdmin } from "../../state/adminAuthSlice";
 import * as yup from "yup";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import { Spin } from "antd";
 import "./AdminLoginPage.css";
 
@@ -58,7 +59,7 @@ const AdminLoginPage = () => {
       setError(null);
       setLoading(true);
       const loggedInResponse = await fetch(
-        "http://localhost:3001/dataFeeder/login",
+        "http://localhost:3001/admin/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -66,20 +67,27 @@ const AdminLoginPage = () => {
         }
       );
       const loggedIn = await loggedInResponse.json();
-      console.log(loggedInResponse.status);
-      console.log(loggedIn.user);
-      console.log(loggedIn.token);
-      onSubmitProps.resetForm();
+      // console.log(loggedInResponse.status);
+      // console.log(loggedIn.user);
+      // console.log(loggedIn.token);
+      // console.log(loggedInResponse);
 
-      console.log(loggedInResponse);
+      console.log("Logged in response" + loggedIn);
+
+      const decodedToken = jwtDecode(loggedIn.token);
+
+      console.log(decodedToken);
 
       if (loggedInResponse.status === 200) {
         dispatch(
           loginAdmin({
             adminUser: loggedIn.user,
             adminToken: loggedIn.token,
+            adminTokenExpiration: decodedToken.exp * 1000,
           })
         );
+
+        onSubmitProps.resetForm();
         navigate("/dashboard");
       } else {
         setError("Incorrect Credentials. Please try again.");
@@ -158,6 +166,7 @@ const AdminLoginPage = () => {
             <button type='submit' className='admin-login-button'>
               Sign In
             </button>
+            {/* here change login path */}
             <Link className='send-to-login' to='/'>
               Login as Feeder
             </Link>

@@ -33,7 +33,8 @@ const WhyUs = () => {
               style={{
                 padding: "1.5rem",
                 marginBottom: "1.5rem",
-                backgroundColor: " #87CEEB",
+                // backgroundColor: " #87CEEB",
+                backgroundColor: " #2857A5",
               }}
             >
               <i
@@ -68,7 +69,8 @@ const WhyUs = () => {
               style={{
                 padding: "1.5rem",
                 marginBottom: "1.5rem",
-                backgroundColor: "#00BFFF",
+                backgroundColor: "#2857A5",
+                // backgroundColor: "#00BFFF",
               }}
             >
               <i
@@ -104,7 +106,8 @@ const WhyUs = () => {
               style={{
                 padding: "1.5rem",
                 marginBottom: "1.5rem",
-                backgroundColor: "#008080",
+                // backgroundColor: "#008080",
+                backgroundColor: "#2857A5",
               }}
             >
               <i
@@ -139,7 +142,8 @@ const WhyUs = () => {
               style={{
                 padding: "1.5rem",
                 marginBottom: "1.5rem",
-                backgroundColor: "#C0C0C0",
+                // backgroundColor: "#C0C0C0",
+                backgroundColor: "#2857A5",
               }}
             >
               <i

@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
+import { Spin } from "antd";
 import mData from "../components/MOCK_DATA.json";
 import { BASE_URL } from "../constant/constant";
 import { DateTime } from "luxon";
@@ -181,6 +182,76 @@ const AllShipment = () => {
       accessorKey: "shipmentDescription",
     },
     {
+      header: "Pick up by",
+      accessorKey: "pickUpUpdatedBy",
+    },
+    {
+      header: "Pick up update",
+      accessorKey: "pickUpLastUpdate",
+      cell: (info) =>
+        DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
+      header: "Document processed by",
+      accessorKey: "documentProcessingUpdatedBy",
+    },
+    {
+      header: "Document process update",
+      accessorKey: "documentProcessingLastUpdate",
+      cell: (info) =>
+        DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
+      header: "Shipment processed by",
+      accessorKey: "shipmentProcessingUpdatedBy",
+    },
+    {
+      header: "Shipment process update",
+      accessorKey: "shipmentProcessingLastUpdate",
+      cell: (info) =>
+        DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
+      header: "Intransit update by",
+      accessorKey: "intransitUpdatedBy",
+    },
+    {
+      header: "Intransit update",
+      accessorKey: "intransitLastUpdate",
+      cell: (info) =>
+        DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
+      header: "local delivery update by",
+      accessorKey: "localDeliveryUpdatedBy",
+    },
+    {
+      header: "local delivery update",
+      accessorKey: "localDeliveryLastUpdate",
+      cell: (info) =>
+        DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
+      header: "Delivery update by",
+      accessorKey: "deliveryUpdatedBy",
+    },
+    {
+      header: "Delivery update",
+      accessorKey: "deliveryLastUpdate",
+      cell: (info) =>
+        DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
+      header: "Finished update by",
+      accessorKey: "finishedUpdatedBy",
+    },
+    {
+      header: "Finished Update",
+      accessorKey: "finishedLastUpdate",
+      cell: (info) =>
+        DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
       header: "Shipment Created",
       accessorKey: "createdAt",
       cell: (info) =>
@@ -191,7 +262,9 @@ const AllShipment = () => {
   return (
     <div className='allShipment'>
       {loading ? (
-        <p>Loading...</p>
+        <div className='loading-spin'>
+          <Spin size='large' />
+        </div>
       ) : (
         <TableComponents
           columns={columns}

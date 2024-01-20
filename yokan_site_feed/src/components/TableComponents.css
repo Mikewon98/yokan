@@ -1,14 +1,13 @@
 .table-container {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: flex-start;
+    overflow-x: scroll;
 }
 
 .table-container-shipment {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
     overflow-x: scroll;
 }
@@ -39,7 +38,7 @@
     padding: 6px 8px;
     text-align: left;
     border: 1px solid #ddd;
-    background-color: rgb(86, 176, 228);
+    background-color: var(--yokan-blue-light-color);
     color: white;
 }
 
@@ -64,17 +63,23 @@
     padding: 6px 8px;
     text-align: left;
     border: 1px solid #ddd;
-    background-color: rgb(86, 176, 228);
+    background-color: var(--yokan-blue-light-color);
     color: white;
 }
 
+.table-search-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .table-search input {
-    width: 400px;
+    width: 300px;
     background: #eee;
     border-radius: 10px;
     border: 3px solid rgb(0, 162, 255);
-    font-size: 1.3rem;
-    padding: 8px;
+    font-size: 14px;
+    padding: 4px 8px;
     margin: 8px 2px;
 }
 
@@ -82,6 +87,10 @@
     font-size: 30px;
     font-weight: 600;
     text-align: center;
+}
+
+.sortingArrow {
+    padding-left: 10px;
 }
 
 .table-buttons button {

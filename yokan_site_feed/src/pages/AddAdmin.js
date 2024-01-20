@@ -70,7 +70,7 @@ const AddAdmin = () => {
           "Phone number or User Name is already registered. Please use another."
         );
       } else if (signupResponse.status === 201) {
-        alert("User registered successfully");
+        alert("Admin registered successfully");
         navigate("/dashboard");
       } else {
         setError("Something occurred.");

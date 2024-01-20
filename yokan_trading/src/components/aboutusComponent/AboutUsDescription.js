@@ -16,7 +16,7 @@ const AboutUsDescription = () => {
             custom valuation, freight forwarding and maritime law. The company
             clears goods from the port of Djibouti through the Addis Ababa
             customs office and other customs branch offices, as well as for
-            goods originating from Ethiopia to various countries. With strong
+            goods originating from Ethiopia to various countries with strong
             commitment to ethical business practice, safety and compliance,
             speed & efficiency, convenience and confidentiality, we are
             dedicated to contributing to the growth of the logistic sector in

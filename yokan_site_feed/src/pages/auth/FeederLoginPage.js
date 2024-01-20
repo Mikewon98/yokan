@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import * as yup from "yup";
 import { Spin } from "antd";
 import { loginFeeder } from "../../state/feedAuthSlice";
+import * as yup from "yup";
+import { jwtDecode } from "jwt-decode";
 import "./FeederLoginPage.css";
 
 const FeederLoginPage = () => {
@@ -66,20 +67,23 @@ const FeederLoginPage = () => {
         }
       );
       const loggedIn = await loggedInResponse.json();
-      console.log(loggedInResponse.status);
-      console.log(loggedIn.user);
-      console.log(loggedIn.token);
-      onSubmitProps.resetForm();
+      // console.log(loggedInResponse.status);
+      // console.log(loggedIn.user);
+      // console.log(loggedIn.token);
+      // console.log(loggedInResponse);
 
-      console.log(loggedInResponse);
+      const decodedToken = jwtDecode(loggedIn.token);
 
       if (loggedInResponse.status === 200) {
         dispatch(
           loginFeeder({
             feederUser: loggedIn.user,
             feederToken: loggedIn.token,
+            feederTokenExpiration: decodedToken.exp * 1000,
           })
         );
+
+        onSubmitProps.resetForm();
         navigate("/dashboard");
       } else {
         setError("Incorrect Credentials. Please try again.");

@@ -14,6 +14,7 @@ const AddUser = () => {
     firstName: "",
     lastName: "",
     email: "",
+    country: "",
     phoneNumber: "",
     password: "",
     confirmPassword: "",
@@ -22,6 +23,7 @@ const AddUser = () => {
   const validationSchema = yup.object({
     firstName: yup.string().required("Required"),
     lastName: yup.string().required("Required"),
+    country: yup.string().required("Required"),
     email: yup
       .string()
       .email("Please enter a valid email")
@@ -39,7 +41,8 @@ const AddUser = () => {
   });
 
   const handleSubmit = async (values, onSubmitProps) => {
-    const { firstName, lastName, email, phoneNumber, password } = values;
+    const { firstName, lastName, email, phoneNumber, password, country } =
+      values;
     try {
       setError(null);
       setLoading(true);
@@ -54,6 +57,7 @@ const AddUser = () => {
             lastName,
             email,
             phoneNumber,
+            country,
             password,
           }),
         }
@@ -152,6 +156,17 @@ const AddUser = () => {
         />
         {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
           <p className='error-text'>{formik.errors.phoneNumber}</p>
+        ) : null}
+        <input
+          name='country'
+          value={formik.country}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder='Country'
+          className='signup-input'
+        />
+        {formik.touched.country && formik.errors.country ? (
+          <p className='error-text'>{formik.errors.country}</p>
         ) : null}
         <input
           name='password'

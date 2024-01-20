@@ -31,6 +31,20 @@ export const createShipment = async (req, res) => {
       shipmentDropOffDate,
       shipmentDescription,
       price,
+      pickUpUpdatedBy,
+      pickUpLastUpdate,
+      documentProcessingUpdatedBy,
+      documentProcessingLastUpdate,
+      shipmentProcessingUpdatedBy,
+      shipmentProcessingLastUpdate,
+      intransitUpdatedBy,
+      intransitLastUpdate,
+      localDeliveryUpdatedBy,
+      localDeliveryLastUpdate,
+      deliveryUpdatedBy,
+      deliveryLastUpdate,
+      finishedUpdatedBy,
+      finishedLastUpdate,
     } = req.body;
 
     const newShipment = new Shipment({
@@ -62,6 +76,20 @@ export const createShipment = async (req, res) => {
       shipmentDropOffDate,
       shipmentDescription,
       price,
+      pickUpUpdatedBy,
+      pickUpLastUpdate,
+      documentProcessingUpdatedBy,
+      documentProcessingLastUpdate,
+      shipmentProcessingUpdatedBy,
+      shipmentProcessingLastUpdate,
+      intransitUpdatedBy,
+      intransitLastUpdate,
+      localDeliveryUpdatedBy,
+      localDeliveryLastUpdate,
+      deliveryUpdatedBy,
+      deliveryLastUpdate,
+      finishedUpdatedBy,
+      finishedLastUpdate,
     });
 
     const savedShipment = await newShipment.save();
@@ -137,19 +165,167 @@ export const getAllShipment = async (req, res) => {
 export const updateShipment = async (req, res) => {
   try {
     const { trackingNumber } = req.params;
-    const { status } = req.body;
+    const {
+      status,
+      pickUpUpdatedBy,
+      pickUpLastUpdate,
+      documentProcessingUpdatedBy,
+      documentProcessingLastUpdate,
+      shipmentProcessingUpdatedBy,
+      shipmentProcessingLastUpdate,
+      intransitUpdatedBy,
+      intransitLastUpdate,
+      localDeliveryUpdatedBy,
+      localDeliveryLastUpdate,
+      deliveryUpdatedBy,
+      deliveryLastUpdate,
+      finishedUpdatedBy,
+      finishedLastUpdate,
+    } = req.body;
 
-    const shipment = await Shipment.findOneAndUpdate(
-      { trackingNumber },
-      { status },
-      { new: true }
-    );
+    console.log(status);
 
-    if (!shipment) {
+    if (status == "pickUp") {
+      const shipment = await Shipment.findOneAndUpdate(
+        { trackingNumber },
+        {
+          $set: {
+            status,
+            pickUpUpdatedBy,
+            pickUpLastUpdate,
+          },
+        },
+        { new: true }
+      );
+
+      if (!shipment) {
+        return res.status(404).json({ msg: "Shipment not found" });
+      }
+
+      res.json({ shipment });
+    } else if (status == "Document Processing") {
+      const shipment = await Shipment.findOneAndUpdate(
+        { trackingNumber },
+        {
+          $set: {
+            status,
+            documentProcessingUpdatedBy,
+            documentProcessingLastUpdate,
+          },
+        },
+        { new: true }
+      );
+
+      if (!shipment) {
+        return res.status(404).json({ msg: "Shipment not found" });
+      }
+
+      res.json({ shipment });
+    } else if (status == "Shipment Processing") {
+      const shipment = await Shipment.findOneAndUpdate(
+        { trackingNumber },
+        {
+          $set: {
+            status,
+            shipmentProcessingUpdatedBy,
+            shipmentProcessingLastUpdate,
+          },
+        },
+        { new: true }
+      );
+
+      if (!shipment) {
+        return res.status(404).json({ msg: "Shipment not found" });
+      }
+
+      res.json({ shipment });
+    } else if (status == "InTransit") {
+      const shipment = await Shipment.findOneAndUpdate(
+        { trackingNumber },
+        {
+          $set: {
+            status,
+            intransitUpdatedBy,
+            intransitLastUpdate,
+          },
+        },
+        { new: true }
+      );
+
+      if (!shipment) {
+        return res.status(404).json({ msg: "Shipment not found" });
+      }
+
+      res.json({ shipment });
+    } else if (status == "Local Delivery") {
+      const shipment = await Shipment.findOneAndUpdate(
+        { trackingNumber },
+        {
+          $set: {
+            status,
+            localDeliveryUpdatedBy,
+            localDeliveryLastUpdate,
+          },
+        },
+        { new: true }
+      );
+
+      if (!shipment) {
+        return res.status(404).json({ msg: "Shipment not found" });
+      }
+
+      res.json({ shipment });
+    } else if (status == "Delivered") {
+      const shipment = await Shipment.findOneAndUpdate(
+        { trackingNumber },
+        {
+          $set: {
+            status,
+            deliveryUpdatedBy,
+            deliveryLastUpdate,
+          },
+        },
+        { new: true }
+      );
+
+      if (!shipment) {
+        return res.status(404).json({ msg: "Shipment not found" });
+      }
+
+      res.json({ shipment });
+    } else if (status == "Finished") {
+      const shipment = await Shipment.findOneAndUpdate(
+        { trackingNumber },
+        {
+          $set: {
+            status,
+            finishedUpdatedBy,
+            finishedLastUpdate,
+          },
+        },
+        { new: true }
+      );
+
+      if (!shipment) {
+        return res.status(404).json({ msg: "Shipment not found" });
+      }
+
+      res.json({ shipment });
+    } else {
       return res.status(404).json({ msg: "Shipment not found" });
     }
 
-    res.json({ shipment });
+    // const shipment = await Shipment.findOneAndUpdate(
+    //   { trackingNumber },
+    //   { status },
+    //   { new: true }
+    // );
+
+    // if (!shipment) {
+    //   return res.status(404).json({ msg: "Shipment not found" });
+    // }
+
+    // res.json({ shipment });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ msg: "Internal server error" });

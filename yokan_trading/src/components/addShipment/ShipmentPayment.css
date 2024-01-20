@@ -91,6 +91,11 @@
     border-bottom: 0.5px solid #7a7a7a;
 }
 
+.shipment-payment-row p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .shipment-payment-row-img {
     width: 150px;
     height: 50px;
@@ -111,16 +116,23 @@
 }
 
 .shipment-final-payment {
-    margin: 0 1rem;
-}
-
-
-.shipment-final-payment-button {
-    background-color: rgb(13, 13, 114);
+    margin: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.shipment-final-payment-button {
+    background-color: rgb(14, 14, 233);
+    /* display: flex;
+    align-items: center;
+    justify-content: center;*/
     cursor: pointer;
+    height: 60px;
+    padding: 1rem 5rem;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
     transition: 0.3s ease-in-out;
 }
 
@@ -136,7 +148,7 @@
 }
 
 .shipment-final-payment-button:hover {
-    background-color: rgb(14, 14, 233);
+    background-color: rgb(13, 13, 114);
 }
 
 /* -------------------CheckBox------------------------ */
@@ -471,10 +483,8 @@ body.active-modal {
         font-size: 12px;
     }
 
-    .shipment-final-payment-button p {
-        padding: 0.6rem;
-        color: #fff;
-        font-size: 16px;
+    .shipment-final-payment-button {
+        font-size: 13px;
     }
 
 }

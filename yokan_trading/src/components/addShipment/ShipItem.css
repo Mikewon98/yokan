@@ -94,6 +94,19 @@ p {
     flex-direction: column;
 }
 
+/* ---------------------------Item Price----------------------- */
+
+.item-total-display {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+    border-top: 2px solid blue;
+    background-color: rgb(177, 226, 255);
+}
+
+
 /* ..........................Schedule pick up------------- */
 
 
@@ -192,9 +205,10 @@ p {
     font-size: 16px;
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
-    background-color: rgb(255, 187, 0);
+    /* background-color: rgb(255, 187, 0); */
+    background-color: #ff9401;
     border: none;
-    box-shadow: 2px 2px 2px #2e2e2e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: 0.4s ease;
     margin: 0 2rem;
@@ -458,5 +472,9 @@ p {
     .cancel-item-Shipment {
         padding: 0.5rem;
         font-size: 12px;
+    }
+
+    .item-total-display {
+        padding: 1rem;
     }
 }

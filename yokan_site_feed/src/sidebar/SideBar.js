@@ -1,10 +1,13 @@
 import React from "react";
-import "./sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 // import navLinks from "../assets/linkData/navLinks";
+import logo from "../assets/images/yokan-1.png";
+import logo2 from "../assets/images/Yokan.png";
+import logo3 from "../assets/images/Yokan-Crop.png";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutFeeder } from "../state/feedAuthSlice";
 import { logoutAdmin, SelectAdmin } from "../state/adminAuthSlice";
+import "./sidebar.css";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -206,10 +209,17 @@ const SideBar = () => {
   return (
     <div className='sidebar'>
       <div className='sidebar__top'>
+        {/* <h2 className='sidebar__top__heading'>
+          <div className='sidebar__top__logo__div'>
+            <img className='sidebar__top__logo' src={logo3} alt='Logo' />
+          </div>
+          Yokan
+        </h2> */}
+
         <h2 className='sidebar__top__heading'>
-          <span>
-            <i className='fa-sharp fa-solid fa-y'></i>
-          </span>
+          <div className='sidebar__top__logo__div'>
+            <img className='sidebar__top__logo' src={logo3} alt='Logo' />
+          </div>
           Yokan
         </h2>
       </div>

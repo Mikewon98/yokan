@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearShipmentData } from "../../state/shipmentDataSlice";
@@ -7,9 +8,9 @@ import { selectShipment } from "../../state/shipmentDataSlice";
 import { selectShipmentItem } from "../../state/shipmentDataItemSlice";
 import { Selectuser } from "../../state/authSlice";
 import chappa from "../../assets/Chapa Logo.png";
-import axios from "axios";
 import { Spin } from "antd";
 import "./ShipmentPayment.css";
+import { selectTrackingNumber } from "../../state/shipmentDataSlice";
 
 const ShipmentPayment = () => {
   const [paymentModal, setPaymentModal] = useState(false);
@@ -20,41 +21,40 @@ const ShipmentPayment = () => {
   const user = useSelector(Selectuser);
   const shipmentArray = shipment[0];
   const shipmentItemArray = shipmentItem[0];
-  const [priceLoading, setPriceLoading] = useState(false);
-  const [priceError, setPriceError] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [currentPrice, setCurrentPrice] = useState({});
+  const [checkbox, setCheckbox] = useState(false);
+  // const [priceLoading, setPriceLoading] = useState(false);
+  // const [priceError, setPriceError] = useState(null);
+  // const [currentPrice, setCurrentPrice] = useState({});
+  const trackingNumber = useSelector(selectTrackingNumber);
+  console.log(trackingNumber);
 
-  useEffect(() => {
-    const getPrice = async () => {
-      try {
-        setPriceError(null);
-        setPriceLoading(true);
-        const response = await axios.get(
-          `http://localhost:3001/price/getprice`
-        );
-        const fetchedDatas = response.data.prices[0];
-        setCurrentPrice(fetchedDatas);
-        console.log(fetchedDatas);
-        setPriceLoading(false);
-        console.log("Data price:", fetchedDatas);
-      } catch (error) {
-        setPriceLoading(false);
-        setPriceError("Error fetching data:", error.message);
-      }
-    };
+  // useEffect(() => {
+  //   const getPrice = async () => {
+  //     try {
+  //       setPriceError(null);
+  //       setPriceLoading(true);
+  //       const response = await axios.get(
+  //         `http://localhost:3001/price/getprice`
+  //       );
+  //       const fetchedDatas = response.data.prices[0];
+  //       setCurrentPrice(fetchedDatas);
+  //       console.log(fetchedDatas);
+  //       setPriceLoading(false);
+  //       console.log("Data price:", fetchedDatas);
+  //     } catch (error) {
+  //       setPriceLoading(false);
+  //       setPriceError("Error fetching data:", error.message);
+  //     }
+  //   };
 
-    getPrice();
-  }, []);
+  //   getPrice();
+  // }, []);
 
-  const price =
-    currentPrice.price *
-    shipmentItemArray.length *
-    shipmentItemArray.width *
-    shipmentItemArray.height;
+  // const priceVat = shipmentItemArray?.price * 0.15 ?? 0;
 
-  const priceVat = price * 0.15;
+  // const priceVat = price * 0.15;
 
   const addShipment = async () => {
     try {
@@ -90,13 +90,14 @@ const ShipmentPayment = () => {
           shipmentHeight: shipmentItemArray.height,
           shipmentDropOffDate: shipmentItemArray.dropOffDate,
           shipmentDescription: shipmentItemArray.discription,
-          price: price,
+          price: shipmentItemArray.price,
         },
         {
           headers: { "Content-Type": "application/json" },
         }
       );
       await shipmentDataResponse.data;
+      setPaymentModal(!paymentModal);
       setLoading(false);
     } catch (e) {
       console.log(e);
@@ -105,11 +106,58 @@ const ShipmentPayment = () => {
     }
   };
 
-  // dispatch(clearShipmentItemAdded());
+  const checkOutToPayment = async () => {
+    try {
+      setError(null);
+      setLoading(true);
+
+      const response = await fetch("http://localhost:3001/api/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          phoneNumber: user.phoneNumber,
+          amount: shipmentItemArray.price ?? 0,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      console.log(response.status);
+
+      const data = await response.json();
+      const checkoutUrl = data.data.checkout_url;
+
+      // Redirect to the checkout URL
+      window.open(checkoutUrl, "_blank");
+
+      if (response.status === 400) {
+        setError(" Required Attribute: [ “validation.required”]");
+      } else if (response.status === 200 || response.status === 201) {
+        addShipment();
+        // dispatch(clearShipmentData());
+        // dispatch(clearShipmentItemAdded());
+        // navigate("/");
+      } else {
+        setError("Something occurred now.");
+      }
+
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      console.log("Error state:", e);
+      setError("An error occurred. Please try again.");
+    }
+  };
 
   const handlePayment = () => {
-    setPaymentModal(!paymentModal);
-    addShipment();
+    // setPaymentModal(!paymentModal);
+    checkOutToPayment();
+    // addShipment();
   };
 
   const clearDispatch = () => {
@@ -128,6 +176,10 @@ const ShipmentPayment = () => {
     navigate("/createshipment");
     dispatch(clearShipmentData());
     dispatch(clearShipmentItemAdded());
+  };
+
+  const handleCheckbox = () => {
+    setCheckbox(true);
   };
 
   if (paymentModal) {
@@ -159,6 +211,10 @@ const ShipmentPayment = () => {
       <p>{item.destinationCity}</p>
       <p>{item.reciverEmail}</p>
     </div>
+  ));
+
+  const priceTable = shipmentItem?.map((item) => (
+    <p key={item.id}>{item.price}</p>
   ));
 
   const NotificationComponent = ({ error }) => {
@@ -223,7 +279,8 @@ const ShipmentPayment = () => {
                     <h3>Price</h3>
                   </div>
                   <div className='shipment-products-content'>
-                    <p>{price > 0 ? price : 0} birr</p>
+                    {/* <p>{shipmentItemArray?.price ?? 0} birr</p> */}
+                    {priceTable}
                   </div>
                 </div>
               </div>
@@ -254,8 +311,8 @@ const ShipmentPayment = () => {
                   <p>of which VAT</p>
                 </div>
                 <div className='shipment-amount-number'>
-                  <p>{price > 0 ? price : 0} Birr</p>
-                  <p> {priceVat > 0 ? priceVat : 0} Birr</p>
+                  <p>{shipmentItemArray?.price ?? 0} Birr</p>
+                  <p> {shipmentItemArray?.price * 0.15 ?? 0} Birr</p>
                 </div>
               </div>
             </div>
@@ -278,7 +335,12 @@ const ShipmentPayment = () => {
               </div>
               <div className='shipment-terms-and-condition-text'>
                 <label className='custom-checkbox'>
-                  <input type='checkbox' />
+                  <input
+                    name='checkbox'
+                    value={checkbox}
+                    onChange={handleCheckbox}
+                    type='checkbox'
+                  />
                   <span className='checkmark'></span>I verify that my shipments
                   are within the dimensions and weight limits for selected
                   products and approve the terms of service, distance agreement
@@ -287,14 +349,22 @@ const ShipmentPayment = () => {
               </div>
             </div>
             <div className='shipment-final-payment'>
-              <div
+              {/* <div
                 className='shipment-final-payment-button'
                 onClick={handlePayment}
                 // disabled={currentPrice ? false : true}
               >
                 <p>Continue to payment</p>
-              </div>
+              </div> */}
+              <button
+                className='shipment-final-payment-button'
+                onClick={handlePayment}
+                disabled={checkbox ? false : true}
+              >
+                Continue Payment
+              </button>
             </div>
+
             <div className='shipment-white-space'></div>
           </div>
         </div>
@@ -304,12 +374,12 @@ const ShipmentPayment = () => {
           </div>
         )}
         {error && <NotificationComponent error={error} />}
-        {priceLoading && (
+        {/* {priceLoading && (
           <div className='loading-spin'>
             <Spin size='large' />
           </div>
         )}
-        {priceError && <NotificationComponent error={priceError} />}
+        {priceError && <NotificationComponent error={priceError} />} */}
       </div>
 
       {paymentModal && (

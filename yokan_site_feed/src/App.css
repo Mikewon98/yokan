@@ -3,6 +3,10 @@
 :root {
     --primary-color: #181b3a;
     --secondary-color: #01d293;
+    --yokan-blue-color: #2858A5;
+    --yokan-blue-light-color: #4779ca;
+    --yokan-yellow-primary-color: #FF7E00;
+    --yokan-yellow-secondary-color: #ff9401;
     --body-bg: #5a5b91;
     --card-01-bg: linear-gradient(#ef621c, #e1424e);
     --card-02-bg: linear-gradient(#01d293, #56c57a);

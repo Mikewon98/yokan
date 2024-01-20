@@ -61,9 +61,10 @@
     font-size: 16px;
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
-    background-color: rgb(255, 187, 0);
+    /* background-color: rgb(255, 187, 0); */
+    background-color: #ff9401;
     border: none;
-    box-shadow: 2px 2px 2px #2e2e2e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: 0.4s ease;
 }

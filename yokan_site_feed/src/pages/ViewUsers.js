@@ -3,6 +3,7 @@ import axios from "axios";
 import { DateTime } from "luxon";
 import { BASE_URL } from "../constant/constant";
 import TableComponents from "../components/TableComponents";
+import { Spin } from "antd";
 import "../styles/viewUsers.css";
 
 const ViewUsers = () => {
@@ -58,9 +59,15 @@ const ViewUsers = () => {
   return (
     <div className='viewUsers'>
       {loading ? (
-        <p>Loading...</p>
+        <div className='loading-spin'>
+          <Spin size='large' />
+        </div>
       ) : (
-        <TableComponents columns={columns} data={data} />
+        <TableComponents
+          columns={columns}
+          data={data}
+          tableClassName={"table-container "}
+        />
       )}
     </div>
   );

@@ -118,6 +118,76 @@ const ShipmentSchecma = mongoose.Schema(
       required: true,
       default: 0,
     },
+    pickUpUpdatedBy: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    pickUpLastUpdate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    documentProcessingUpdatedBy: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    documentProcessingLastUpdate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    shipmentProcessingUpdatedBy: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    shipmentProcessingLastUpdate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    intransitUpdatedBy: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    intransitLastUpdate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    localDeliveryUpdatedBy: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    localDeliveryLastUpdate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    deliveryUpdatedBy: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    deliveryLastUpdate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    finishedUpdatedBy: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    finishedLastUpdate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
   },
   { timestamps: true }
 );

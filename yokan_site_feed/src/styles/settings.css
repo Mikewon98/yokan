@@ -9,7 +9,7 @@
 }
 
 .settings-header h3 {
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .settings-price-adjustment {
@@ -31,23 +31,24 @@
 }
 
 .price-adjustment-div input {
-    width: 400px;
+    width: 300px;
     background: #eee;
-    border-radius: 10px;
-    border: 3px solid rgb(0, 162, 255);
-    font-size: 1.3rem;
-    padding: 8px;
+    border-radius: 8px;
+    border: 3px solid #2858A5;
+    font-size: 14px;
+    padding: 4px 8px;
     margin: 8px 2px;
 }
 
 .price-adjustment-btn {
-    font-size: 16px;
-    padding: 0.7rem 1.5rem;
+    font-size: 14px;
+    /* padding: 0.7rem 1.5rem; */
+    padding: 0.5rem 1rem;
     border-radius: 10px;
-    background-color: rgb(255, 187, 0);
     border: none;
     font-weight: bold;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: #ff9401;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: 0.4s ease;
 }
@@ -69,7 +70,7 @@
 }
 
 .settings-delete-user-header h3 {
-    font-size: 35px;
+    font-size: 25px;
 }
 
 /* ----------------------------view staff---------- */
@@ -80,7 +81,7 @@
 }
 
 .display-staff-members-heading h3 {
-    font-size: 35px;
+    font-size: 25px;
 }
 
 /* ----------------------------Notification Component---------------- */
@@ -130,11 +131,12 @@
     text-align: center;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
-}
-
-.loading-spin {
     background: #fff;
 }
+
+/* .loading-spin {
+    background: #fff;
+} */
 
 .notificationContainer {
     background: #fff;

@@ -1,19 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
-const initialState = [
-  // {
-  //   id: "1",
-  //   userId: "awd",
-  //   trackingNumber: "awwd",
-  //   packageType: "Mawd",
-  //   weight: 4534,
-  //   length: "This a pharmaceutical product",
-  //   width: 34,
-  //   height: 23,
-  //   dropOffDate: "23/3/23",
-  // },
-];
+const initialState = [];
 
 export const shipmentDataItemSlice = createSlice({
   name: "shipmentDataItem",
@@ -31,8 +18,8 @@ export const shipmentDataItemSlice = createSlice({
         length,
         width,
         height,
-        dropOffDate
-        // trackingNumber
+        dropOffDate,
+        price
       ) {
         return {
           payload: {
@@ -45,7 +32,7 @@ export const shipmentDataItemSlice = createSlice({
             width,
             height,
             dropOffDate,
-            // trackingNumber,
+            price,
           },
         };
       },

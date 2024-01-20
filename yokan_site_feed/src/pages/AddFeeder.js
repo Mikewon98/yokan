@@ -70,7 +70,7 @@ const AddFeeder = () => {
           "Phone number or User name is already registered. Please use another."
         );
       } else if (signupResponse.status === 201) {
-        alert("User registered successfully");
+        alert("Staff member registered successfully");
         navigate("/dashboard");
       } else {
         setError("Something occurred.");

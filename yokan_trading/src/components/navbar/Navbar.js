@@ -11,7 +11,12 @@ import { useDispatch } from "react-redux";
 import { setLogout } from "../../state/authSlice";
 // import logo from "../../assets/yokan-logo.png";
 import logo3 from "../../assets/new yokan logo.png";
+import logo4 from "../../assets/Yokan.png";
 import logo from "../../assets/Yokan-Trading-P.L.C.jpeg";
+import logo5 from "../../assets/YYYokan.png";
+import logo6 from "../../assets/yokan-1.png";
+import logo7 from "../../assets/photo1705395243.jpeg";
+import logo8 from "../../assets/Yokan-Crop.png";
 import "./Navbar.css";
 
 const NavBar = () => {
@@ -47,8 +52,13 @@ const NavBar = () => {
         <Container>
           <Navbar.Brand as={Link} to='/'>
             <Container>
+              {/* <img src={logo} alt='Yokan logo' /> */}
               {/* <img src={logo3} alt='Yokan logo' /> */}
-              <img src={logo} alt='Yokan logo' />
+              {/* <img src={logo4} alt='Yokan logo' /> */}
+              {/* <img src={logo5} alt='Yokan logo' /> */}
+              {/* <img src={logo6} alt='Yokan logo' /> */}
+              {/* <img src={logo7} alt='Yokan logo' /> */}
+              <img src={logo8} alt='Yokan logo' />
             </Container>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

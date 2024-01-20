@@ -1,0 +1,66 @@
+.success-main {
+    margin-top: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-modal-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 8px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.success-show-tracking-number {
+    padding: 2rem 4rem;
+    background-color: rgb(253, 202, 107);
+    border-radius: 10px;
+}
+
+.success-modal-content-heading {
+    padding: 2rem;
+    font-size: 27px;
+}
+
+.success-tracking-number {
+    font-size: 2rem;
+}
+
+.success-tracking-number-text {
+    font-size: 1rem;
+    padding: 2rem 4rem;
+    text-align: center;
+}
+
+.success-tracking-number-warning {
+    font-size: 1rem;
+    color: blue;
+    padding: 1rem 4rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 485px) {
+    .success-modal-content-heading {
+        padding: 1rem;
+        font-size: 20px;
+    }
+
+    .success-show-tracking-number {
+        padding: 2rem;
+    }
+
+    .success-tracking-number-text {
+        padding: 1rem;
+    }
+
+    .success-tracking-number-warning {
+        padding: 1rem;
+    }
+}

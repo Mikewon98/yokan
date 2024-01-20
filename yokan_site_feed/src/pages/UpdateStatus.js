@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { SelectFeeder } from "../state/feedAuthSlice";
+import { SelectAdmin } from "../state/adminAuthSlice";
 import axios from "axios";
 import { Spin } from "antd";
 import "../styles/updateStatus.css";
@@ -8,10 +11,13 @@ const UpdateStatus = () => {
   const [loading, setLoading] = useState(false);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [responseShipment, setResponseShipment] = useState(false);
-  const [display, setDisplay] = useState(false);
   const [shipment, setShipment] = useState({});
   const [selectedStatus, setSelectedStatus] = useState("myPackage");
+
+  const isFeedOnline = useSelector(SelectFeeder);
+  const isAdminOnline = useSelector(SelectAdmin);
+
+  const user = isFeedOnline ? isFeedOnline : isAdminOnline;
 
   const getShipment = async () => {
     try {
@@ -22,8 +28,6 @@ const UpdateStatus = () => {
         `http://localhost:3001/shipment/getShipment/${trackNumber}`
       );
 
-      setResponseShipment(shipmentResponse.status === 200);
-
       const shipmentObject = shipmentResponse.data;
       const shipment = shipmentObject["shipments"];
       console.log(shipment);
@@ -32,7 +36,6 @@ const UpdateStatus = () => {
     } catch (e) {
       console.log(e);
       setFetchLoading(false);
-      setResponseShipment(false);
       setError("An error occurred. Please try again.");
     }
   };
@@ -46,18 +49,95 @@ const UpdateStatus = () => {
         throw new Error("Please provide a valid tracking number.");
       }
 
-      const shipmentResponse = await axios.patch(
-        `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
-        { status: selectedStatus }
-      );
+      const currentDate = new Date(); // Create a new Date object
 
-      setResponseShipment(shipmentResponse.status === 200);
+      switch (selectedStatus) {
+        case "pickUp":
+          await axios.patch(
+            `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+            {
+              status: selectedStatus,
+              pickUpUpdatedBy: user.firstName,
+              pickUpLastUpdate: currentDate,
+            }
+          );
+          break;
+        case "Document Processing":
+          await axios.patch(
+            `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+            {
+              status: selectedStatus,
+              documentProcessingUpdatedBy: user.firstName,
+              documentProcessingLastUpdate: currentDate,
+            }
+          );
+          break;
+        case "Shipment Processing":
+          await axios.patch(
+            `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+            {
+              status: selectedStatus,
+              shipmentProcessingUpdatedBy: user.firstName,
+              shipmentProcessingLastUpdate: currentDate,
+            }
+          );
+          break;
+        case "InTransit":
+          await axios.patch(
+            `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+            {
+              status: selectedStatus,
+              intransitUpdatedBy: user.firstName,
+              intransitLastUpdate: currentDate,
+            }
+          );
+          break;
+        case "Local Delivery":
+          await axios.patch(
+            `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+            {
+              status: selectedStatus,
+              localDeliveryUpdatedBy: user.firstName,
+              localDeliveryLastUpdate: currentDate,
+            }
+          );
+          break;
+        case "Delivered":
+          await axios.patch(
+            `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+            {
+              status: selectedStatus,
+              deliveryUpdatedBy: user.firstName,
+              deliveryLastUpdate: currentDate,
+            }
+          );
+          break;
+        case "Finished":
+          await axios.patch(
+            `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+            {
+              status: selectedStatus,
+              finishedUpdatedBy: user.firstName,
+              finishedLastUpdate: currentDate,
+            }
+          );
+          break;
+
+        default:
+          setError("An error occurred. Please try again.");
+          break;
+      }
+
+      // await axios.patch(
+      //   `http://localhost:3001/shipment/updateShipment/${trackNumber}`,
+      //   { status: selectedStatus }
+      // );
+
       getShipment();
       setLoading(false);
     } catch (e) {
       console.log(e);
       setLoading(false);
-      setResponseShipment(false);
       setError("An error occurred. Please try again.");
     }
   };

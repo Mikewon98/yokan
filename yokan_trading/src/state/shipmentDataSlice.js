@@ -1,40 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 export const GeneratedTrackingString = nanoid(10).toUpperCase();
 
-export const generateRandomString = () => {
-  const randomString = nanoid(10).toUpperCase();
-  console.log(randomString);
-  // You can perform other actions with the generated string here if needed
-  return randomString;
-};
+// export const generateRandomString = () => {
+//   const randomString = nanoid(10).toUpperCase();
+//   console.log(randomString);
+//   // You can perform other actions with the generated string here if needed
+//   return randomString;
+// };
 
-const initialState = [
-  // {
-  //   id: "1",
-  //   userId: "awdb",
-  //   trackingNumber: "YSWNMKVDQ3",
-  //   originCountry: "Ethadwadiopia",
-  //   originFullName: "Michaadddel",
-  //   originAddress: "Bawdole",
-  //   originAddressTwo: "sf",
-  //   originCity: "sfef",
-  //   originState: "sef",
-  //   originPostalCode: "sffsef",
-  //   senderEmail: "mikewsefcom",
-  //   senderPhoneNumber: "2sf35",
-  //   destinationCountry: "sef",
-  //   destinationFullName: "sf f",
-  //   destinationAddress: "efon",
-  //   destinationAddressTwo: "",
-  //   destinationCity: "sefity",
-  //   destinationState: "ef",
-  //   destinationPostalCode: "e",
-  //   reciverEmail: "miefm",
-  //   reciverPhoneNumber: "f",
-  // },
-];
+const initialState = [];
 
 export const shipmentDataSlice = createSlice({
   name: "shipmentData",
@@ -100,6 +75,9 @@ export const shipmentDataSlice = createSlice({
 });
 
 export const selectShipment = (state) => state.shipmentData;
+
+export const selectTrackingNumber = (state) =>
+  state.shipmentData[0]?.trackingNumber;
 
 export const { shipmentAdded, clearShipmentData } = shipmentDataSlice.actions;
 
