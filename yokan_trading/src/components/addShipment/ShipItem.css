@@ -327,7 +327,7 @@ p {
     }
 
     .item-div-input-row p {
-        font-size: 22px;
+        font-size: 14px;
         padding: 0 0.3rem;
     }
 
@@ -399,6 +399,8 @@ p {
     .item-div-content {
         width: 100%;
         display: flex;
+        padding: 1rem 2rem;
+        align-items: flex-start;
         flex-direction: column;
     }
 
@@ -417,7 +419,7 @@ p {
     }
 
     .item-div-input-row p {
-        font-size: 22px;
+        font-size: 14px;
         padding: 0 0.3rem;
     }
 

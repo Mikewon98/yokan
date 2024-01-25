@@ -209,5 +209,9 @@
         padding: 1rem;
     }
 
+    .about-us-values-list-style p {
+        font-size: 16px;
+    }
+
 
 }

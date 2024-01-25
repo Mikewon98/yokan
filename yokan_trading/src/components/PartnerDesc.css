@@ -133,13 +133,13 @@
 
     .partner-sub-container {
         width: 100%;
-        height: 400px;
+        /* height: 400px; */
         padding: 1rem 1rem;
         margin-top: 1rem;
     }
 
     .partner-container-heading {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .partner-container-text {

@@ -30,10 +30,10 @@ const ContactForm = () => {
   const handleFormSubmit = (values, event) => {
     emailjs
       .sendForm(
-        "service_3xtaahk",
-        "yokan_template",
+        "service_yc0crlk",
+        "template_g1n0epr",
         form.current,
-        "eHNlGXYqjn3Eo4NVR"
+        "zYO703aorvvHoJgoO"
       )
       .then(
         (result) => {

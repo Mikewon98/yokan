@@ -1,0 +1,56 @@
+.why-us-service-desc {
+    font-size: 16px;
+}
+
+.why-us-our-service-text {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.why-us-our-service-text-colored {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff4800;
+}
+
+.why-us-our-service-headline {
+    font-size: 37px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.why-us-our-service-content {
+    font-size: 16px;
+    padding-bottom: 1rem;
+
+}
+
+
+/* @media only screen and (min-width: 1024px) and (max-width: 1200px) {}
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {} */
+
+
+@media only screen and (max-width: 485px) {
+    .why-us-service-desc {
+        font-size: 14px;
+    }
+
+    .why-us-our-service-content {
+        font-size: 14px;
+    }
+
+    .why-us-our-service-headline {
+        font-size: 27px;
+    }
+}

@@ -27,7 +27,7 @@ const Footer = () => {
       <div className='bottom'>
         <div className='bottom-div'>
           <h4>About Yokan Trading</h4>
-          <a href='/aboutus'>Abour Us</a>
+          <a href='/aboutus'>About Us</a>
           <a href='/partner'>Become Partner</a>
           <a href='/partner'>Join the Team</a>
         </div>

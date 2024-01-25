@@ -77,7 +77,8 @@
     width: 300px;
     background: #eee;
     border-radius: 10px;
-    border: 3px solid rgb(0, 162, 255);
+    /* border: 3px solid rgb(0, 162, 255); */
+    border: 3px solid #2858A5;
     font-size: 14px;
     padding: 4px 8px;
     margin: 8px 2px;

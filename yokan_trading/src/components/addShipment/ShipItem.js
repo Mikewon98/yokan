@@ -50,28 +50,28 @@ const ShipItem = () => {
   const handleValidation = yup.object().shape({
     // packageType: yup.string().required("Weight is required"),
     itemWeight: yup
-      .number()
+      .number("Weight must be a positive number")
       .required("Weight is required")
-      .positive("Price must be a positive number")
+      .positive("Weight must be a positive number")
       .min(0.5, "Please Enter the weight above 0.5kg"),
     discription: yup
       .string()
       .max(50, "Item Description must be less than 50 characters!")
       .required("Item Description is required"),
     itemLength: yup
-      .number()
-      .required("Item Length is required")
-      .positive("Price must be a positive number")
+      .number("length must be a positive number")
+      .required("Length is required")
+      .positive("length must be a positive number")
       .min(0.5, "Please enter the length above 0.5"),
     itemWidth: yup
-      .number()
-      .required("Item Width is required")
-      .positive("Price must be a positive number")
+      .number("length must be a positive number")
+      .required("Width is required")
+      .positive("Wisth must be a positive number")
       .min(0.5, "Please Enter the width above 0.5"),
     itemHeight: yup
-      .number()
-      .required("Item Height is required")
-      .positive("Price must be a positive number")
+      .number("Height must be a positive number")
+      .required("Height is required")
+      .positive("Height must be a positive number")
       .min(0.5, "Please Enter the height above 0.5"),
   });
 

@@ -1,0 +1,63 @@
+.company-slider-header {
+    font-size: 29px;
+}
+
+.company-slider-content {
+    font-size: 26px;
+    padding-bottom: 1rem;
+}
+
+.company-slider-div-text {
+    margin-top: 3rem !important;
+    padding: 1rem !important;
+    font-size: 1.25rem !important;
+}
+
+.company-slider-title {
+    font-size: 16px;
+}
+
+.company-slider-heading {
+    font-size: 41px;
+    text-align: start;
+    font-weight: bold;
+}
+
+.company-slider-text {
+    font-size: 18px;
+}
+
+.company-slider-ceo-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-slider-div-img {
+    display: flex;
+    gap: 1rem !important;
+}
+
+.company-slider-img {
+    display: block;
+    border-radius: 2rem !important;
+    width: 80px;
+}
+
+@media only screen and (max-width: 485px) {
+    .company-slider-header {
+        font-size: 19px;
+    }
+
+    .company-slider-heading {
+        font-size: 30px;
+    }
+
+    .company-slider-content {
+        font-size: 19px;
+    }
+
+    .company-slider-text {
+        font-size: 14px;
+    }
+}

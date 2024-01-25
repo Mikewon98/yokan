@@ -79,7 +79,7 @@
 
 @media screen and (max-width:850px) {
     .footer {
-        padding: 4rem 2rem;
+        padding: 2rem;
     }
 
     .footer i {
@@ -93,7 +93,7 @@
 
 @media only screen and (min-width: 485px) and (max-width: 600px) {
     .footer {
-        padding: 4rem 2rem;
+        padding: 2rem;
     }
 
     .footer i {
@@ -113,23 +113,35 @@
         font-size: 0.8rem;
     }
 
+    .bottom p {
+        font-size: 0.8rem;
+    }
+
     .top i {
         font-size: 1.5rem;
+    }
+
+    .bottom-last h4 {
+        font-size: 20px;
     }
 }
 
 
 @media only screen and (max-width: 485px) {
     .footer {
-        padding: 2rem 0.5rem;
+        padding: 2rem 0.5rem 0.7rem 0.5rem;
     }
 
     .footer i {
         margin: 1rem 1rem 0 0;
     }
 
+    .footer-texts {
+        gap: 0.5rem;
+    }
+
     .bottom div {
-        width: 50%;
+        width: 80%;
     }
 
     .top {
@@ -147,12 +159,22 @@
 
     .bottom div {
         display: flex;
-        flex-direction: column;
         padding-bottom: 1rem;
     }
 
     .bottom-last {
         padding: 1rem;
-        font-size: 1rem;
+    }
+
+    .bottom-last h4 {
+        font-size: 18px;
+    }
+
+    .bottom-div a {
+        font-size: 14px;
+    }
+
+    .bottom-div p {
+        font-size: 14px;
     }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Features from "../../assets/feature.jpg";
 import { Link } from "react-router-dom";
+import "./WhyUs.css";
 
 const WhyUs = () => {
   return (
@@ -13,12 +14,7 @@ const WhyUs = () => {
             paddingTop: "2.5rem",
           }}
         >
-          <h6
-            className='te text-uppercase font-weight-bold'
-            style={{ fontWeight: "700", fontSize: "1rem" }}
-          >
-            Our Services
-          </h6>
+          <h6 className='why-us-our-service-text'>Our Services</h6>
           <h1 style={{ marginBottom: "1.5rem", fontWeight: "800" }}>
             Best Logistic Services
           </h1>
@@ -48,7 +44,7 @@ const WhyUs = () => {
                 Air Freight
               </h6>
             </div>
-            <p>
+            <p className='why-us-service-desc'>
               Efficient and reliable transportation of goods, ensuring timely
               delivery and secure handling.
             </p>
@@ -84,7 +80,7 @@ const WhyUs = () => {
                 Ocean Freight
               </h6>
             </div>
-            <p>
+            <p className='why-us-service-desc'>
               Compliance with international trade regulations to ensure the
               legality and efficiency of shipments.
             </p>
@@ -121,7 +117,7 @@ const WhyUs = () => {
                 Land Transport
               </h6>
             </div>
-            <p>
+            <p className='why-us-service-desc'>
               Tailored supply chain solutions designed to meet the unique needs
               of each client.
             </p>
@@ -157,7 +153,7 @@ const WhyUs = () => {
                 Cargo Storage
               </h6>
             </div>
-            <p>
+            <p className='why-us-service-desc'>
               State-of-the-art warehousing facilities equipped with advanced
               technology for inventory management.
             </p>
@@ -191,19 +187,11 @@ const WhyUs = () => {
                 paddingTop: "3rem",
               }}
             >
-              <h6
-                className=' text-uppercase font-weight-bold'
-                style={{
-                  color: " #ff4800",
-                  fontWeight: "700",
-                }}
-              >
-                Why Choose Us
-              </h6>
-              <h1 style={{ marginBottom: "1.5rem", fontWeight: "700" }}>
+              <h6 className='why-us-our-service-text-colored'>Why Choose Us</h6>
+              <h1 className='why-us-our-service-headline '>
                 Faster, Safe and Trusted Logistics Services
               </h1>
-              <p style={{ marginBottom: "1.5rem" }}>
+              <p className='why-us-our-service-content'>
                 At Yokan Trading PLC, we are committed to excellence in every
                 aspect of our operations. Our team of experienced professionals
                 is dedicated to providing personalized and innovative logistics

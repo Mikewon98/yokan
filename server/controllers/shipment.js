@@ -112,7 +112,7 @@ export const viewShipment = async (req, res) => {
 
     res.status(200).json({ shipments });
   } catch (err) {
-    console.log(e);
+    console.log(err);
     res.status(409).json({ message: err.message });
   }
 };

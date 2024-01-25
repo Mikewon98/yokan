@@ -1,0 +1,204 @@
+.myshipments-main-div {
+    margin-top: 8rem;
+    padding: 2rem 16rem;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+
+}
+
+.myshipments-div {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #ffc286;
+    /* width: 800px;
+    height: 300px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.myshipments-sub-div hr {
+    margin: 0.5rem;
+}
+
+.myshipments-sub-div {
+    padding: 1rem;
+}
+
+.myshipments-div-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.myshipments-div-header-p {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.myshipments-contents-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.myshipments-div-contents-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.myshipments-div-contents-text-p {
+    font-size: 13px;
+}
+
+.myshipments-div-contents-sender p,
+.myshipments-div-contents-reciver p {
+    padding: 0.2rem 0;
+}
+
+.myshipment-no-shipment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.myshipment-no-shipment-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ----------------------------Loading Spin---------------- */
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    .myshipments-main-div {
+        margin-top: 8rem;
+        padding: 2rem 13rem;
+    }
+
+    /* .myshipments-div {
+        width: 700px;
+    } */
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {
+    .myshipments-main-div {
+        margin-top: 8rem;
+        padding: 2rem 9rem;
+    }
+
+    /* .myshipments-div {
+        width: 700px;
+    } */
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .myshipments-main-div {
+        margin-top: 8rem;
+        padding: 2rem 7rem;
+    }
+
+    .myshipments-contents-div {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    /* .myshipments-div {
+        width: 600px;
+        height: 280px;
+    } */
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .myshipments-main-div {
+        margin-top: 8rem;
+        padding: 2rem 5rem;
+    }
+
+    .myshipments-contents-div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 0rem;
+        padding: 0rem;
+    }
+
+    .myshipments-div-sub-header {
+        padding-bottom: 1rem;
+    }
+
+    /* .myshipments-div {
+            width: 500px;
+            height: 280px;
+        } */
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .myshipments-main-div {
+        margin-top: 8rem;
+        padding: 2rem 4rem;
+    }
+
+    .myshipments-contents-div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 0rem;
+        padding: 0rem;
+    }
+
+    .myshipments-div-sub-header {
+        padding-bottom: 1rem;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    .myshipments-main-div {
+        margin-top: 8rem;
+        padding: 2rem;
+    }
+
+    .myshipments-contents-div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 0rem;
+        padding: 0rem;
+    }
+
+    .myshipments-div-sub-header {
+        padding-bottom: 0.5rem;
+    }
+
+    .myshipments-sub-div {
+        padding: 0.5rem;
+    }
+
+    .myshipments-div-contents-text-p {
+        font-size: 11px !important;
+    }
+
+    .myshipments-div-contents-text p {
+        font-size: 14px;
+    }
+}

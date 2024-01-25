@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./navbar/Button";
+import { Link } from "react-router-dom";
 import "./ApplyForJob.css";
 
 const ApplyForJob = () => {
@@ -9,7 +9,9 @@ const ApplyForJob = () => {
         <p className='partner-job-text'>Want to join the team?</p>
         <p>Hurry up and contact us!</p>
       </div>
-      <Button path='/contactUs' text='Contact us' />
+      <Link to='/contactUs'>
+        <button className='partner-btn'>Contact us</button>
+      </Link>
     </div>
   );
 };

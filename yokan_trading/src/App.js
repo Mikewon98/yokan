@@ -20,9 +20,12 @@ import {
   setLogout,
   SelectTokenExpiration,
 } from "./state/authSlice";
+import { clearShipmentData } from "./state/shipmentDataSlice";
+import { clearShipmentItemAdded } from "./state/shipmentDataItemSlice";
 import NavBar from "./components/navbar/Navbar";
 import ScrollToTop from "./components/ScrollToUp";
 import Success from "./pages/Success";
+import ShipmentHistory from "./pages/ShipmentHistory";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +38,8 @@ function App() {
       if (tokenExpiration && Date.now() > tokenExpiration) {
         // Token has expired, log the user out
         dispatch(setLogout());
+        dispatch(clearShipmentData());
+        dispatch(clearShipmentItemAdded());
       }
     };
 
@@ -60,8 +65,15 @@ function App() {
         <Route path='/login' element={<LogIn />} />
         <Route path='/logout' element={<Logout />} />
         <Route path='/payment-success' element={<Success />} />
-        <Route path='/shipwhat' element={<ShipWhat />} />
-        <Route path='/shippayment' element={<ShipPayment />} />
+        <Route path='/shipwhat' element={isAuth ? <ShipWhat /> : <LogIn />} />
+        <Route
+          path='/shippayment'
+          element={isAuth ? <ShipPayment /> : <LogIn />}
+        />
+        <Route
+          path='/shipmentHistory'
+          element={isAuth ? <ShipmentHistory /> : <LogIn />}
+        />
         <Route
           path='/createshipment'
           element={isAuth ? <AddShipment /> : <LogIn />}

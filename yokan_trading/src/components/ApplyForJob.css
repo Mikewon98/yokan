@@ -13,6 +13,26 @@
 
 }
 
+.partner-btn {
+    margin: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    outline: none;
+    border: 2px solid #1888ff;
+    color: #1888ff;
+    cursor: pointer;
+    background-color: var(--primary);
+}
+
+.partner-btn:hover {
+    padding: 0.5rem 1rem;
+    transition: all o.3s ease-in-out;
+    color: #ee7904;
+    border: 2px solid #ee7904;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 900px) {
     .partner-job {
         padding: 3rem 5rem;

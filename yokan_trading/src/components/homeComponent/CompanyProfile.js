@@ -7,15 +7,15 @@ const CompanyProfile = ({ img }) => {
       <div className='row'>
         <div
           className='col-lg-6 mt-5 p-3 fs-5 d-flex justify-content-center flex-column align-items-center'
-          data-aos='fade-right'
-          data-aos-duration='5000'
+          // data-aos='fade-right'
+          // data-aos-duration='5000'
         >
           <img alt='Mountain' className='company-profile-image' src={img} />
         </div>
         <div
-          className='col-lg-6 mt-5 p-5 d-flex justify-content-center flex-column'
-          data-aos='fade-left'
-          data-aos-duration='5000'
+          className='col-lg-6 mt-5 p-4 d-flex justify-content-center flex-column'
+          // data-aos='fade-left'
+          // data-aos-duration='5000'
         >
           <h2 className='display-6 fw-bold text-center'>Company Profile</h2>
           <div className='home-description-container-first'>

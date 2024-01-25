@@ -60,6 +60,7 @@ const Layout = () => {
     isAdminOnline,
     TokenFeederExpiration,
     TokenAdminExpiration,
+    navigate,
   ]);
 
   return (

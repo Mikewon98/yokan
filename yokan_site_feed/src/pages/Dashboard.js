@@ -118,14 +118,14 @@ const Dashboard = () => {
       <div className='dashboard-container-small'>
         <div
           className='dashboard-card-sub'
-          onClick={() => navigate("/createShipment")}
+          onClick={() => navigate("/allShipment")}
         >
           <p>{shipmentData ?? 0}</p>
           <p className='dashboard-card-sub-text'>Total Shipment</p>
         </div>
         <div
           className='dashboard-card-sub'
-          onClick={() => navigate("/addUser")}
+          onClick={() => navigate("/viewUsers")}
         >
           <p>{userData ?? 0}</p>
           <p className='dashboard-card-sub-text'>Total Users</p>

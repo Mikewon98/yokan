@@ -272,16 +272,21 @@ body.active-modal {
     cursor: pointer;
 }
 
+.payment-verifying-warning {
+    font-size: 1.3rem;
+    color: rgb(255, 0, 0);
+    padding: 1rem 4rem;
+    text-align: center;
+}
+
 /* ----------------------------Notification Component---------------- */
 
 .notificationContainer {
-    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.05);
 }
 
 .notificationBox {
@@ -314,17 +319,17 @@ body.active-modal {
     margin: 0;
 }
 
-.loading-spin {
+.verify-loading-spin {
     width: 100%;
     padding: 30px 50px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
 }
 
 .loading-spin {
     background: #fff;
 }
+
 
 
 /* -----------------------------------Media query---------------- */
@@ -341,12 +346,35 @@ body.active-modal {
     .shipment-item-div {
         margin: 1rem 7rem;
     }
+
+    .payment-modal-content-heading {
+        padding: 1rem;
+        font-size: 2.1rem;
+    }
 }
 
 
 @media only screen and (min-width: 768px) and (max-width: 900px) {
     .shipment-item-div {
         margin: 1rem 3rem;
+    }
+
+    .payment-modal-content-heading {
+        padding: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .payment-show-tracking-number {
+        padding: 2rem 3rem;
+    }
+
+    .payment-tracking-number-text {
+        font-size: 1rem;
+        padding: 2rem;
+    }
+
+    .payment-close-modal i {
+        font-size: 1.5rem;
     }
 }
 
@@ -370,6 +398,32 @@ body.active-modal {
 
     .shipment-terms-and-condition-text {
         padding: 1.6rem;
+    }
+
+    .payment-modal-content-heading {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .payment-verifying-warning {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .payment-close-modal i {
+        font-size: 1.3rem;
+    }
+
+    .payment-show-tracking-number {
+        padding: 2rem;
+    }
+
+    .payment-tracking-number-text {
+        padding: 1rem;
+    }
+
+    .payment-tracking-number-warning {
+        padding: 1rem 2rem;
     }
 }
 
@@ -412,6 +466,37 @@ body.active-modal {
 
     .shipment-amount-number {
         padding-right: 6rem;
+    }
+
+    .payment-modal-content-heading {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .payment-verifying-warning {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .payment-tracking-number-warning {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .payment-close-modal i {
+        font-size: 1.3rem;
+    }
+
+    .payment-show-tracking-number {
+        padding: 2rem;
+    }
+
+    .payment-tracking-number-text {
+        padding: 1rem;
+    }
+
+    .payment-tracking-number-warning {
+        padding: 1rem 2rem;
     }
 
 }
@@ -486,5 +571,40 @@ body.active-modal {
     .shipment-final-payment-button {
         font-size: 13px;
     }
+
+    .payment-modal-content-heading {
+        padding: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .payment-modal-content {
+        padding: 1rem;
+    }
+
+    .payment-tracking-number-warning {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+
+
+    .payment-verifying-warning {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .payment-close-modal i {
+        font-size: 1.3rem;
+    }
+
+    .payment-show-tracking-number {
+        padding: 1rem;
+    }
+
+    .payment-tracking-number-text {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+
 
 }

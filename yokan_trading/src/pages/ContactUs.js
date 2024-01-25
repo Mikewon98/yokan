@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../components/Hero";
 import ContactImg from "../assets/contact-us.jpg";
 import Footer from "../components/Footer";
-import Contact from "../components/contactConponent/Contact";
+import Contact from "../components/contactComponent/Contact";
 
 const ContactUs = () => {
   return (

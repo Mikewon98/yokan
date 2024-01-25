@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { Selectuser } from "../../state/authSlice";
 import { useDispatch } from "react-redux";
 import { setLogout } from "../../state/authSlice";
+import { clearShipmentData } from "../../state/shipmentDataSlice";
+import { clearShipmentItemAdded } from "../../state/shipmentDataItemSlice";
 // import logo from "../../assets/yokan-logo.png";
 import logo3 from "../../assets/new yokan logo.png";
 import logo4 from "../../assets/Yokan.png";
@@ -26,6 +28,8 @@ const NavBar = () => {
 
   const handleLogout = () => {
     dispatch(setLogout());
+    dispatch(clearShipmentData());
+    dispatch(clearShipmentItemAdded());
     navigate("/");
     alert("Logout Successfull");
   };
@@ -68,12 +72,15 @@ const NavBar = () => {
             <Nav.Link as={Link} to='/'>
               Home
             </Nav.Link>
-            <NavDropdown title='Shipping' id='basic-nav-dropdown'>
+            <NavDropdown title='Services' id='basic-nav-dropdown'>
               <NavDropdown.Item as={Link} to='/createshipment'>
-                Create a shipment
+                Create shipment
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/trackShipment'>
                 Track shipment
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to='/shipmentHistory'>
+                Shipment history
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to='/trackByMobile'>
                 Track by mobile
@@ -84,7 +91,7 @@ const NavBar = () => {
                 Customer Support
               </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title='Company' id='basic-nav-dropdown'>
+            <NavDropdown title='Profile' id='basic-nav-dropdown'>
               <NavDropdown.Item as={Link} to='/aboutUs'>
                 About Us
               </NavDropdown.Item>
@@ -94,9 +101,9 @@ const NavBar = () => {
               <NavDropdown.Item as={Link} to='/contactus'>
                 Contact Us
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to='/logout'>
+              {/* <NavDropdown.Item as={Link} to='/logout'>
                 Log out
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
           {auth ? (

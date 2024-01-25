@@ -71,13 +71,48 @@ app.post("/api/order", async (req, res) => {
       }
     );
 
-    console.log(response.data);
-    // Handle the response or send it to the client as needed.
-    res.json(response.data);
+    const responseData = JSON.parse(response.config.data);
+
+    const txRef = responseData.tx_ref;
+
+    console.log(txRef);
+
+    const combinedData = {
+      responseData: response.data,
+      txRef: txRef,
+    };
+
+    res.json(combinedData);
+
+    // console.log(response.data);
+    // res.json(response.data);
   } catch (error) {
     console.error(error);
     // Handle errors and send an appropriate response to the client.
     res.status(500).send("Internal Server Error");
+  }
+});
+
+/* Verify Payment */
+
+app.get("/api/order/verify-payment/:txt_ref", async (req, res) => {
+  const txt_ref = req.params.txt_ref;
+  try {
+    //verify the transaction
+    const response = await axios.get(
+      "https://api.chapa.co/v1/transaction/verify/" + txt_ref,
+      {
+        headers: {
+          Authorization: "Bearer CHASECK_TEST-HhAzdWYrhIoWkJw9e0Y13PtVWwKT7JBG",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    res.json(response.data);
+  } catch (e) {
+    console.log("Payment can't be verified", e);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
