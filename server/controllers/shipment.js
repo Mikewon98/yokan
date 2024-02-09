@@ -1,5 +1,6 @@
 import Shipment from "../models/Shipment.js";
 
+// Create Shipment
 export const createShipment = async (req, res) => {
   try {
     const {
@@ -100,6 +101,7 @@ export const createShipment = async (req, res) => {
   }
 };
 
+// View all shipments of each user
 export const viewShipment = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -117,6 +119,47 @@ export const viewShipment = async (req, res) => {
   }
 };
 
+// ---------------------------------Active and Completed Shipment -----------------
+
+// Get Active shipment
+export const viewActiveShipment = async (req, res) => {
+  try {
+    const shipments = await Shipment.find({
+      isShipmentActive: "Active",
+    });
+    // if (!shipments)
+    //   return res.status(400).json({ msg: "shipments does not exist." });
+    if (shipments.length === 0)
+      return res.status(400).json({ msg: "Active Shipments do not exist." });
+
+    res.status(200).json({ shipments });
+  } catch (err) {
+    console.log(err);
+    res.status(409).json({ message: err.message });
+  }
+};
+
+// Get Active shipment
+export const viewCompletedShipment = async (req, res) => {
+  try {
+    const shipments = await Shipment.find({
+      isShipmentActive: "Completed",
+    });
+    // if (!shipments)
+    //   return res.status(400).json({ msg: "shipments does not exist." });
+    if (shipments.length === 0)
+      return res.status(400).json({ msg: "Completed Shipments do not exist." });
+
+    res.status(200).json({ shipments });
+  } catch (err) {
+    console.log(err);
+    res.status(409).json({ message: err.message });
+  }
+};
+
+// ---------------------------------Active and Completed Shipment -----------------
+
+// Get shipment by tracking number
 export const getShipment = async (req, res) => {
   try {
     const { trackingNumber } = req.params;
@@ -133,6 +176,7 @@ export const getShipment = async (req, res) => {
   }
 };
 
+// Get shipment by shipment by id
 export const getShipmentById = async (req, res) => {
   try {
     const shipments = await Shipment.findOne({ _id: req.params.shipmentId });
@@ -147,6 +191,7 @@ export const getShipmentById = async (req, res) => {
   }
 };
 
+// Get all shipment
 export const getAllShipment = async (req, res) => {
   try {
     const shipments = await Shipment.find();
@@ -162,6 +207,7 @@ export const getAllShipment = async (req, res) => {
   }
 };
 
+// Update shipment status
 export const updateShipment = async (req, res) => {
   try {
     const { trackingNumber } = req.params;
@@ -299,6 +345,7 @@ export const updateShipment = async (req, res) => {
         {
           $set: {
             status,
+            isShipmentActive: "Completed",
             finishedUpdatedBy,
             finishedLastUpdate,
           },
@@ -332,6 +379,7 @@ export const updateShipment = async (req, res) => {
   }
 };
 
+// Delete shipment by Id
 export const deleteShipment = async (req, res) => {
   try {
     const { shipmentId } = req.params;

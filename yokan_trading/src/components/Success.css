@@ -12,7 +12,7 @@
     align-items: center;
     line-height: 1.4;
     background: #f1f1f1;
-    padding: 14px 28px;
+    padding: 2rem 4rem;
     border-radius: 8px;
     max-width: 600px;
     min-width: 300px;
@@ -25,7 +25,9 @@
 }
 
 .success-modal-content-heading {
-    padding: 2rem;
+    padding: 1rem;
+    color: rgb(0, 255, 0);
+    font-weight: 700;
     font-size: 27px;
 }
 
@@ -35,7 +37,7 @@
 
 .success-tracking-number-text {
     font-size: 1rem;
-    padding: 2rem 4rem;
+    padding: 1rem;
     text-align: center;
 }
 

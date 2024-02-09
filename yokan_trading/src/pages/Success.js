@@ -62,21 +62,14 @@ const Success = () => {
   return (
     <div className='success-main'>
       <div className='success-modal-content'>
-        <h1 className='success-modal-content-heading'>
-          {" "}
-          {trackingNumber ? "Payment Completed" : "Something Occured"}
-        </h1>
-
-        <div className='success-show-tracking-number'>
-          <h2>{trackingNumber ?? "Please Try Again"}</h2>
-        </div>
+        <h1 className='success-modal-content-heading'>Payment Completed</h1>
         <div>
           <p className='success-tracking-number-text'>
-            This is your tracking number you can use it to track your shipment
-            form anywhere at anytime!
+            You can view your shipment in the shipment history
           </p>
           <p className='success-tracking-number-warning'>
-            N:B Please dont forget your Tracking number
+            You can use our tracking system to track your shipment at anytime
+            using your Tracking Number
           </p>
         </div>
       </div>

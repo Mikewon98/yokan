@@ -24,11 +24,10 @@
     color: #1888ff;
     cursor: pointer;
     background-color: var(--primary);
+    transition: 0.2s ease-in-out;
 }
 
 .partner-btn:hover {
-    padding: 0.5rem 1rem;
-    transition: all o.3s ease-in-out;
     color: #ee7904;
     border: 2px solid #ee7904;
 }

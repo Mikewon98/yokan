@@ -1,5 +1,25 @@
+.why-us-super-div {
+    text-align: center;
+    padding-bottom: 0.5rem !important;
+    padding-top: 2.5rem !important;
+    margin-top: 3rem;
+}
+
 .why-us-service-desc {
     font-size: 16px;
+}
+
+.why-us-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #2857A5;
+    margin-bottom: 1.5rem;
+}
+
+.why-us-box i {
+    color: #FF7E00 !important;
 }
 
 .why-us-our-service-text {

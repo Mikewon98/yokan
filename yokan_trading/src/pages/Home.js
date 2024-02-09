@@ -6,6 +6,7 @@ import CompanyProfile from "../components/homeComponent/CompanyProfile";
 import Slider from "../components/Slider";
 import CompanySlider from "../components/homeComponent/CompanySlider";
 import WhyUs from "../components/homeComponent/WhyUs";
+import StartShiping from "../components/homeComponent/StartShiping";
 import "../components/homeComponent/Home.css";
 
 const Home = () => {
@@ -15,7 +16,8 @@ const Home = () => {
         <Slider />
       </div>
       <CompanySlider />
-      <CompanyProfile img={ShipmentPackageImage} />
+      {/* <CompanyProfile img={ShipmentPackageImage} /> */}
+      <StartShiping />
       <WhyUs />
       <Description />
       <Footer />

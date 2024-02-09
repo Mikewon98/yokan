@@ -1,0 +1,157 @@
+.privacy-super-div {
+    margin-top: 7rem;
+    padding: 2rem;
+}
+
+.privacy-heading-div {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+}
+
+.privacy-heading-h1 {
+    font-weight: 800;
+    font-size: 48px;
+    text-transform: capitalize;
+    color: #2857A5;
+}
+
+.privacy-main-div {
+    padding: 2rem 6rem;
+    margin: 0 6rem;
+}
+
+.privacy-content-heading {
+    text-align: start;
+    padding: 1rem 0;
+}
+
+.privacy-main-div p {
+    padding: 0.5rem 0;
+}
+
+.privacy-link-div {
+    padding: 1rem;
+}
+
+.privacy-link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.privacy-link-content {
+    width: 310px;
+    height: 40px;
+    margin: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.privacy-link-content a {
+    color: #2857A5;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    .privacy-main-div {
+        margin: 0 4rem;
+    }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1024px) {
+    .privacy-main-div {
+        padding: 2rem;
+        margin: 0 2rem;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .privacy-main-div {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .privacy-heading-h1 {
+        font-size: 42px;
+    }
+
+    .privacy-link-content {
+        width: 230px;
+        height: 50px;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .privacy-main-div {
+        padding: 2rem 0;
+        margin: 0;
+    }
+
+    .privacy-heading-h1 {
+        font-size: 42px;
+    }
+
+    .privacy-link-content {
+        width: 230px;
+        height: 50px;
+    }
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .privacy-super-div {
+        margin-top: 8rem;
+        padding: 2rem 2rem;
+    }
+
+    .privacy-main-div {
+        padding: 1rem 0;
+        margin: 0;
+    }
+
+    .privacy-heading-h1 {
+        font-size: 36px;
+    }
+
+    .privacy-link-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    .privacy-super-div {
+        padding: 2rem 1rem;
+    }
+
+    .privacy-main-div {
+        padding: 0;
+        margin: 0;
+    }
+
+    .privacy-heading-h1 {
+        font-size: 28px;
+    }
+
+    .privacy-link-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .privacy-link-content {
+        width: 260px;
+        height: 40px;
+    }
+
+    .privacy-link-div {
+        padding: 0rem;
+    }
+
+    .privacy-link-content a {
+        font-size: 13px;
+    }
+}

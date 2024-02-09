@@ -1,3 +1,14 @@
+.company-slider-super-div {
+    margin-top: 4rem !important;
+    padding: 1rem !important;
+}
+
+.company-slider-div-text {
+    margin-top: 4rem !important;
+    padding: 1rem !important;
+    font-size: 1.25rem !important;
+}
+
 .company-slider-header {
     font-size: 29px;
 }
@@ -5,12 +16,6 @@
 .company-slider-content {
     font-size: 26px;
     padding-bottom: 1rem;
-}
-
-.company-slider-div-text {
-    margin-top: 3rem !important;
-    padding: 1rem !important;
-    font-size: 1.25rem !important;
 }
 
 .company-slider-title {
@@ -44,6 +49,35 @@
     width: 80px;
 }
 
+@media only screen and (min-width: 991px) and (max-width: 1200px) {}
+
+@media only screen and (min-width: 900px) and (max-width: 991px) {
+    .company-slider-div-text {
+        margin-top: 1rem !important;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+    .company-slider-div-text {
+        margin-top: 1rem !important;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .company-slider-div-text {
+        margin-top: 1rem !important;
+    }
+}
+
+
+@media only screen and (min-width: 485px) and (max-width: 600px) {
+    .company-slider-div-text {
+        margin-top: 1rem !important;
+    }
+}
+
 @media only screen and (max-width: 485px) {
     .company-slider-header {
         font-size: 19px;
@@ -59,5 +93,9 @@
 
     .company-slider-text {
         font-size: 14px;
+    }
+
+    .company-slider-div-text {
+        margin-top: 1rem !important;
     }
 }

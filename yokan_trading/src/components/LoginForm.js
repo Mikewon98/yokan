@@ -80,7 +80,11 @@ const LoginForm = () => {
 
   return (
     <div className='login-form'>
-      <form className='login-container' onSubmit={formik.handleSubmit}>
+      <form
+        className='login-container'
+        onSubmit={formik.handleSubmit}
+        // autoComplete='off'
+      >
         <p className='login-container-header'>Log In</p>
         <div className='login-text-container'>
           <p>Don't have a profile?</p>

@@ -182,6 +182,8 @@ const CreateShipment = () => {
       );
       await shipmentDataResponse.data;
 
+      alert("Shipment Created successfully");
+
       console.log(trackingNumber);
 
       setLoading(false);

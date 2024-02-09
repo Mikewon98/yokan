@@ -4,10 +4,10 @@ import "./CompanySlider.css";
 
 const CompanySlider = () => {
   return (
-    <div className='container '>
+    <div className='container'>
       <div className='row'>
         <div
-          className='col-lg-6 mt-5 p-3'
+          className='col-lg-6 company-slider-super-div'
           // data-aos='fade-right'
           // data-aos-duration='4000'
         >

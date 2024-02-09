@@ -14,8 +14,7 @@ import {
   SelectAdminTokenExpiration,
   logoutAdmin,
 } from "../state/adminAuthSlice";
-import FeederLoginPage from "../pages/auth/FeederLoginPage";
-import AdminLoginPage from "../pages/auth/AdminLoginPage";
+import Login from "../pages/auth/Login";
 
 const Layout = () => {
   const dispatch = useDispatch();
@@ -24,6 +23,10 @@ const Layout = () => {
   const TokenFeederExpiration = useSelector(SelectFeederTokenExpiration);
   const TokenAdminExpiration = useSelector(SelectAdminTokenExpiration);
   const navigate = useNavigate();
+
+  // if (isFeederOnline == null || !isAdminOnline == null) {
+  //   return navigate("/");
+  // }
 
   useEffect(() => {
     if (!isFeederOnline && !isAdminOnline) {
@@ -91,8 +94,9 @@ const Layout = () => {
         </div>
       ) : (
         <Routes>
-          <Route path='/' element={<FeederLoginPage />} />
-          <Route path='/admin' element={<AdminLoginPage />} />
+          <Route path='/' element={<Login />} />
+          {/* <Route path='/' element={<FeederLoginPage />} /> */}
+          {/* <Route path='/admin' element={<AdminLoginPage />} /> */}
         </Routes>
       )}
       {/*   */}

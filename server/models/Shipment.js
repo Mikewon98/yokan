@@ -188,6 +188,11 @@ const ShipmentSchecma = mongoose.Schema(
       required: false,
       default: null,
     },
+    isShipmentActive: {
+      type: String,
+      required: true,
+      default: "Active",
+    },
   },
   { timestamps: true }
 );

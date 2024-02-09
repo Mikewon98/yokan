@@ -22,7 +22,7 @@
 }
 
 .top i:hover {
-    color: #01959a;
+    color: #ee7904;
 }
 
 .bottom {
@@ -148,6 +148,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
 
     .bottom {

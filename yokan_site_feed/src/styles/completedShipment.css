@@ -1,0 +1,14 @@
+.completedShipment {
+    margin-top: 90px;
+    padding: 1rem;
+    padding-bottom: 50px;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background: #fff;
+}

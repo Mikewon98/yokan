@@ -18,8 +18,9 @@ const AddshipmentHeader = () => {
       <div className='progress-bar'>
         <div className='progress-bar-div'>
           <div className='progress-bar-container'>
-            <i className='fa-solid fa-box'></i>
-            <p>Product</p>
+            <i className='fa-solid fa-location-dot'></i>
+
+            <p> Where</p>
             <div
               className={`progress-bar-container-line ${
                 currentLocation === "createshipment" ? "blue-div " : ""
@@ -27,8 +28,8 @@ const AddshipmentHeader = () => {
             ></div>
           </div>
           <div className='progress-bar-container'>
-            <i className='fa-solid fa-location-dot'></i>
-            <p>Where</p>
+            <i className='fa-solid fa-box'></i>
+            <p>Product</p>
             <div
               className={`progress-bar-container-line ${
                 currentLocation === "shipwhat" ? "blue-div " : ""

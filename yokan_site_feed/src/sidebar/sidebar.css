@@ -7,7 +7,9 @@
     z-index: 999;
     background: var(--yokan-blue-light-color);
     /* background: var(--yokan-blue-color); */
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
+    padding-left: 20px;
+    padding-right: 5px;
     /* overflow-y: scroll; */
 }
 
@@ -68,6 +70,7 @@
 
 .menu {
     height: 80%;
+    overflow-y: scroll;
 }
 
 .sidebar__bottom {

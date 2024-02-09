@@ -1,0 +1,146 @@
+.login-main-container {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(66, 134, 223);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-div {
+    height: 450px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.login-header {
+    font-size: 2.5rem;
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.login-input {
+    margin-top: 1rem;
+}
+
+.input-label-text {
+    font-size: 22px;
+    font-weight: 500;
+    text-align: start;
+}
+
+.login-input-label input {
+    height: 30px;
+    font-size: 16px;
+    padding: 5px 10px;
+    width: 300px;
+}
+
+.login-button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-button-div button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 22px;
+    background-color: rgb(35, 35, 243);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.login-button-div p {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.login-button {
+    width: 100%;
+}
+
+.input-error {
+    border-color: red;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+}
+
+.send-to-admin {
+    color: blue;
+}
+
+/* ----------------------------Notification Component---------------- */
+
+.notificationContainer-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    background: rgb(66, 134, 223);
+
+}
+
+.notificationBox {
+    height: 60px;
+    background-color: rgb(255, 204, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.notificationBox p {
+    font-size: 20px;
+    color: #fff;
+    color: red;
+    font-weight: 500;
+}
+
+.notificationBox i {
+    background-color: white;
+    color: red;
+    font-size: 2rem;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.message {
+    margin: 0;
+}
+
+.loading-spin {
+    width: 100%;
+    padding: 30px 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.loading-spin-feeder-login {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background: #00ff37e5;
+}

@@ -4,8 +4,8 @@ import { Spin } from "antd";
 import mData from "../components/MOCK_DATA.json";
 import { BASE_URL } from "../constant/constant";
 import { DateTime } from "luxon";
-import "../styles/allShipment.css";
 import TableComponents from "../components/TableComponents";
+import "../styles/allShipment.css";
 
 const AllShipment = () => {
   const [datas, setDatas] = useState([]);
@@ -156,7 +156,7 @@ const AllShipment = () => {
       accessorKey: "shipmentType",
     },
     {
-      header: "Reciver Weight",
+      header: "Shipment Weight",
       accessorKey: "shipmentWeight",
     },
     {
@@ -250,6 +250,10 @@ const AllShipment = () => {
       accessorKey: "finishedLastUpdate",
       cell: (info) =>
         DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED),
+    },
+    {
+      header: "Shipment Status",
+      accessorKey: "isShipmentActive",
     },
     {
       header: "Shipment Created",

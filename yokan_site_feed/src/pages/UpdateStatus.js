@@ -247,7 +247,7 @@ const UpdateStatus = () => {
           <select
             name='statusUpdate'
             value={selectedStatus}
-            onChange={(e) => setSelectedStatus(e.target.value)}
+            onChange={(e) => setSelectedStatus(e.target.value.trim())}
           >
             <option value='pickUp'>Pick up</option>
             <option value='Document Processing'>Document Processing</option>

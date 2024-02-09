@@ -26,6 +26,9 @@ import NavBar from "./components/navbar/Navbar";
 import ScrollToTop from "./components/ScrollToUp";
 import Success from "./pages/Success";
 import ShipmentHistory from "./pages/ShipmentHistory";
+import NoPageFound from "./pages/NoPageFound";
+import PrivacyPolicyComponent from "./components/policies/PrivacyPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +63,7 @@ function App() {
         <Route path='/customerSuport' element={<CustomerSuport />} />
         <Route path='/aboutUs' element={<AboutUs />} />
         <Route path='/partner' element={<Partners />} />
+        <Route path='/privacyPolicy' element={<PrivacyPolicy />} />
         <Route path='/contactus' element={<ContactUs />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<LogIn />} />
@@ -78,6 +82,7 @@ function App() {
           path='/createshipment'
           element={isAuth ? <AddShipment /> : <LogIn />}
         />
+        <Route path='*' element={<NoPageFound />} />
       </Routes>
     </BrowserRouter>
   );

@@ -105,7 +105,11 @@ const AddAdmin = () => {
 
   return (
     <div className='addAdmin'>
-      <form className='signup-container' onSubmit={formik.handleSubmit}>
+      <form
+        className='signup-container'
+        onSubmit={formik.handleSubmit}
+        autoComplete='off'
+      >
         <p className='signup-container-header'>Add Admin</p>
         <input
           name='firstName'
@@ -164,6 +168,7 @@ const AddAdmin = () => {
         ) : null}
         <input
           name='password'
+          type='password'
           value={formik.password}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -175,6 +180,7 @@ const AddAdmin = () => {
         ) : null}
         <input
           name='confirmPassword'
+          type='password'
           value={formik.confirmPassword}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}

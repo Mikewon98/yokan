@@ -7,13 +7,7 @@ const WhyUs = () => {
   return (
     <>
       <div className='container'>
-        <div
-          style={{
-            textAlign: "center",
-            paddingBottom: "0.5rem",
-            paddingTop: "2.5rem",
-          }}
-        >
+        <div className='why-us-super-div'>
           <h6 className='why-us-our-service-text'>Our Services</h6>
           <h1 style={{ marginBottom: "1.5rem", fontWeight: "800" }}>
             Best Logistic Services
@@ -25,13 +19,13 @@ const WhyUs = () => {
             style={{ textAlign: "center", marginBottom: "3rem" }}
           >
             <div
-              className='d-flex align-items-center justify-content-center'
-              style={{
-                padding: "1.5rem",
-                marginBottom: "1.5rem",
-                // backgroundColor: " #87CEEB",
-                backgroundColor: " #2857A5",
-              }}
+              className='why-us-box'
+              // style={{
+              //   padding: "1.5rem",
+              //   marginBottom: "1.5rem",
+              //   // backgroundColor: " #87CEEB",
+              //   backgroundColor: " #2857A5",
+              // }}
             >
               <i
                 className='fa-solid fa-plane text-dark'
@@ -39,7 +33,7 @@ const WhyUs = () => {
               ></i>
               <h6
                 className='font-weight-medium m-0'
-                style={{ margin: "0", color: "#fff" }}
+                style={{ margin: "0", color: "#fff", fontSize: "14px" }}
               >
                 Air Freight
               </h6>
@@ -61,13 +55,13 @@ const WhyUs = () => {
             style={{ textAlign: "center", marginBottom: "3rem" }}
           >
             <div
-              className='d-flex align-items-center justify-content-center  '
-              style={{
-                padding: "1.5rem",
-                marginBottom: "1.5rem",
-                backgroundColor: "#2857A5",
-                // backgroundColor: "#00BFFF",
-              }}
+              className='why-us-box'
+              // style={{
+              //   padding: "1.5rem",
+              //   marginBottom: "1.5rem",
+              //   backgroundColor: "#2857A5",
+              //   // backgroundColor: "#00BFFF",
+              // }}
             >
               <i
                 className='fa-solid fa-ship'
@@ -75,9 +69,9 @@ const WhyUs = () => {
               ></i>
               <h6
                 className=' font-weight-medium '
-                style={{ margin: "0", color: "#fff" }}
+                style={{ margin: "0", color: "#fff", fontSize: "14px" }}
               >
-                Ocean Freight
+                Freight forwarding
               </h6>
             </div>
             <p className='why-us-service-desc'>
@@ -98,13 +92,13 @@ const WhyUs = () => {
             style={{ textAlign: "center", marginBottom: "3rem" }}
           >
             <div
-              className='d-flex align-items-center justify-content-center  '
-              style={{
-                padding: "1.5rem",
-                marginBottom: "1.5rem",
-                // backgroundColor: "#008080",
-                backgroundColor: "#2857A5",
-              }}
+              className='why-us-box'
+              // style={{
+              //   padding: "1.5rem",
+              //   marginBottom: "1.5rem",
+              //   // backgroundColor: "#008080",
+              //   backgroundColor: "#2857A5",
+              // }}
             >
               <i
                 className='fa-solid fa-truck text-dark'
@@ -112,7 +106,7 @@ const WhyUs = () => {
               ></i>
               <h6
                 className=' font-weight-medium '
-                style={{ margin: "0", color: "#fff" }}
+                style={{ margin: "0", color: "#fff", fontSize: "14px" }}
               >
                 Land Transport
               </h6>
@@ -134,13 +128,13 @@ const WhyUs = () => {
             style={{ textAlign: "center", marginBottom: "3rem" }}
           >
             <div
-              className='d-flex align-items-center justify-content-center  '
-              style={{
-                padding: "1.5rem",
-                marginBottom: "1.5rem",
-                // backgroundColor: "#C0C0C0",
-                backgroundColor: "#2857A5",
-              }}
+              className='why-us-box'
+              // style={{
+              //   padding: "1.5rem",
+              //   marginBottom: "1.5rem",
+              //   // backgroundColor: "#C0C0C0",
+              //   backgroundColor: "#2857A5",
+              // }}
             >
               <i
                 className='fa-solid fa-warehouse text-dark'
@@ -148,7 +142,7 @@ const WhyUs = () => {
               ></i>
               <h6
                 className=' font-weight-medium '
-                style={{ margin: "0", color: "#fff" }}
+                style={{ margin: "0", color: "#fff", fontSize: "14px" }}
               >
                 Cargo Storage
               </h6>

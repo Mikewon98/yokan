@@ -46,6 +46,34 @@ const SideBar = () => {
               View All Shipment
             </NavLink>
           </li>
+
+          {/* -------------Completed and active--------------- */}
+
+          <li className='nav__item'>
+            <NavLink
+              to='/activeShipment'
+              className={(navClass) =>
+                navClass.isActive ? "nav__active nav__link" : "nav__link"
+              }
+            >
+              <i className='fa-solid fa-clipboard-list'></i>
+              Active Shipment
+            </NavLink>
+          </li>
+          <li className='nav__item'>
+            <NavLink
+              to='/completedShipment'
+              className={(navClass) =>
+                navClass.isActive ? "nav__active nav__link" : "nav__link"
+              }
+            >
+              <i className='fa-solid fa-check'></i>
+              Completed Shipment
+            </NavLink>
+          </li>
+
+          {/* -------------Completed and active--------------- */}
+
           <li className='nav__item'>
             <NavLink
               to='/viewUsers'
@@ -121,6 +149,32 @@ const SideBar = () => {
               View All Shipment
             </NavLink>
           </li>
+          {/* -------------Completed and active--------------- */}
+
+          <li className='nav__item'>
+            <NavLink
+              to='/activeShipment'
+              className={(navClass) =>
+                navClass.isActive ? "nav__active nav__link" : "nav__link"
+              }
+            >
+              <i className='fa-solid fa-clipboard-list'></i>
+              Active Shipment
+            </NavLink>
+          </li>
+          <li className='nav__item'>
+            <NavLink
+              to='/completedShipment'
+              className={(navClass) =>
+                navClass.isActive ? "nav__active nav__link" : "nav__link"
+              }
+            >
+              <i className='fa-solid fa-check'></i>
+              Completed Shipment
+            </NavLink>
+          </li>
+
+          {/* -------------Completed and active--------------- */}
           <li className='nav__item'>
             <NavLink
               to='/viewUsers'

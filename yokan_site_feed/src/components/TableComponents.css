@@ -38,7 +38,8 @@
     padding: 6px 8px;
     text-align: left;
     border: 1px solid #ddd;
-    background-color: var(--yokan-blue-light-color);
+    /* background-color: var(--yokan-blue-light-color); */
+    background-color: #ff9401;
     color: white;
 }
 

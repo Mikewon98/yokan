@@ -701,7 +701,7 @@ const Settings = () => {
             type='number'
             placeholder='Enter new price '
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value.trim())}
           />
           <button
             className='price-adjustment-btn'
@@ -728,7 +728,7 @@ const Settings = () => {
             type='text'
             placeholder='Search here'
             value={userId}
-            onChange={(e) => setUSerId(e.target.value)}
+            onChange={(e) => setUSerId(e.target.value.trim())}
           />
           <button
             className='updateStatus-search-btn'
@@ -781,7 +781,7 @@ const Settings = () => {
             type='text'
             placeholder='Search here'
             value={shipmentId}
-            onChange={(e) => setShipmentId(e.target.value)}
+            onChange={(e) => setShipmentId(e.target.value.trim())}
           />
           <button
             className='updateStatus-search-btn'
@@ -855,7 +855,7 @@ const Settings = () => {
               type='text'
               placeholder='Search here'
               value={staffId}
-              onChange={(e) => setStaffId(e.target.value)}
+              onChange={(e) => setStaffId(e.target.value.trim())}
             />
             <button
               className='updateStatus-search-btn'
@@ -930,7 +930,7 @@ const Settings = () => {
               type='text'
               placeholder='Search here'
               value={adminId}
-              onChange={(e) => setAdminId(e.target.value)}
+              onChange={(e) => setAdminId(e.target.value.trim())}
             />
             <button
               className='updateStatus-search-btn'

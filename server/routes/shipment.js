@@ -7,12 +7,16 @@ import {
   updateShipment,
   deleteShipment,
   getShipmentById,
+  viewActiveShipment,
+  viewCompletedShipment,
 } from "../controllers/shipment.js";
 
 const router = express.Router();
 
 router.post("/createShipment", createShipment);
 router.get("/viewShipment/:userId", viewShipment);
+router.get("/viewActiveShipment", viewActiveShipment);
+router.get("/viewCompletedShipment", viewCompletedShipment);
 router.get("/getShipment/:trackingNumber", getShipment);
 router.get("/getShipmentById/:shipmentId", getShipmentById);
 router.get("/getAllShipment", getAllShipment);

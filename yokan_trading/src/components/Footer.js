@@ -16,20 +16,21 @@ const Footer = () => {
           <a href='/'>
             <i className='fa-brands fa-instagram'></i>
           </a>
-          <a href='/'>
+          {/* <a href='/'>
             <i className='fa-brands fa-behance'></i>
           </a>
           <a href='/'>
             <i className='fa-brands fa-twitter'></i>
-          </a>
+          </a> */}
         </div>
       </div>
       <div className='bottom'>
         <div className='bottom-div'>
           <h4>About Yokan Trading</h4>
-          <a href='/aboutus'>About Us</a>
-          <a href='/partner'>Become Partner</a>
+          <a href='/createshipment'>Create Shipment</a>
+          <a href='/trackShipment'>Track Shipment</a>
           <a href='/partner'>Join the Team</a>
+          <a href='/aboutUs'>About Us</a>
         </div>
         <div className='bottom-div'>
           <h4>Contact Us</h4>
@@ -61,13 +62,13 @@ const Footer = () => {
         <div className='bottom-div'>
           <h4>Help</h4>
           <a href='/customerSuport'>Support</a>
-          <a href='/customerSuport'>Troubleshooting</a>
+          {/* <a href='/customerSuport'>Troubleshooting</a> */}
           <a href='/contactus'>Contact Us</a>
         </div>
         <div className='bottom-div'>
           <h4>Others</h4>
           <a href='/#'>Terms and Conditions</a>
-          <a href='/'>Privacy Policy</a>
+          <a href='/privacyPolicy'>Privacy Policy</a>
           <a href='/'>License</a>
         </div>
       </div>

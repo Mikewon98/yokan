@@ -3,7 +3,7 @@ import "./CompanyProfile.css";
 
 const CompanyProfile = ({ img }) => {
   return (
-    <div className='container'>
+    <div className='container about-us-margin'>
       <div className='row'>
         <div
           className='col-lg-6 mt-5 p-3 fs-5 d-flex justify-content-center flex-column align-items-center'

@@ -15,7 +15,7 @@ import "./ShipItem.css";
 
 const ShipItem = () => {
   const minimumDate = new Date();
-  minimumDate.setDate(minimumDate.getDate() + 1);
+  minimumDate.setDate(minimumDate.getDate());
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const auth = useSelector(Selectuser);

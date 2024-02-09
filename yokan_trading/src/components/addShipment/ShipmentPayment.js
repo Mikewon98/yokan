@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -25,7 +25,7 @@ const ShipmentPayment = () => {
   const [loading, setLoading] = useState(false);
   const [verifyLoading, setVerifyLoading] = useState(false);
   const [verifyError, setVerifyError] = useState(null);
-  const [checkbox, setCheckbox] = useState(false);
+  const [checkbox, setCheckbox] = useState(true);
   const [txt_ref, setTxt_ref] = useState(null);
   const [verificationStatus, setVerificationStatus] = useState(false);
   // const [priceLoading, setPriceLoading] = useState(false);
@@ -34,32 +34,133 @@ const ShipmentPayment = () => {
   const trackingNumber = useSelector(selectTrackingNumber);
   console.log(trackingNumber);
 
-  // useEffect(() => {
-  //   const getPrice = async () => {
-  //     try {
-  //       setPriceError(null);
-  //       setPriceLoading(true);
-  //       const response = await axios.get(
-  //         `http://localhost:3001/price/getprice`
-  //       );
-  //       const fetchedDatas = response.data.prices[0];
-  //       setCurrentPrice(fetchedDatas);
-  //       console.log(fetchedDatas);
-  //       setPriceLoading(false);
-  //       console.log("Data price:", fetchedDatas);
-  //     } catch (error) {
-  //       setPriceLoading(false);
-  //       setPriceError("Error fetching data:", error.message);
-  //     }
-  //   };
+  /* 
 
-  //   getPrice();
-  // }, []);
+  useEffect(() => {
+    const getPrice = async () => {
+      try {
+        setPriceError(null);
+        setPriceLoading(true);
+        const response = await axios.get(
+          `http://localhost:3001/price/getprice`
+        );
+        const fetchedDatas = response.data.prices[0];
+        setCurrentPrice(fetchedDatas);
+        console.log(fetchedDatas);
+        setPriceLoading(false);
+        console.log("Data price:", fetchedDatas);
+      } catch (error) {
+        setPriceLoading(false);
+        setPriceError("Error fetching data:", error.message);
+      }
+    };
 
-  // const priceVat = shipmentItemArray?.price * 0.15 ?? 0;
+    getPrice();
+  }, []);
 
-  // const priceVat = price * 0.15;
+  const priceVat = shipmentItemArray?.price * 0.15 ?? 0;
 
+  const priceVat = price * 0.15;
+
+  */
+
+  const addShipment = useCallback(async () => {
+    try {
+      setError(null);
+      setLoading(true);
+      const shipmentDataResponse = await axios.post(
+        "http://localhost:3001/shipment/createShipment",
+        {
+          userId: user._id,
+          trackingNumber: shipmentArray.trackingNumber,
+          originCountry: shipmentArray.originCountry,
+          originState: shipmentArray.originState,
+          originCity: shipmentArray.originCity,
+          originPostalCode: shipmentArray.originPostalCode,
+          senderFullName: shipmentArray.originFullName,
+          senderAddress: shipmentArray.originAddress,
+          senderAddressTwo: shipmentArray.originAddressTwo,
+          senderEmail: shipmentArray.senderEmail,
+          senderPhoneNumber: shipmentArray.senderPhoneNumber,
+          destinationCountry: shipmentArray.destinationCountry,
+          destinationState: shipmentArray.destinationState,
+          destinationCity: shipmentArray.destinationCity,
+          destinationPostalCode: shipmentArray.destinationPostalCode,
+          reciverFullName: shipmentArray.destinationFullName,
+          reciverAddress: shipmentArray.destinationAddress,
+          reciverAddressTwo: shipmentArray.destinationAddressTwo,
+          reciverEmail: shipmentArray.reciverEmail,
+          reciverPhoneNumber: shipmentArray.reciverPhoneNumber,
+          shipmentType: shipmentItemArray.packageType,
+          shipmentWeight: shipmentItemArray.weight,
+          shipmentLength: shipmentItemArray.length,
+          shipmentWidth: shipmentItemArray.width,
+          shipmentHeight: shipmentItemArray.height,
+          shipmentDropOffDate: shipmentItemArray.dropOffDate,
+          shipmentDescription: shipmentItemArray.discription,
+          price: shipmentItemArray.price,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      await shipmentDataResponse.data;
+      // setPaymentModal(!paymentModal);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+      setLoading(false);
+      setError("An error occurred. Please try again.");
+    }
+  }, [shipmentArray, shipmentItemArray, user]);
+
+  useEffect(() => {
+    const verifyPayment = async () => {
+      try {
+        setVerifyError(null);
+        setVerifyLoading(true);
+
+        const response = await fetch(
+          `http://localhost:3001/api/order/verify-payment/${txt_ref}`
+        );
+        const data = await response.json();
+
+        if (data.status === "success") {
+          setVerificationStatus(true);
+          console.log("Payment was successfully verified");
+          setTxt_ref(null);
+          addShipment();
+        } else if (data.status !== "success") {
+          setVerifyError("Payment can't be verified please try again!");
+        }
+        setVerifyLoading(false);
+
+        console.log(data);
+      } catch (err) {
+        setVerificationStatus(false);
+        setVerifyLoading(false);
+        console.log("Payment can't be verified", err);
+        setVerifyError("Payment can't be verified");
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // User switched tabs or left the page
+        console.log("Will start verifying when you come back");
+      } else {
+        verifyPayment();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [txt_ref, addShipment]);
+
+  /* 
   const addShipment = async () => {
     try {
       setError(null);
@@ -109,6 +210,9 @@ const ShipmentPayment = () => {
       setError("An error occurred. Please try again.");
     }
   };
+
+  */
+
   /* 
   const checkOutToPayment = async () => {
     try {
@@ -335,9 +439,10 @@ const ShipmentPayment = () => {
     dispatch(clearShipmentData());
     dispatch(clearShipmentItemAdded());
   };
+  console.log(checkbox);
 
   const handleCheckbox = () => {
-    setCheckbox(true);
+    setCheckbox(!checkbox);
   };
 
   if (paymentModal) {
@@ -349,7 +454,7 @@ const ShipmentPayment = () => {
   const productTable = shipmentItem?.map((item) => (
     <div key={item.id}>
       <p>{item.packageType}</p>
-      <p>{item.weight}</p>
+      <p>{item.weight} kg</p>
     </div>
   ));
 
@@ -372,7 +477,7 @@ const ShipmentPayment = () => {
   ));
 
   const priceTable = shipmentItem?.map((item) => (
-    <p key={item.id}>{item.price}</p>
+    <p key={item.id}>{item.price} birr</p>
   ));
 
   const NotificationComponent = ({ error }) => {
@@ -517,7 +622,7 @@ const ShipmentPayment = () => {
               <button
                 className='shipment-final-payment-button'
                 onClick={handlePayment}
-                disabled={checkbox ? false : true}
+                disabled={checkbox}
               >
                 Continue Payment
               </button>
