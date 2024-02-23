@@ -65,7 +65,7 @@ app.post("/api/order", async (req, res) => {
       },
       {
         headers: {
-          Authorization: "Bearer CHASECK_TEST-HhAzdWYrhIoWkJw9e0Y13PtVWwKT7JBG",
+          Authorization: process.env.CHAPA_SECRET_KEY,
           "Content-Type": "application/json",
         },
       }
@@ -103,7 +103,7 @@ app.get("/api/order/verify-payment/:txt_ref", async (req, res) => {
       "https://api.chapa.co/v1/transaction/verify/" + txt_ref,
       {
         headers: {
-          Authorization: "Bearer CHASECK_TEST-HhAzdWYrhIoWkJw9e0Y13PtVWwKT7JBG",
+          Authorization: process.env.CHAPA_SECRET_KEY,
           "Content-Type": "application/json",
         },
       }
